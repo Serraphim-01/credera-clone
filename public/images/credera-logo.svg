@@ -1,0 +1,14 @@
+<svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red squares -->
+  <rect x="0" y="0" width="8" height="8" fill="#E55F4C"/>
+  <rect x="12" y="0" width="8" height="8" fill="#E55F4C"/>
+  <rect x="0" y="12" width="8" height="8" fill="#E55F4C"/>
+  <rect x="12" y="12" width="8" height="8" fill="#E55F4C"/>
+  
+  <!-- Gray squares -->
+  <rect x="0" y="24" width="8" height="8" fill="#6B7280"/>
+  <rect x="12" y="24" width="8" height="8" fill="#6B7280"/>
+  
+  <!-- Credera text -->
+  <text x="32" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#111827">credera</text>
+</svg>

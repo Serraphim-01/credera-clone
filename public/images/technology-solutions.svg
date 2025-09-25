@@ -1,0 +1,8 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#FEF3C7"/>
+  <rect x="60" y="60" width="180" height="80" rx="8" fill="#F59E0B" opacity="0.3"/>
+  <rect x="80" y="80" width="40" height="40" rx="4" fill="#E55F4C"/>
+  <rect x="130" y="80" width="40" height="40" rx="4" fill="#3B82F6"/>
+  <rect x="180" y="80" width="40" height="40" rx="4" fill="#10B981"/>
+  <text x="150" y="175" text-anchor="middle" font-family="Arial" font-size="12" fill="#6B7280">Technology Solutions</text>
+</svg>
