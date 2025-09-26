@@ -227,7 +227,7 @@ const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ 
       {/* Icon at the top */}
       {item.iconSrc && (
         <div className="mb-6">
-          <div className="w-16 h-16 relative">
+          <div className="w-32 h-32 relative">
             <Image
               src={item.iconSrc}
               alt=""
@@ -239,7 +239,7 @@ const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ 
       )}
       
       {/* Title only */}
-      <h3 className="text-xl font-medium text-credera-dark group-hover:text-white transition-colors duration-200 text-center">
+      <h3 className="text-5xl font-bold text-credera-dark group-hover:text-white transition-colors duration-200 text-center">
         {item.title}
       </h3>
     </div>
