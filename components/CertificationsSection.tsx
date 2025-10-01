@@ -135,15 +135,7 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header with Toggle */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Certifications
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl">
-              Our team holds industry-leading certifications that validate our expertise and commitment to excellence.
-            </p>
-          </div>
+        <div className="flex items-center mb-8">
           <button
             onClick={() => setIsMinimized(!isMinimized)}
             className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200"

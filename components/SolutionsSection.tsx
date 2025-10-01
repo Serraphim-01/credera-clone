@@ -41,8 +41,9 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
+      const scrollAmount = window.innerWidth < 640 ? 350 : 1090; // Mobile: 350px, Desktop: 1090px
       scrollContainerRef.current.scrollBy({
-        left: -1090, // Scroll by one card width
+        left: -scrollAmount,
         behavior: scrollBehavior
       });
     }
@@ -50,17 +51,19 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
+      const scrollAmount = window.innerWidth < 640 ? 350 : 1090; // Mobile: 350px, Desktop: 1090px
       scrollContainerRef.current.scrollBy({
-        left: 1090, // Scroll by one card width
+        left: scrollAmount,
         behavior: scrollBehavior
       });
     }
   };
 
-  // Card component with text on left and image on right
+  // Card component with responsive layout
   const SolutionCard = ({ solution }: { solution: any }) => (
-    <div className="flex-shrink-0 w-[1090px] h-[580px] overflow-hidden mx-[40px]">
-      <div className="grid grid-cols-2 h-full gap-20"> {/* 80px gap = 5rem = 80px */}
+    <div className="flex-shrink-0 w-[1090px] h-[580px] md:w-[1090px] md:h-[580px] sm:w-[350px] sm:h-[400px] overflow-hidden mx-[40px] sm:mx-[20px]">
+      {/* Desktop Layout */}
+      <div className="hidden md:grid grid-cols-2 h-full gap-20">
         {/* Text Section - Left */}
         <div className="flex flex-col justify-center">
           <h3 className="text-3xl font-bold text-credera-dark mb-4">
@@ -103,6 +106,51 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           />
         </div>
       </div>
+
+      {/* Mobile Layout */}
+      <div className="md:hidden h-full relative">
+        {/* Background Image */}
+        <div className="relative w-full h-full">
+          <Image
+            src={solution.imageUrl}
+            alt={solution.title}
+            fill
+            className="object-cover"
+            sizes="350px"
+          />
+          
+          {/* Text Overlay */}
+          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center p-6">
+            <h3 className="text-xl font-bold text-white mb-3">
+              {solution.title}
+            </h3>
+            
+            <p className="text-sm text-white/90 leading-relaxed mb-4 line-clamp-3">
+              {solution.description}
+            </p>
+            
+            <Link
+              href={solution.linkUrl}
+              className="inline-flex items-center text-credera-red hover:text-white font-semibold transition-colors duration-200 space-x-2"
+            >
+              <span>Learn More</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 
@@ -115,13 +163,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           className="scroll-container overflow-x-auto pb-4"
           style={{ scrollBehavior }}
         >
-          <div 
-            className="flex min-w-max pl-8"
-            style={{
-              marginLeft: 'calc(50% - 545px)', // Half of 1090px
-              paddingRight: 'calc(50% - 545px)' // Half of 1090px
-            }}
-          >
+          <div className="flex min-w-max pl-8 sm:pl-4">
             {solutions.map((solution) => (
               <SolutionCard key={solution.id} solution={solution} />
             ))}

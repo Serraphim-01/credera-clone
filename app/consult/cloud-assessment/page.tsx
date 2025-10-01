@@ -1,8 +1,28 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
+import NextStepsModal from '@/components/NextStepsModal';
+import { NextStepsFormData } from '@/types';
 
 export default function CloudAssessment() {
+  const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
+
+  const handleNextStepsClick = () => {
+    setIsNextStepsModalOpen(true);
+  };
+
+  const handleNextStepsClose = () => {
+    setIsNextStepsModalOpen(false);
+  };
+
+  const handleNextStepsSubmit = async (data: NextStepsFormData) => {
+    console.log('Next Steps form submitted:', data);
+    // Handle form submission logic here
+    alert('Thank you! We will contact you soon to schedule your Cloud Assessment.');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -21,92 +41,164 @@ export default function CloudAssessment() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold text-credera-dark mb-6">
-                Complete Cloud Evaluation
+                How we do it: Our Assessment Approach
               </h2>
-              
-              <div className="prose prose-lg max-w-none text-credera-gray-600">
-                <p className="mb-6">
-                  Our comprehensive cloud assessment provides a thorough evaluation of your 
-                  current infrastructure, applications, and processes to determine cloud 
-                  readiness and optimization opportunities. We analyze technical, security, 
-                  compliance, and operational aspects to provide actionable recommendations.
-                </p>
-                
-                <p className="mb-8">
-                  The assessment covers everything from application dependencies and data 
-                  flows to security posture and performance characteristics, giving you a 
-                  complete picture of your cloud migration potential and requirements.
-                </p>
-              </div>
 
               <div className="space-y-8">
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Infrastructure Assessment
+                    Discover
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Detailed analysis of your current infrastructure components, 
-                    performance metrics, and cloud compatibility.
-                  </p>
                   <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Server and storage utilization analysis</li>
-                    <li>Network topology and bandwidth assessment</li>
-                    <li>Hardware lifecycle and maintenance evaluation</li>
-                    <li>Performance monitoring and capacity planning</li>
-                    <li>Disaster recovery and backup assessment</li>
+                    <li>Scoping the program</li>
+                    <li>Inventory mapping</li>
+                    <li>App dependency and Business mapping</li>
+                    <li>Data gathering</li>
+                    <li>SMEs / Portfolio owners' / Stakeholder interviews</li>
                   </ul>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Application Portfolio Analysis
+                    Analyse
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Comprehensive evaluation of your application portfolio to determine 
-                    cloud readiness and migration complexity.
-                  </p>
                   <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Application architecture and dependency mapping</li>
-                    <li>Technology stack compatibility assessment</li>
-                    <li>Performance and scalability requirements</li>
-                    <li>Integration points and data flow analysis</li>
-                    <li>Modernization opportunities identification</li>
+                    <li>Application Categorization</li>
+                    <li>Business Impact Analysis</li>
+                    <li>Security & Risk Analysis</li>
+                    <li>App complexity Analysis</li>
+                    <li>Technology dependency</li>
+                    <li>R Strategy fitment</li>
+                    <li>Skill GAP Analysis</li>
+                    <li>Change Resistance</li>
+                    <li>As Is State Study</li>
                   </ul>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Security & Compliance Review
+                    Recommend
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Thorough security posture evaluation and compliance requirements 
-                    assessment for cloud migration planning.
-                  </p>
                   <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Current security controls and policies review</li>
-                    <li>Compliance requirements and regulations mapping</li>
-                    <li>Data classification and protection needs</li>
-                    <li>Identity and access management assessment</li>
-                    <li>Cloud security framework recommendations</li>
+                    <li>Migration Readiness</li>
+                    <li>Advisory Report</li>
+                    <li>Defined Target Architecture</li>
+                    <li>Migration Strategy</li>
+                    <li>Tools & Technology</li>
+                    <li>Business Case alignment</li>
+                    <li>Optimisation possibilities</li>
+                    <li>Recommended Cloud Roadmap</li>
+                    <li>Pre-Defined Checklist</li>
+                    <li>Planning Considerations</li>
+                    <li>Business dependencies</li>
+                    <li>Clarity on Milestones</li>
+                    <li>Clarity on Metrics</li>
+                    <li>Quick Win justification</li>
+                    <li>POC/Pilot Goal alignment</li>
                   </ul>
                 </div>
+              </div>
 
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Operational Readiness
-                  </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Assessment of organizational readiness, processes, and capabilities 
-                    required for successful cloud adoption.
-                  </p>
-                  <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Team skills and capability gap analysis</li>
-                    <li>Operational processes and procedures review</li>
-                    <li>Change management readiness assessment</li>
-                    <li>Monitoring and management tool evaluation</li>
-                    <li>Training and certification requirements</li>
-                  </ul>
-                </div>
+              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+                How we do it: Assessment Execution
+              </h2>
+
+              <div className="overflow-x-auto mb-12">
+                <table className="w-full border-collapse border border-gray-300 text-left">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Discover</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Analyse</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Recommend</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Visualise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">
+                        <ul className="text-sm space-y-1">
+                          <li>Automated Discovery</li>
+                          <li>Conduct Interviews</li>
+                          <li>Benchmarking current state of App/Infra Management</li>
+                          <li>Cost Comparison</li>
+                          <li>App Dependency Mapping</li>
+                          <li>Deliver Adoption Deliver Indicative Migration Plan & Ops Model</li>
+                        </ul>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">
+                        <ul className="text-sm space-y-1">
+                          <li>Current Cost Identification</li>
+                          <li>Map Change Readiness</li>
+                          <li>Benchmarking current state of App/Infra Cost</li>
+                          <li>TCO Insights</li>
+                        </ul>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">
+                        <ul className="text-sm space-y-1">
+                          <li>Cost Mapping</li>
+                          <li>Collected Data Validation</li>
+                          <li>Benchmarking current state of Operations</li>
+                          <li>Strategy Report</li>
+                          <li>Draft Program Roadmap by considering the R-Strategy</li>
+                          <li>Identify Risks, Security considerations, governance requirements</li>
+                        </ul>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">
+                        <ul className="text-sm space-y-1">
+                          <li>Stop Automated Discovery</li>
+                          <li>Service Mapping</li>
+                          <li>Service Maturity Overview</li>
+                          <li>Cost Analysis</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="text-sm italic text-gray-500 mb-12">
+                *Example timeline with the flexibility to use this within deal specific scenarios
+              </p>
+
+              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+                Cloud Assessment: Governance
+              </h2>
+
+              <p className="text-sm text-gray-600 mb-4">
+                <strong>Legend for Participants:</strong> Customer; Getronics
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300 text-left">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Tier</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Cadence</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Leads</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Topics</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold text-gray-700">Leadership Engagement (Strategic)</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Bi-Weekly</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Customer + Getronics</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Overall Engagement Progress, Key Milestones Forecast</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-semibold text-gray-700">Program Performance (Tactical)</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Weekly</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Customer + Getronics</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Key Milestones Performance, RAID Log</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold text-gray-700">Task Tracking (Operational)</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Daily</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Customer + Getronics</td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Task Completion Status, Task Planning</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
 
@@ -115,116 +207,83 @@ export default function CloudAssessment() {
               <div className="sticky top-8 space-y-6">
                 <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
                   <h3 className="text-lg font-semibold text-teal-800 mb-4">
-                    Assessment Scope
+                    What to Expect
                   </h3>
                   <ul className="space-y-3 text-sm text-teal-700">
                     <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Infrastructure inventory and analysis
+                      <span className="text-teal-600 mr-2">✓</span>
+                      Comprehensive discovery and analysis
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Application portfolio assessment
+                      <span className="text-teal-600 mr-2">✓</span>
+                      Detailed assessment report
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Security and compliance review
+                      <span className="text-teal-600 mr-2">✓</span>
+                      Migration readiness evaluation
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Data architecture evaluation
+                      <span className="text-teal-600 mr-2">✓</span>
+                      Strategic recommendations
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Performance benchmarking
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-teal-600 mr-2">□</span>
-                      Cost analysis and projections
+                      <span className="text-teal-600 mr-2">✓</span>
+                      Implementation roadmap
                     </li>
                   </ul>
                 </div>
 
                 <div className="bg-credera-gray-50 p-6 rounded-lg">
                   <h3 className="text-lg font-semibold text-credera-dark mb-4">
-                    Assessment Methodology
+                    Assessment Process
                   </h3>
                   <div className="space-y-4 text-sm text-credera-gray-600">
                     <div className="border-l-2 border-teal-500 pl-4">
                       <div className="font-semibold">Discovery</div>
-                      <div>Data collection and documentation review</div>
+                      <div>Scoping and data gathering</div>
                     </div>
                     <div className="border-l-2 border-teal-500 pl-4">
                       <div className="font-semibold">Analysis</div>
-                      <div>Technical evaluation and gap identification</div>
+                      <div>Technical evaluation and assessment</div>
                     </div>
                     <div className="border-l-2 border-teal-500 pl-4">
                       <div className="font-semibold">Recommendations</div>
-                      <div>Strategy development and roadmap creation</div>
+                      <div>Strategy development and roadmapping</div>
                     </div>
                     <div className="border-l-2 border-teal-500 pl-4">
-                      <div className="font-semibold">Presentation</div>
-                      <div>Findings review and stakeholder alignment</div>
+                      <div className="font-semibold">Visualisation</div>
+                      <div>Results presentation and planning</div>
                     </div>
                   </div>
-                </div>
-
-                <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
-                  <h3 className="text-lg font-semibold text-orange-800 mb-4">
-                    Assessment Outputs
-                  </h3>
-                  <ul className="space-y-2 text-sm text-orange-700">
-                    <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">📋</span>
-                      Detailed assessment report
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">📊</span>
-                      Cloud readiness scorecard
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">🗺️</span>
-                      Migration roadmap
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">💰</span>
-                      Cost-benefit analysis
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">⚠️</span>
-                      Risk assessment
-                    </li>
-                  </ul>
                 </div>
 
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
                   <h3 className="text-lg font-semibold text-blue-800 mb-4">
-                    Schedule Assessment
+                    Next Steps
                   </h3>
                   <p className="text-sm text-blue-700 mb-4">
-                    Get a comprehensive cloud assessment for your organization.
+                    Ready to begin your comprehensive cloud assessment?
                   </p>
-                  <button className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors duration-200 text-sm font-semibold">
-                    Book Assessment
+                  <button 
+                    onClick={handleNextStepsClick}
+                    className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors duration-200 text-sm font-semibold"
+                  >
+                    Start Assessment
                   </button>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-credera-dark mb-4">
-                    Related Services
-                  </h3>
-                  <div className="space-y-3">
-                    <a href="/consult/cloud-tco-assessment" className="block text-sm text-credera-red hover:underline">
-                      Cloud TCO Assessment →
-                    </a>
-                    <a href="/consult/cloud-adoption-strategy" className="block text-sm text-credera-red hover:underline">
-                      Cloud Adoption Strategy →
-                    </a>
-                    <a href="/consult/first-steps" className="block text-sm text-credera-red hover:underline">
-                      First Steps Consultation →
-                    </a>
+                  <div className="mt-4 pt-4 border-t border-blue-200">
+                    <p className="text-xs text-blue-600 mb-2">Navigation:</p>
+                    <div className="space-y-2">
+                      <a href="/consult/cloud-adoption-strategy" className="block text-xs text-blue-600 hover:underline">
+                        ← Adoption Strategy
+                      </a>
+                      <a href="/consult" className="block text-xs text-blue-600 hover:underline">
+                        Back to Overview →
+                      </a>
+                    </div>
                   </div>
                 </div>
+
+
               </div>
             </div>
           </div>
@@ -233,6 +292,15 @@ export default function CloudAssessment() {
       
       {/* Footer */}
       <FooterSection />
+  
+      {/* Next Steps Modal */}
+      <NextStepsModal 
+        isOpen={isNextStepsModalOpen}
+        onClose={handleNextStepsClose}
+        onSubmit={handleNextStepsSubmit}
+        defaultConsultType="cloud-assessment"
+        showConsultTypeSelection={false}
+      />
     </div>
   );
 }

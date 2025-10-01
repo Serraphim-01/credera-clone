@@ -1,6 +1,5 @@
 import HeroSection from '@/components/HeroSection';
 import PartnersSection from '@/components/PartnersSection';
-import CompanyHistoryTimeline from '@/components/CompanyHistoryTimeline';
 import HorizontalScrollCards from '@/components/HorizontalScrollCards';
 import WhoWeAreGrid from '@/components/WhoWeAreGrid';
 import RightPartnerSection from '@/components/RightPartnerSection';
@@ -22,14 +21,13 @@ import {
 
 export default function HomePage() {
 
-  // Content cards data
   const contentCards: ContentCard[] = [
     {
       id: '1',
       title: 'Digital Transformation Strategy',
       description: 'Accelerating business growth through innovative technology solutions and strategic digital initiatives.',
       imageUrl: '/TaskImages/digitization.jpg',
-      linkUrl: '/services/digital-transformation',
+      linkUrl: '/solutions',
       category: 'Strategy'
     },
     {
@@ -37,7 +35,7 @@ export default function HomePage() {
       title: 'Strategic Consulting Excellence',
       description: 'Delivering measurable results through data-driven insights and proven methodologies.',
       imageUrl: '/TaskImages/services.jpg',
-      linkUrl: '/services/strategy',
+      linkUrl: '/solutions',
       category: 'Consulting'
     },
     {
@@ -45,7 +43,7 @@ export default function HomePage() {
       title: 'Technology Solutions',
       description: 'Building scalable, secure, and innovative technology platforms that drive business value.',
       imageUrl: '/TaskImages/crm.jpg',
-      linkUrl: '/services/technology',
+      linkUrl: '/solutions',
       category: 'Technology'
     },
     {
@@ -53,7 +51,7 @@ export default function HomePage() {
       title: 'Industry Expertise',
       description: 'Deep domain knowledge across financial services, healthcare, retail, and technology sectors.',
       imageUrl: '/TaskImages/meet.jpg',
-      linkUrl: '/industries',
+      linkUrl: '/solutions',
       category: 'Industries'
     },
     {
@@ -61,13 +59,11 @@ export default function HomePage() {
       title: 'Partnership Excellence',
       description: 'Strategic alliances with leading technology providers to deliver comprehensive solutions.',
       imageUrl: '/TaskImages/cloud.jpg',
-      linkUrl: '/partnerships',
+      linkUrl: '/solutions',
       category: 'Partnerships'
     }
   ];
 
-  // Grid items data
-  // Grid items data - separate arrays for each type
   const imageItems: ImageGridItem[] = [
     {
       id: 'img-1',
@@ -197,7 +193,7 @@ export default function HomePage() {
     title: "What We Do",
     subtitle: "Comprehensive Solutions for Digital Success",
     description: "We deliver end-to-end consulting and technology solutions that drive measurable business outcomes across industries and markets.",
-    items: [] as WhatWeDoItem[] // Placeholder for items if needed
+    items: [] as WhatWeDoItem[]
   };
 
   // Solutions Section Data
@@ -232,13 +228,13 @@ export default function HomePage() {
     meetSection: {
       title: "Meet",
       description: "Get to know the talented professionals who make our success possible. Our diverse team brings together expertise from across industries and disciplines.",
-      imageUrl: "/TaskImages/meet.jpg", // Add this image path
+      imageUrl: "/TaskImages/meet.jpg", 
       viewAllLink: "/about/team"
     },
     joinSection: {
       title: "Join",
       description: "Become part of a team that's passionate about solving complex challenges and creating meaningful impact for our clients and communities.",
-      imageUrl: "/TaskImages/join.jpg", // Add this image path
+      imageUrl: "/TaskImages/join.jpg",
       viewAllLink: "/careers"
     }
   };
@@ -246,11 +242,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection
-        headline="Unlock extraordinary opportunities."
-        description="At Credera, we combine our global consulting expertise with a tailored delivery approach unique to each client's needs. We believe client relationships built on authenticity and a shared vision can truly make a measurable impact. Explore what happens when we partner with clients to accomplish something great."
-        ctaText="SEE THE CREDERA DIFFERENCE"
-        ctaLink="/difference"
-        illustrationSrc="/images/hero-illustration.svg"
+        headline="Where Innovation Knows No Bounds"
+        description="...driving the future today"
+        ctaText="Our Company"
+        ctaLink="/company"
+        illustrationSrc="/TaskImages/services.jpg"
         backgroundElements={[]}
       />
 
@@ -286,7 +282,6 @@ export default function HomePage() {
         scrollBehavior="smooth"
       />
 
-      {/* Partners Section */}
       <PartnersSection />
 
       <MeetJoinSection
@@ -298,7 +293,6 @@ export default function HomePage() {
 
       <ContactUsSection />
       
-      {/* Footer */}
       <FooterSection />
     </>
   );

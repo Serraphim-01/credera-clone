@@ -16,25 +16,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Credera | Unlock Extraordinary Opportunities",
+  title: "Task Systems Ltd| Unlock Extraordinary Opportunities",
   description: "Global consulting firm combining deep industry expertise with innovative technology solutions. We help clients achieve extraordinary results through strategic consulting, digital transformation, and technology services.",
   keywords: "consulting, digital transformation, strategy, technology solutions, business consulting, data analytics",
-  authors: [{ name: "Credera" }],
-  creator: "Credera",
-  publisher: "Credera",
+  authors: [{ name: "Task Systems Ltd" }],
+  creator: "Task Systems Ltd",
+  publisher: "Task Systems Ltd",
   openGraph: {
-    title: "Credera | Unlock Extraordinary Opportunities",
+    title: "Task Systems Ltd | Unlock Extraordinary Opportunities",
     description: "Global consulting firm combining deep industry expertise with innovative technology solutions.",
-    url: "https://credera.com",
-    siteName: "Credera",
+    url: "https://tasksystems.com.ng",
+    siteName: "Task Systems Ltd",
     type: "website",
     locale: "en_US"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Credera | Unlock Extraordinary Opportunities",
+    title: "Task Systems Ltd | Unlock Extraordinary Opportunities",
     description: "Global consulting firm combining deep industry expertise with innovative technology solutions.",
-    creator: "@Credera"
+    creator: "@tasksystems"
   },
   robots: {
     index: true,
@@ -211,11 +211,9 @@ export default function RootLayout({
         },
         categories: [
           {
-            id: 'job-openings',
+            id: 'careers',
             title: 'Job Openings',
-            services: [
-              { label: 'View All Openings', href: '/careers' }
-            ]
+            services: []
           },
           {
             id: 'life-at-company',
@@ -253,7 +251,7 @@ export default function RootLayout({
         
         {/* Global Navigation */}
         <NavigationComponent
-          logoSrc="/images/credera-logo.svg"
+          logoSrc="/TaskImages/logo.png"
           navigationItems={navigationItems}
           topBarItems={topBarItems}
         />

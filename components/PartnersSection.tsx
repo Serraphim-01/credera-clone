@@ -1,5 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { partnerships } from '@/data/partnerships';
 import { 
   FaAws,
   FaMicrosoft
@@ -13,8 +17,8 @@ import {
 interface PartnerItem {
   id: string;
   name: string;
-  icon: React.ReactNode;
-  color: string;
+  logo: string;
+  href: string;
 }
 
 interface PartnersSectionProps {
@@ -28,15 +32,15 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
   subtitle = "Trusted technology partners powering our solutions",
   partners
 }) => {
-  const defaultPartners: PartnerItem[] = [
-    { id: '1', name: 'AWS', icon: <FaAws size={48} />, color: 'text-orange-500' },
-    { id: '2', name: 'Google Cloud', icon: <SiGooglecloud size={48} />, color: 'text-blue-500' },
-    { id: '3', name: 'Microsoft', icon: <FaMicrosoft size={48} />, color: 'text-blue-600' },
-    { id: '4', name: 'Huawei', icon: <SiHuawei size={48} />, color: 'text-red-600' },
-    { id: '5', name: 'Dell', icon: <SiDell size={48} />, color: 'text-blue-700' }
-  ];
+  const partnerItems: PartnerItem[] = partnerships.map(partnership => ({
+    id: partnership.id,
+    name: partnership.name,
+    logo: partnership.logo,
+    href: `/partnerships/${partnership.id}`
+  }));
 
-  const partnerItems = partners || defaultPartners;
+  // Create duplicated items for infinite scroll effect
+  const duplicatedPartners = [...partnerItems, ...partnerItems];
 
   return (
     <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-8">
@@ -52,30 +56,39 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
           <div className="w-24 h-1 bg-credera-red mx-auto"></div>
         </div>
 
-        {/* Partners Grid */}
-        <div className="flex justify-center items-center gap-16 mb-12">
-          {partnerItems.map((partner) => (
-            <div
-              key={partner.id}
-              className="group flex flex-col items-center cursor-pointer relative"
-            >
-              <div className={`transition-all duration-300 group-hover:scale-110 ${partner.color} mb-4`}>
-                {partner.icon}
-              </div>
-              
-              {/* Hover tooltip */}
-              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-credera-dark text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                {partner.name}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-credera-dark"></div>
-              </div>
-            </div>
-          ))}
+        {/* Partners Infinite Scroll */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll space-x-16 mb-12">
+            {duplicatedPartners.map((partner, index) => (
+              <Link
+                key={`${partner.id}-${index}`}
+                href={partner.href}
+                className="group flex flex-col items-center cursor-pointer relative flex-shrink-0"
+              >
+                <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    fill
+                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    sizes="96px"
+                  />
+                </div>
+                
+                {/* Hover tooltip */}
+                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-credera-dark text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
+                  {partner.name}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-credera-dark"></div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* View All Partners Link */}
         <div className="text-center">
           <Link
-            href="/partners"
+            href="/partnerships"
             className="inline-flex items-center text-credera-red hover:text-opacity-80 font-medium transition-colors duration-200"
           >
             View All Partners
@@ -95,6 +108,25 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
           </Link>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 60s linear infinite;
+        }
+        
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

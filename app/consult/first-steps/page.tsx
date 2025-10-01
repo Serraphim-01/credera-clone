@@ -1,15 +1,35 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
+import NextStepsModal from '@/components/NextStepsModal';
+import { NextStepsFormData } from '@/types';
+import Image from 'next/image';
 
-export default function FirstSteps() {
+export default function CurrentStatePortfolioAnalysis() {
+  const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
+
+  const handleNextStepsClick = () => {
+    setIsNextStepsModalOpen(true);
+  };
+
+  const handleNextStepsClose = () => {
+    setIsNextStepsModalOpen(false);
+  };
+
+  const handleNextStepsSubmit = async (data: NextStepsFormData) => {
+    console.log('Next Steps form submitted:', data);
+    // Handle form submission logic here
+    alert('Thank you! We will contact you soon to schedule your Portfolio Analysis.');
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <StandardHeroSection
-        title="First Steps"
-        subtitle="Digital Transformation Consultation"
-        description="Begin your digital transformation journey with our comprehensive first steps consultation. We help you define your vision, assess current capabilities, and create a roadmap for success."
+        title="Current-State Portfolio Analysis & Recommendation"
+        subtitle="Set yourself for success"
+        description="A forensic, criteria-based scan of every application & infrastructure asset. Know what you have before you move it."
         backgroundImage="/TaskImages/services.jpg"
         maxContentWidth="max-w-lg"
       />
@@ -21,71 +41,93 @@ export default function FirstSteps() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold text-credera-dark mb-6">
-                Starting Your Journey Right
+                The WHAT
               </h2>
-              
+
               <div className="prose prose-lg max-w-none text-credera-gray-600">
                 <p className="mb-6">
-                  The first steps in any digital transformation are crucial. Our initial consultation 
-                  process is designed to thoroughly understand your business objectives, current 
-                  technology landscape, and strategic goals. This foundational phase sets the stage 
-                  for all future initiatives.
+                  A forensic, criteria-based scan of every application & infrastructure asset:
                 </p>
-                
-                <p className="mb-8">
-                  We believe that every successful transformation begins with clear understanding 
-                  and careful planning. Our experienced consultants work closely with your team 
-                  to ensure we capture all critical requirements and establish realistic expectations.
-                </p>
+
+                <ul className="list-disc list-inside mb-6 space-y-2">
+                  <li><strong>Apps</strong>: architecture, complexity, criticality, cost, dependencies, integrations, risk, scalability, tech stack, usage.</li>
+                  <li><strong>Infrastructure</strong>: ditto—plus data size, security, storage.</li>
+                  <li><strong>Tools</strong>: capability, dependencies, usage.</li>
+                </ul>
+
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+                  <blockquote className="text-lg italic text-blue-800">
+                    <strong>Forrester</strong>: 45% complexity reduction & 51% higher availability start with <strong>accurate discovery</strong>.
+                  </blockquote>
+                </div>
               </div>
+
+              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+                The HOW – bottom-up automation, top-down governance
+              </h2>
 
               <div className="space-y-8">
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Discovery Phase
+                    1. Stakeholder kick-off & scoping
                   </h3>
                   <p className="text-credera-gray-600 mb-4">
-                    Our discovery process involves comprehensive stakeholder interviews, 
-                    technical assessments, and business process analysis.
+                    Initial meetings to define scope, objectives, and establish project governance framework.
                   </p>
-                  <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Stakeholder interviews and requirements gathering</li>
-                    <li>Current state technology assessment</li>
-                    <li>Business process documentation</li>
-                    <li>Risk and constraint identification</li>
-                  </ul>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Planning & Strategy
+                    2. QUEST agentless discovery (automated)
                   </h3>
                   <p className="text-credera-gray-600 mb-4">
-                    Based on our discovery findings, we develop a customized strategy 
-                    that aligns with your business objectives and technical requirements.
+                    Comprehensive automated discovery using QUEST tooling to identify all assets and dependencies.
                   </p>
-                  <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Strategic roadmap development</li>
-                    <li>Technology architecture planning</li>
-                    <li>Timeline and milestone definition</li>
-                    <li>Resource requirement assessment</li>
-                  </ul>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Validation & Approval
+                    3. Dependency & business-service mapping
                   </h3>
                   <p className="text-credera-gray-600 mb-4">
-                    We present our findings and recommendations to your stakeholders 
-                    for review, validation, and approval before moving forward.
+                    Detailed mapping of application dependencies and alignment with business services.
                   </p>
-                  <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
-                    <li>Executive presentation and review</li>
-                    <li>Strategy validation workshops</li>
-                    <li>Stakeholder alignment sessions</li>
-                    <li>Final roadmap approval</li>
-                  </ul>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                    4. CMDB compare & data validation
+                  </h3>
+                  <p className="text-credera-gray-600 mb-4">
+                    Cross-validation with existing CMDB data to ensure accuracy and completeness.
+                  </p>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                    5. Risk/complexity scoring
+                  </h3>
+                  <p className="text-credera-gray-600 mb-4">
+                    Systematic assessment and scoring of migration risk and complexity factors.
+                  </p>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                    6. Gap & readiness identification
+                  </h3>
+                  <p className="text-credera-gray-600 mb-4">
+                    Identification of gaps and assessment of cloud readiness across all components.
+                  </p>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                    7. Publish Portfolio Analysis Report
+                  </h3>
+                  <p className="text-credera-gray-600 mb-4">
+                    Comprehensive report with move-group recommendations and strategic insights.
+                  </p>
                 </div>
               </div>
             </div>
@@ -93,70 +135,100 @@ export default function FirstSteps() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                <div className="bg-credera-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-credera-dark mb-4">
-                    What to Expect
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-green-800 mb-4">
+                    Outcomes
                   </h3>
-                  <ul className="space-y-3 text-sm text-credera-gray-600">
+                  <ul className="space-y-3 text-sm text-green-700">
                     <li className="flex items-start">
-                      <span className="text-credera-red mr-2">•</span>
-                      2-4 week discovery timeline
+                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      Single source of truth for apps & infra
                     </li>
                     <li className="flex items-start">
-                      <span className="text-credera-red mr-2">•</span>
-                      Detailed requirements documentation
+                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      Move-blockers surfaced early
                     </li>
                     <li className="flex items-start">
-                      <span className="text-credera-red mr-2">•</span>
-                      Strategic roadmap and timeline
+                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      Quick-win candidates highlighted
                     </li>
                     <li className="flex items-start">
-                      <span className="text-credera-red mr-2">•</span>
-                      Risk assessment and mitigation plan
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-credera-red mr-2">•</span>
-                      Budget and resource estimates
+                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      Data-driven input to TCO, security & migration waves
                     </li>
                   </ul>
                 </div>
+              <div className="bg-credera-gray-50 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-credera-dark mb-4">
+                  What to Expect
+                </h3>
+                <ul className="space-y-3 text-sm text-credera-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-credera-red mr-2">•</span>
+                    Comprehensive asset discovery and inventory
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-credera-red mr-2">•</span>
+                    Detailed dependency and integration mapping
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-credera-red mr-2">•</span>
+                    Risk and complexity assessment
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-credera-red mr-2">•</span>
+                    Move-group recommendations
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-credera-red mr-2">•</span>
+                    Portfolio Analysis Report with actionable insights
+                  </li>
+                </ul>
+              </div>
 
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                  <h3 className="text-lg font-semibold text-blue-800 mb-4">
-                    Next Steps
-                  </h3>
-                  <p className="text-sm text-blue-700 mb-4">
-                    Ready to begin your first steps consultation?
-                  </p>
-                  <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold">
-                    Schedule Consultation
-                  </button>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-credera-dark mb-4">
-                    Related Services
-                  </h3>
-                  <div className="space-y-3">
-                    <a href="/consult/cloud-tco-assessment" className="block text-sm text-credera-red hover:underline">
-                      Cloud TCO Assessment →
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 className="text-lg font-semibold text-blue-800 mb-4">
+                  Next Steps
+                </h3>
+                <p className="text-sm text-blue-700 mb-4">
+                  Ready to begin your portfolio analysis?
+                </p>
+                <button 
+                  onClick={handleNextStepsClick}
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold"
+                >
+                  Start Portfolio Analysis
+                </button>
+                <div className="mt-4 pt-4 border-t border-blue-200">
+                  <p className="text-xs text-blue-600 mb-2">Navigation:</p>
+                  <div className="space-y-2">
+                    <a href="/consult" className="block text-xs text-blue-600 hover:underline">
+                      ← Back to Overview
                     </a>
-                    <a href="/consult/next-steps" className="block text-sm text-credera-red hover:underline">
-                      Next Steps Planning →
-                    </a>
-                    <a href="/consult/cloud-adoption-strategy" className="block text-sm text-credera-red hover:underline">
-                      Cloud Adoption Strategy →
+                    <a href="/consult/cloud-tco-assessment" className="block text-xs text-blue-600 hover:underline">
+                      Next: TCO Assessment →
                     </a>
                   </div>
                 </div>
+              </div>
+
               </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <FooterSection />
+      
+      {/* Next Steps Modal */}
+      <NextStepsModal 
+        isOpen={isNextStepsModalOpen}
+        onClose={handleNextStepsClose}
+        onSubmit={handleNextStepsSubmit}
+        defaultConsultType="portfolio-analysis"
+        showConsultTypeSelection={false}
+      />
     </div>
   );
 }

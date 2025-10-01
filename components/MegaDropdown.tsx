@@ -64,8 +64,6 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                 <p className="text-credera-gray-600 text-sm leading-relaxed mb-4">
                   {content.overview.description}
                 </p>
-                {/* Special buttons for Services section - removed per requirements */}
-
               </div>
               
               {/* Featured Image */}

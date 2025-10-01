@@ -8,7 +8,7 @@ import { FooterSectionProps } from '@/types';
 const FooterSection: React.FC<FooterSectionProps> = ({
   logoUrl = "/TaskImages/logo.png",
   description = "We are a global consulting firm that combines deep industry expertise with innovative technology solutions to help our clients achieve extraordinary results.",
-  copyright = `© ${new Date().getFullYear()} Credera. All rights reserved.`
+  copyright = `© ${new Date().getFullYear()} Task Systems. All rights reserved.`
 }) => {
   return (
     <footer className="bg-credera-dark text-white">
@@ -21,7 +21,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
               <div className="mb-6">
                 <Image
                   src={logoUrl}
-                  alt="Credera"
+                  alt="Task Systems Logo"
                   width={120}
                   height={40}
                   className="mb-4 rounded-lg"
@@ -40,26 +40,26 @@ const FooterSection: React.FC<FooterSectionProps> = ({
               <ul className="space-y-3">
                 <li>
                   <Link
-                    href="/services"
+                    href="/solutions"
                     className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
                   >
-                    Services
+                    Solutions
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/industries"
+                    href="/consult"
                     className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
                   >
-                    Industries
+                    Consult
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/insights"
+                    href="/company"
                     className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
                   >
-                    Insights
+                    Company
                   </Link>
                 </li>
                 <li>

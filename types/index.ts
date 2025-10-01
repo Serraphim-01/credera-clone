@@ -461,3 +461,26 @@ export interface PartnershipPageProps {
     partnerId: string;
   };
 }
+
+// Next Steps Modal Types
+export interface NextStepsFormData {
+  name: string;
+  companyEmail: string;
+  companyName: string;
+  scheduleTime: string;
+  consultType?: string; // Optional, for when called from main consult page
+}
+
+export interface NextStepsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (data: NextStepsFormData) => Promise<void>;
+  defaultConsultType?: string; // For individual consult pages
+  showConsultTypeSelection?: boolean; // For main consult page
+}
+
+export interface NextStepsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (data: NextStepsFormData) => Promise<void>;
+}

@@ -17,7 +17,7 @@ const SocialMediaSidebar: React.FC<SocialMediaSidebarProps> = ({ links }) => {
   const defaultLinks: SocialMediaLink[] = [
     {
       platform: 'LinkedIn',
-      href: 'https://www.linkedin.com/company/credera',
+      href: 'https://www.linkedin.com/company/tasksystems',
       icon: <FaLinkedin size={20} />,
       hoverColor: 'hover:text-[#0077B5]'
     },

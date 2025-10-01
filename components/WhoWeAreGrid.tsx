@@ -38,7 +38,7 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
         </div>
 
         {/* 3x3 Grid Container */}
-        <div className="grid grid-cols-3 grid-rows-3 gap-6 relative">
+        <div className="grid grid-cols-3 grid-rows-3 gap-6 md:gap-6 sm:gap-3 relative">
           {gridLayout.map((row, rowIndex) =>
             row.map((cellType, colIndex) => {
               const cellKey = `${rowIndex}-${colIndex}`;
@@ -63,9 +63,9 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               // Apply vertical displacement
               let verticalDisplacement = '';
               if (colIndex === 0) {
-                verticalDisplacement = 'translate-y-20'; // First column displaced 20px down
+                verticalDisplacement = 'md:translate-y-20 sm:translate-y-10'; // Responsive displacement
               } else if (colIndex === 2) {
-                verticalDisplacement = '-translate-y-20'; // Third column displaced 20px up
+                verticalDisplacement = 'md:-translate-y-20 sm:-translate-y-10'; // Responsive displacement
               }
 
               // Type guards to ensure item exists and is of correct type
@@ -81,7 +81,7 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               return (
                 <div
                   key={cellKey}
-                  className={`w-[350px] h-[350px] ${verticalDisplacement} transition-transform duration-300`}
+                  className={`w-[350px] h-[350px] md:w-[350px] md:h-[350px] sm:w-[175px] sm:h-[175px] ${verticalDisplacement} transition-transform duration-300`}
                 >
                   {isImageItem(item) && (
                     <ImageCell item={item} row={rowIndex} col={colIndex} />
@@ -223,11 +223,11 @@ const VideoCell: React.FC<{ item: VideoGridItem; row: number; col: number }> = (
 // Text Cell Component - Only icon and title, no description or links
 const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ item }) => {
   return (
-    <div className="w-full h-full bg-white rounded-lg p-8 flex flex-col justify-center items-center group hover:bg-credera-navy hover:text-white transition-all duration-300 hover-lift">
+    <div className="w-full h-full bg-white rounded-lg p-8 sm:p-4 flex flex-col justify-center items-center group hover:bg-credera-navy hover:text-white transition-all duration-300 hover-lift">
       {/* Icon at the top */}
       {item.iconSrc && (
-        <div className="mb-6">
-          <div className="w-32 h-32 relative">
+        <div className="mb-6 sm:mb-3">
+          <div className="w-32 h-32 sm:w-16 sm:h-16 relative">
             <Image
               src={item.iconSrc}
               alt=""
@@ -239,7 +239,7 @@ const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ 
       )}
       
       {/* Title only */}
-      <h3 className="text-5xl font-bold text-credera-dark group-hover:text-white transition-colors duration-200 text-center">
+      <h3 className="text-5xl sm:text-2xl font-bold text-credera-dark group-hover:text-white transition-colors duration-200 text-center">
         {item.title}
       </h3>
     </div>

@@ -6,6 +6,7 @@
   --task-yellow: #fbc000;
   --credera-blue: #2563EB;
   --credera-green: #10B981;
+  --credera-navy: #1E3A8A;
   --credera-dark: #111827;
   --credera-gray-600: #6B7280;
   --credera-gray-400: #9CA3AF;
@@ -31,6 +32,7 @@
   --color-credera-blue: var(--credera-blue);
   --color-credera-green: var(--credera-green);
   --color-credera-dark: var(--credera-dark);
+  --color-credera-navy: var(--credera-navy);
   --color-credera-gray-600: var(--credera-gray-600);
   --color-credera-gray-400: var(--credera-gray-400);
   --color-credera-gray-100: var(--credera-gray-100);

@@ -37,7 +37,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
   const ScrollCard = ({ card }: { card: PartnerCard }) => (
     <Link
       href={card.linkUrl}
-      className="group block w-[550px] h-[500px] flex-shrink-0 relative overflow-hidden rounded-lg"
+      className="group block w-[550px] h-[500px] md:w-[550px] md:h-[500px] sm:w-[280px] sm:h-[300px] flex-shrink-0 relative overflow-hidden rounded-lg"
       aria-label={`Read more about ${card.title}`}
     >
       <article className="h-full relative overflow-hidden rounded-lg">
@@ -48,7 +48,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
             alt={card.title}
             fill
             className="object-cover transition-all duration-500 group-hover:scale-110"
-            sizes="550px"
+            sizes="(max-width: 640px) 280px, 550px"
           />
 
           {/* Gradient Overlay */}
@@ -58,19 +58,19 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
           <div className="absolute inset-0 bg-credera-navy opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0" />
 
           {/* Content Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10 transition-all duration-500 group-hover:pb-8">
-            <h3 className="text-xl font-bold mb-3 transition-all duration-300 group-hover:translate-y-[-8px]">
+          <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-4 text-white z-10 transition-all duration-500 group-hover:pb-8 sm:group-hover:pb-4">
+            <h3 className="text-xl sm:text-lg font-bold mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-8px]">
               {card.title}
             </h3>
-            <p className="text-white/90 leading-relaxed mb-4 transition-all duration-300 group-hover:translate-y-[-8px]">
+            <p className="text-white/90 leading-relaxed mb-4 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:translate-y-[-8px]">
               {card.description}
             </p>
 
             {/* Learn More Link - Hidden by default, shows on hover */}
-            <div className="flex items-center text-credera-red font-medium text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
+            <div className="flex items-center text-credera-red font-medium text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
               <span>Learn More</span>
               <svg
-                className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
+                className="ml-2 w-4 h-4 sm:w-3 sm:h-3 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -94,7 +94,8 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
     <section className="py-20 bg-white">
       {/* Updated container with max-w-8xl and responsive padding */}
       <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="relative">
+        {/* Desktop Layout */}
+        <div className="hidden md:block relative">
           {/* Static Card - Fixed on left side - 550x600 */}
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 w-[550px] h-[600px] bg-gray-50 rounded-lg shadow-lg overflow-hidden">
             <div className="relative h-full p-12 flex flex-col justify-center">
@@ -137,6 +138,56 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
             }}
           >
             <div className="flex min-w-max pr-8 space-x-8">
+              {partnerCards.map((card) => (
+                <div key={card.id} className="flex items-center">
+                  <ScrollCard card={card} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden">
+          {/* Static Card - Mobile responsive */}
+          <div className="w-full bg-gray-50 rounded-lg shadow-lg overflow-hidden mb-6 p-6">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-xl font-bold text-credera-dark mb-2">
+                  {staticCard.title}
+                </h3>
+                <p className="text-base text-credera-red font-semibold">
+                  {staticCard.subtitle}
+                </p>
+              </div>
+              
+              <p className="text-credera-gray-600 leading-relaxed text-sm">
+                {staticCard.description}
+              </p>
+              
+              {/* View All - Not a link, just text */}
+              <div className="flex items-center text-credera-red font-semibold text-base space-x-2">
+                <span>View All</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Scrollable Cards */}
+          <div 
+            className="overflow-x-auto pb-6 scrollbar-hide"
+            style={{ 
+              scrollBehavior: 'smooth',
+            }}
+          >
+            <div className="flex min-w-max space-x-4">
               {partnerCards.map((card) => (
                 <div key={card.id} className="flex items-center">
                   <ScrollCard card={card} />

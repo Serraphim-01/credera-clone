@@ -11,20 +11,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   illustrationSrc
 }) => {
   return (
-    <section className="min-h-[600px] bg-gradient-to-br from-credera-blue-50 to-credera-blue-100 py-20 px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative min-h-[800px] py-20 px-8 overflow-hidden">
+
+      <Image
+        src={illustrationSrc}
+        alt="Background illustration"
+        fill
+        priority
+        className="object-cover object-center -z-10"
+      />
+
+      {/* Overlay (optional for readability) */}
+      <div className="absolute inset-0 bg-black/50 -z-10"></div>
+
+      <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Hero Content */}
           <div className="max-w-xl">
-            <h1 className="text-hero text-credera-dark mb-6">
+            <h1 className="text-hero text-credera-orange font-bold mb-6">
               Unlock{' '}
-              <span className="red-underline">
+              <span className="orange-underline">
                 extraordinary
               </span>{' '}
               opportunities.
             </h1>
 
-            <p className="text-lg text-credera-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl italic text-credera-gray-600 mb-8 leading-relaxed">
               {description}
             </p>
 
@@ -112,25 +124,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 />
               </svg>
             </Link>
-          </div>
-
-          {/* Hero Illustration */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md h-80">
-              <Image
-                src={illustrationSrc}
-                alt="Credera consulting illustration"
-                fill
-                className="object-contain"
-                priority
-              />
-
-              {/* Background decorative elements */}
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-credera-red opacity-10 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/2 -right-6 w-12 h-12 bg-blue-400 opacity-20 rounded-full animate-pulse delay-1000"></div>
-              <div className="absolute -bottom-6 left-1/3 w-16 h-16 bg-yellow-400 opacity-15 rounded-full animate-pulse delay-500"></div>
-            </div>
-          </div>
+          </div>        
         </div>
       </div>
     </section>

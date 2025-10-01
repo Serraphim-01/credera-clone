@@ -1,28 +1,8 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
-import NextStepsModal from '@/components/NextStepsModal';
-import { NextStepsFormData } from '@/types';
 
 export default function CloudAdoptionStrategy() {
-  const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
-
-  const handleNextStepsClick = () => {
-    setIsNextStepsModalOpen(true);
-  };
-
-  const handleNextStepsClose = () => {
-    setIsNextStepsModalOpen(false);
-  };
-
-  const handleNextStepsSubmit = async (data: NextStepsFormData) => {
-    console.log('Next Steps form submitted:', data);
-    // Handle form submission logic here
-    alert('Thank you! We will contact you soon to schedule your Strategy Development.');
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -56,7 +36,7 @@ export default function CloudAdoptionStrategy() {
                 </ol>
                 
                 <p className="mb-8">
-                  into a single, board-level <strong>Cloud Adoption Strategy</strong> that guarantees ROI, resilience & readiness.
+                  ...into a single, board-level <strong>Cloud Adoption Strategy</strong> that guarantees ROI, resilience & readiness.
                 </p>
               </div>
 
@@ -188,6 +168,7 @@ export default function CloudAdoptionStrategy() {
                   Download sample strategy deck (PPT) →
                 </a>
               </div>
+              </div>
             </div>
 
             {/* Sidebar */}
@@ -276,10 +257,7 @@ export default function CloudAdoptionStrategy() {
                   <p className="text-sm text-blue-700 mb-4">
                     Ready to develop your cloud adoption strategy?
                   </p>
-                  <button 
-                    onClick={handleNextStepsClick}
-                    className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors duration-200 text-sm font-semibold"
-                  >
+                  <button className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors duration-200 text-sm font-semibold">
                     Start Strategy Development
                   </button>
                   <div className="mt-4 pt-4 border-t border-blue-200">
@@ -295,7 +273,22 @@ export default function CloudAdoptionStrategy() {
                   </div>
                 </div>
 
-
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-credera-dark mb-4">
+                    Related Services
+                  </h3>
+                  <div className="space-y-3">
+                    <a href="/consult/next-steps" className="block text-sm text-credera-red hover:underline">
+                      Future-State Feasibility →
+                    </a>
+                    <a href="/consult/cloud-tco-assessment" className="block text-sm text-credera-red hover:underline">
+                      Cloud TCO Assessment →
+                    </a>
+                    <a href="/consult/first-steps" className="block text-sm text-credera-red hover:underline">
+                      Portfolio Analysis →
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -304,15 +297,6 @@ export default function CloudAdoptionStrategy() {
       
       {/* Footer */}
       <FooterSection />
-      
-      {/* Next Steps Modal */}
-      <NextStepsModal 
-        isOpen={isNextStepsModalOpen}
-        onClose={handleNextStepsClose}
-        onSubmit={handleNextStepsSubmit}
-        defaultConsultType="strategy-development"
-        showConsultTypeSelection={false}
-      />
     </div>
   );
 }

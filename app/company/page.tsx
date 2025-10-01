@@ -95,8 +95,8 @@ const LeadershipCard: React.FC<{
   person: typeof leadershipTeam.chairman[0];
   className?: string;
 }> = ({ person, className = '' }) => (
-  <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 max-w-[400px] ${className}`}>
-    <div className="relative h-64">
+  <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 max-w-[500px] sm:max-w-[400px] ${className}`}>
+    <div className="relative h-64 sm:h-48">
       <Image
         src={person.image}
         alt={person.name}
@@ -105,17 +105,17 @@ const LeadershipCard: React.FC<{
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{person.name}</h3>
-      <p className="text-blue-600 font-semibold mb-3">{person.title}</p>
+    <div className="p-6 sm:p-4">
+      <h3 className="text-xl sm:text-lg font-bold text-gray-900 mb-2">{person.name}</h3>
+      <p className="text-blue-600 font-semibold mb-3 sm:mb-2 sm:text-sm">{person.title}</p>
       <a
         href={person.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium"
+        className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm sm:text-xs font-medium"
       >
         <svg
-          className="w-4 h-4 mr-2"
+          className="w-4 h-4 sm:w-3 sm:h-3 mr-2"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -154,14 +154,14 @@ const CompanyPage = () => {
     icon: React.ReactNode;
     description: string;
   }> = ({ id, title, icon, description }) => (
-    <div className="flex items-center justify-between mb-8">
-      <div className="flex items-center space-x-4">
-        <div className="p-3 bg-blue-100 rounded-lg">
+    <div className="flex items-center justify-between mb-8 sm:mb-6">
+      <div className="flex items-center space-x-4 sm:space-x-3">
+        <div className="p-3 sm:p-2 bg-blue-100 rounded-lg">
           {icon}
         </div>
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
-          <p className="text-gray-600 mt-1">{description}</p>
+          <h2 className="text-3xl sm:text-xl font-bold text-gray-900">{title}</h2>
+          <p className="text-gray-600 mt-1 sm:text-sm">{description}</p>
         </div>
       </div>
       <button
@@ -170,9 +170,9 @@ const CompanyPage = () => {
         aria-label={`${expandedSections[id] ? 'Collapse' : 'Expand'} ${title} section`}
       >
         {expandedSections[id] ? (
-          <ChevronUp className="w-6 h-6 text-gray-600" />
+          <ChevronUp className="w-6 h-6 sm:w-5 sm:h-5 text-gray-600" />
         ) : (
-          <ChevronDown className="w-6 h-6 text-gray-600" />
+          <ChevronDown className="w-6 h-6 sm:w-5 sm:h-5 text-gray-600" />
         )}
       </button>
     </div>
@@ -200,7 +200,7 @@ const CompanyPage = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-2 py-16 sm:py-8 space-y-16 sm:space-y-8">
         {/* Customer Stories Section */}
         <section id="customer-stories">
           <SectionHeader
@@ -243,7 +243,7 @@ const CompanyPage = () => {
             <div className="transition-all duration-300 space-y-12">
               {/* Chairman and Directors Combined */}
               <div>
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-wrap justify-center gap-6 sm:gap-4">
                   {/* Chairman */}
                   {leadershipTeam.chairman.map((person) => (
                     <LeadershipCard key={person.id} person={person} />
@@ -257,8 +257,8 @@ const CompanyPage = () => {
 
               {/* Management Team */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Management Team</h3>
-                <div className="flex flex-wrap justify-center gap-6">
+                <h3 className="text-2xl sm:text-xl font-bold text-gray-900 mb-6 sm:mb-4">Management Team</h3>
+                <div className="flex flex-wrap justify-center gap-6 sm:gap-4">
                   {leadershipTeam.management.map((person) => (
                     <LeadershipCard key={person.id} person={person} />
                   ))}

@@ -35,7 +35,7 @@ const CompanyHistoryTimeline: React.FC<CompanyHistoryTimelineProps> = ({
       id: '1',
       year: '2006',
       title: 'Foundation & Vision',
-      description: 'Credera was founded with a vision to deliver authentic consulting relationships and exceptional results.',
+      description: 'Task Systems was founded with a vision to deliver authentic consulting relationships and exceptional results.',
       achievements: ['Company established', 'First Dallas office opened', 'Initial team of 15 consultants'],
       icon: <FaBriefcase />
     },

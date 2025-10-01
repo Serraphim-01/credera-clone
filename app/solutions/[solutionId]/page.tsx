@@ -142,11 +142,11 @@ export async function generateMetadata({ params }: SolutionPageProps) {
   }
   
   return {
-    title: `${solution.title} | Credera Solutions`,
+    title: `${solution.title} | Task Systems Solutions`,
     description: solution.description,
     keywords: solution.technologies?.join(', ') || '',
     openGraph: {
-      title: `${solution.title} | Credera Solutions`,
+      title: `${solution.title} | Task Systems Solutions`,
       description: solution.description,
       type: 'website'
     }
