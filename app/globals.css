@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Credera Brand Colors */
-  --credera-red: #E55F4C;
+  /* Credera Brand Colors - Updated for orange, blue, gray scheme */
+  --credera-orange: #FF6B35;
+  --task-yellow: #fbc000;
+  --credera-blue: #2563EB;
+  --credera-green: #10B981;
   --credera-dark: #111827;
-  --credera-navy: #1E3A8A; /* Navy blue color */
   --credera-gray-600: #6B7280;
   --credera-gray-400: #9CA3AF;
   --credera-gray-100: #F3F4F6;
+  --credera-gray-50: #F9FAFB;
   --credera-blue-50: #F0F9FF;
   --credera-blue-100: #E0F2FE;
   --credera-slate-50: #F8FAFC;
@@ -23,17 +26,30 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  /* Credera color utilities */
-  --color-credera-red: var(--credera-red);
+  /* Credera color utilities - Updated for orange, blue, gray scheme */
+  --color-credera-orange: var(--credera-orange);
+  --color-credera-blue: var(--credera-blue);
+  --color-credera-green: var(--credera-green);
   --color-credera-dark: var(--credera-dark);
-  --color-credera-navy: var(--credera-navy);
   --color-credera-gray-600: var(--credera-gray-600);
   --color-credera-gray-400: var(--credera-gray-400);
   --color-credera-gray-100: var(--credera-gray-100);
+  --color-credera-gray-50: var(--credera-gray-50);
   --color-credera-blue-50: var(--credera-blue-50);
   --color-credera-blue-100: var(--credera-blue-100);
   --color-credera-slate-50: var(--credera-slate-50);
+  --color-credera-red: #E55F4C;
 }
+
+/* Credera brand color utility classes */
+.text-credera-dark { color: var(--credera-dark); }
+.text-credera-gray-600 { color: var(--credera-gray-600); }
+.text-credera-gray-400 { color: var(--credera-gray-400); }
+.text-credera-red { color: var(--color-credera-red); }
+.bg-credera-gray-50 { background-color: var(--credera-gray-50); }
+.bg-credera-gray-100 { background-color: var(--credera-gray-100); }
+.bg-credera-blue-50 { background-color: var(--credera-blue-50); }
+.bg-credera-slate-50 { background-color: var(--credera-slate-50); }
 
 body {
   background: var(--background);
@@ -71,6 +87,16 @@ body {
   display: none;
 }
 
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Scroll Indicator Styles */
 .scroll-indicator-container {
   width: 100%;
@@ -78,7 +104,7 @@ body {
 
 /* Focus states for accessibility */
 .focus-visible {
-  outline: 2px solid var(--credera-red);
+  outline: 2px solid var(--credera-orange);
   outline-offset: 2px;
 }
 
@@ -99,20 +125,20 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Red Underline Effect */
-.red-underline {
+/* Orange Underline Effect */
+.orange-underline {
   position: relative;
   display: inline-block;
 }
 
-.red-underline::after {
+.orange-underline::after {
   content: '';
   position: absolute;
   bottom: -8px;
   left: 0;
   width: 100%;
   height: 6px;
-  background: url('/images/red-curve-underline.svg') no-repeat;
+  background: url('/images/orange-curve-underline.svg') no-repeat;
   background-size: 100% 100%;
 }
 
@@ -224,24 +250,24 @@ body {
 
 /* Form styling */
 .form-input {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-credera-red focus:border-transparent;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent;
 }
 
 .form-textarea {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-credera-red focus:border-transparent resize-none;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none;
 }
 
 /* Button variants */
 .btn-primary {
-  @apply px-6 py-3 bg-credera-red text-white font-semibold rounded-md hover:bg-credera-dark transition-colors duration-200;
+  @apply px-6 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 border-2 border-credera-red text-credera-red font-semibold rounded-md hover:bg-credera-red hover:text-white transition-colors duration-200;
+  @apply px-6 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-md hover:bg-orange-500 hover:text-white transition-colors duration-200;
 }
 
 .btn-outline {
-  @apply px-6 py-3 border border-gray-300 text-credera-gray-600 font-semibold rounded-md hover:border-credera-red hover:text-credera-red transition-colors duration-200;
+  @apply px-6 py-3 border border-gray-300 text-gray-600 font-semibold rounded-md hover:border-orange-500 hover:text-orange-500 transition-colors duration-200;
 }
 
 /* Card hover effects */
@@ -256,7 +282,7 @@ body {
 /* Loading spinner */
 .spinner {
   border: 2px solid #f3f3f3;
-  border-top: 2px solid var(--credera-red);
+  border-top: 2px solid var(--credera-orange);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -269,12 +295,12 @@ body {
 }
 
 /* Gradient backgrounds */
-.gradient-red {
-  background: linear-gradient(135deg, var(--credera-red) 0%, #d14836 100%);
+.gradient-orange {
+  background: linear-gradient(135deg, var(--credera-orange) 0%, #e55f4c 100%);
 }
 
 .gradient-blue {
-  background: linear-gradient(135deg, var(--credera-navy) 0%, #1a365d 100%);
+  background: linear-gradient(135deg, var(--credera-blue) 0%, #1e40af 100%);
 }
 
 .gradient-overlay {
@@ -317,7 +343,7 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--credera-red);
+  background: var(--credera-orange);
   border-radius: 3px;
 }
 

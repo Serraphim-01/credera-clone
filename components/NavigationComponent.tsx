@@ -105,7 +105,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
               {/* Logo */}
               <Link href="/" className="flex items-center" aria-label="Credera Home">
                 <Image
-                  src={logoSrc}
+                  src="/TaskImages/logo.png"
                   alt="Credera"
                   width={120}
                   height={32}
@@ -117,8 +117,8 @@ const NavigationComponent: React.FC<NavigationProps> = ({
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-12">
                 {navigationItems.map((item, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="relative"
                     onMouseEnter={() => {
                       if (item.megaMenuContent || item.hasDropdown) {
@@ -127,48 +127,77 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                     }}
                     onMouseLeave={handleMenuItemLeave}
                   >
-                    <Link
-                      href={item.href}
-                      className="text-nav text-credera-dark hover:text-credera-red transition-colors duration-200 flex items-center space-x-1 py-2"
-                      aria-expanded={activeDropdown === item.label ? 'true' : 'false'}
-                      aria-haspopup={item.hasDropdown || item.megaMenuContent ? 'true' : 'false'}
-                    >
-                      <span>{item.label}</span>
-                      {(item.hasDropdown || item.megaMenuContent) && (
-                        <svg
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            activeDropdown === item.label ? 'rotate-180' : ''
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      )}
-                    </Link>
-                    
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className="text-nav text-credera-dark hover:text-credera-red transition-colors duration-200 flex items-center space-x-1 py-2"
+                        aria-expanded={activeDropdown === item.label ? 'true' : 'false'}
+                        aria-haspopup={item.hasDropdown || item.megaMenuContent ? 'true' : 'false'}
+                      >
+                        <span>{item.label}</span>
+                        {(item.hasDropdown || item.megaMenuContent) && (
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
+                              }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        )}
+                      </Link>
+                    ) : (
+                      <span className="text-nav text-credera-dark hover:text-credera-red transition-colors duration-200 flex items-center space-x-1 py-2 cursor-default">
+                        <span>{item.label}</span>
+                        {(item.hasDropdown || item.megaMenuContent) && (
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
+                              }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        )}
+                      </span>
+                    )}
+
                     {/* Standard Dropdown Menu (for items without mega menu) */}
                     {!item.megaMenuContent && item.hasDropdown && item.dropdownItems && (
-                      <div className={`absolute top-full left-0 w-64 bg-white shadow-lg border border-gray-100 rounded-md mt-2 transition-all duration-200 z-50 ${
-                        activeDropdown === item.label 
-                          ? 'opacity-100 visible translate-y-0' 
+                      <div className={`absolute top-full left-0 w-64 bg-white shadow-lg border border-gray-100 rounded-md mt-2 transition-all duration-200 z-50 ${activeDropdown === item.label
+                          ? 'opacity-100 visible translate-y-0'
                           : 'opacity-0 invisible -translate-y-2'
-                      }`}>
+                        }`}>
                         <div className="py-2">
                           {item.dropdownItems.map((dropdownItem, dropIndex) => (
-                            <Link
-                              key={dropIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-sm text-credera-dark hover:bg-credera-gray-100 hover:text-credera-red transition-colors duration-150"
-                            >
-                              {dropdownItem.label}
-                            </Link>
+                            dropdownItem.href ? (
+                              <Link
+                                key={dropIndex}
+                                href={dropdownItem.href!}
+                                className="block px-4 py-2 text-sm text-credera-dark hover:bg-credera-gray-100 hover:text-credera-red transition-colors duration-150"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ) : (
+                              <span
+                                key={dropIndex}
+                                className="block px-4 py-2 text-sm text-credera-dark cursor-default"
+                              >
+                                {dropdownItem.label}
+                              </span>
+                            )
                           ))}
                         </div>
                       </div>
@@ -217,31 +246,46 @@ const NavigationComponent: React.FC<NavigationProps> = ({
             <div className="px-4 py-6 space-y-4">
               {navigationItems.map((item, index) => (
                 <div key={index}>
-                  <Link
-                    href={item.href}
-                    className="block text-nav text-credera-dark hover:text-credera-red transition-colors duration-200 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="block text-nav text-credera-dark hover:text-credera-red transition-colors duration-200 py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className="block text-nav text-credera-dark py-2 cursor-default">
+                      {item.label}
+                    </span>
+                  )}
                   {/* Mobile dropdown items */}
                   {item.dropdownItems && (
                     <div className="pl-4 mt-2 space-y-2">
                       {item.dropdownItems.map((dropdownItem, dropIndex) => (
-                        <Link
-                          key={dropIndex}
-                          href={dropdownItem.href}
-                          className="block text-sm text-credera-gray-600 hover:text-credera-red transition-colors duration-200 py-1"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {dropdownItem.label}
-                        </Link>
+                        dropdownItem.href ? (
+                          <Link
+                            key={dropIndex}
+                            href={dropdownItem.href}
+                            className="block text-sm text-credera-gray-600 hover:text-credera-red transition-colors duration-200 py-1"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        ) : (
+                          <span
+                            key={dropIndex}
+                            className="block text-sm text-credera-gray-600 py-1 cursor-default"
+                          >
+                            {dropdownItem.label}
+                          </span>
+                        )
                       ))}
                     </div>
                   )}
                 </div>
               ))}
-              
+
               {/* Mobile Top Bar Items */}
               <div className="pt-4 mt-4 border-t border-gray-200 space-y-4">
                 {topBarItems.map((item, index) => (
@@ -264,13 +308,13 @@ const NavigationComponent: React.FC<NavigationProps> = ({
       {activeMegaMenuContent && (
         <>
           {/* Overlay */}
-          <div 
-            className="fixed inset-0 z-40 bg-black bg-opacity-20" 
+          <div
+            className="fixed inset-0 z-40 bg-black bg-opacity-20"
             onClick={handleOverlayClick}
             aria-hidden="true"
             style={{ top: '80px' }}
           />
-          
+
           {/* Mega Dropdown */}
           <div className="fixed top-20 left-0 w-full z-50 mt-6">
             <MegaDropdown
@@ -278,6 +322,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
               isVisible={true}
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
+              sectionType={activeDropdown || undefined}
             />
           </div>
         </>

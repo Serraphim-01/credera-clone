@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FooterSectionProps } from '@/types';
 
 const FooterSection: React.FC<FooterSectionProps> = ({
-  logoUrl = "/images/logo.png",
+  logoUrl = "/TaskImages/logo.png",
   description = "We are a global consulting firm that combines deep industry expertise with innovative technology solutions to help our clients achieve extraordinary results.",
   copyright = `© ${new Date().getFullYear()} Credera. All rights reserved.`
 }) => {
@@ -24,7 +24,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                   alt="Credera"
                   width={120}
                   height={40}
-                  className="mb-4"
+                  className="mb-4 rounded-lg"
                 />
                 <p className="text-gray-300 text-sm leading-relaxed max-w-md">
                   {description}

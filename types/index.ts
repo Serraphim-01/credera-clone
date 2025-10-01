@@ -9,17 +9,49 @@ export interface Size {
   height: number;
 }
 
+// NewsRoom Types
+export interface NewsAuthor {
+  name: string;
+  profileImage: string;
+}
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  description: string;
+  category: 'blog' | 'article' | 'news' | 'event';
+  author: NewsAuthor;
+  publishedAt: string;
+  imageUrl: string;
+  readTime: number;
+  tags: string[];
+  content?: string;
+}
+
+export interface NewsCardProps extends NewsArticle {}
+
+export interface NewsFilterProps {
+  searchTerm: string;
+  onSearchChange: (term: string) => void;
+  selectedCategories: string[];
+  onCategoriesChange: (categories: string[]) => void;
+  selectedAuthor: string;
+  onAuthorChange: (author: string) => void;
+  dateRange: { start: string; end: string };
+  onDateRangeChange: (range: { start: string; end: string }) => void;
+}
+
 // Navigation Component Types
 export interface DropdownItem {
   label: string;
-  href: string;
+  href?: string; // Make href optional
   description?: string;
 }
 
 // Enhanced mega menu types
 export interface ServiceLink {
   label: string;
-  href: string;
+  href?: string; // Make href optional
   description?: string;
 }
 
@@ -46,7 +78,7 @@ export interface MegaMenuContent {
 
 export interface NavigationItem {
   label: string;
-  href: string;
+  href?: string; // Make href optional
   hasDropdown: boolean;
   dropdownItems?: DropdownItem[];
   megaMenuContent?: MegaMenuContent;
@@ -54,7 +86,7 @@ export interface NavigationItem {
 
 export interface TopBarItem {
   label: string;
-  href: string;
+  href: string; // TopBar items should always have href
   icon?: string;
 }
 
@@ -240,6 +272,15 @@ export interface SocialMediaLink {
   iconUrl: string;
 }
 
+export interface SocialMediaSidebarProps {
+  links?: Array<{
+    platform: string;
+    href: string;
+    icon: React.ReactNode;
+    hoverColor: string;
+  }>;
+}
+
 export interface FooterSectionProps {
   logoUrl?: string;
   description?: string;
@@ -259,4 +300,164 @@ export interface HomePageProps {
   featuredInsightsSection?: FeaturedInsightsSectionProps;
   contactUsSection?: ContactUsSectionProps;
   footerSection?: FooterSectionProps;
+}
+
+// Enhanced Service Detail Types
+export interface TechStack {
+  category: string;
+  technologies: string[];
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  imageUrl: string;
+  validUntil?: string;
+  level?: string;
+}
+
+export interface ServiceDetail {
+  id: string;
+  title: string;
+  description: string;
+  overview: string;
+  keyFeatures: string[];
+  techStacks: TechStack[];
+  certifications: Certification[];
+  caseStudies?: {
+    title: string;
+    client: string;
+    result: string;
+    imageUrl: string;
+  }[];
+  pricing?: {
+    startingPrice: string;
+    priceModel: string;
+  };
+}
+
+export interface BookingAction {
+  type: 'demo' | 'service';
+  label: string;
+  description: string;
+  ctaText: string;
+}
+
+// Service Detail Component Props
+export interface ServiceDetailPageProps {
+  service: ServiceDetail;
+}
+
+export interface TechStackSectionProps {
+  techStacks: TechStack[];
+}
+
+export interface CertificationsSectionProps {
+  certifications: Certification[];
+}
+
+export interface BookingActionsSectionProps {
+  actions: BookingAction[];
+}
+
+// Solution Types for Enhanced Solution Pages
+export interface Solution {
+  id: string; // Used for routing (kebab-case)
+  title: string; // Display title
+  description: string; // Card description
+  fullDescription?: string; // Detailed page description
+  heroImage?: string; // Hero background image URL
+  features?: string[]; // Key features list
+  benefits?: string[]; // Business benefits
+  technologies?: string[]; // Technology stack
+  certifications?: Certification[]; // Solution-specific certifications
+  customerStories?: CustomerStory[]; // Solution-specific customer stories
+  caseStudies?: CaseStudy[]; // Related case studies
+}
+
+export interface CaseStudy {
+  id: string;
+  title: string;
+  client: string;
+  description: string;
+  result: string;
+  imageUrl: string;
+  metrics?: {
+    label: string;
+    value: string;
+  }[];
+}
+
+export interface CustomerStory {
+  id: string;
+  title: string;
+  client: string;
+  industry: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  imageUrl: string;
+  testimonial?: {
+    quote: string;
+    author: string;
+    title: string;
+  };
+  metrics?: {
+    label: string;
+    value: string;
+    improvement: string;
+  }[];
+}
+
+export interface SolutionPageProps {
+  params: {
+    solutionId: string;
+  };
+}
+
+export interface SolutionDetailLayoutProps {
+  solution: Solution;
+}
+
+// Enhanced Solutions Section Props
+export interface SolutionsPageProps {
+  solutions: Solution[];
+}
+
+// Certification Display Props
+export interface CertificationsSectionProps {
+  certifications: Certification[];
+}
+
+// Customer Stories Section Props
+export interface CustomerStoriesSectionProps {
+  customerStories: CustomerStory[];
+}
+
+// Enhanced Tech Stack Section Props
+export interface TechStackSectionProps {
+  technologies: string[];
+  minimizable?: boolean;
+}
+
+// Partnership Types
+export interface Partnership {
+  id: string;
+  name: string;
+  description: string;
+  partnershipLevel: string;
+  certifications: string[];
+  whatWeDo: string;
+  partnerStory: string;
+  logo: string;
+  website: string;
+  category: 'technology' | 'hardware' | 'infrastructure' | 'enterprise' | 'security';
+  specializations: string[];
+}
+
+export interface PartnershipPageProps {
+  params: {
+    partnerId: string;
+  };
 }

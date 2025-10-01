@@ -10,13 +10,15 @@ interface MegaDropdownProps {
   isVisible: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  sectionType?: string; // Add optional prop to identify section type
 }
 
 const MegaDropdown: React.FC<MegaDropdownProps> = ({
   content,
   isVisible,
   onMouseEnter,
-  onMouseLeave
+  onMouseLeave,
+  sectionType
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -62,26 +64,8 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                 <p className="text-credera-gray-600 text-sm leading-relaxed mb-4">
                   {content.overview.description}
                 </p>
-                <Link
-                  href={content.overview.readMoreLink}
-                  className="inline-flex items-center text-sm font-semibold text-credera-red hover:text-credera-dark transition-colors duration-200 group"
-                  role="menuitem"
-                >
-                  READ OVERVIEW
-                  <svg
-                    className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
+                {/* Special buttons for Services section - removed per requirements */}
+
               </div>
               
               {/* Featured Image */}
@@ -100,84 +84,96 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
 
           {/* Service Categories - Right Side */}
           <div className="col-span-12 lg:col-span-9">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {content.categories.map((category, categoryIndex) => (
-                <div
-                  key={category.id}
-                  className="space-y-4 animate-fadeInUp"
-                  style={{
-                    animationDelay: `${categoryIndex * 100}ms`,
-                    animationFillMode: 'both'
-                  }}
-                >
-                  <h4 className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2">
-                    {category.title}
-                  </h4>
-                  <ul className="space-y-3" role="group" aria-labelledby={`category-${category.id}`}>
-                    {category.services.map((service, serviceIndex) => (
-                      <li key={serviceIndex}>
-                        <Link
-                          href={service.href}
-                          className="block text-sm text-credera-gray-600 hover:text-credera-red transition-colors duration-200 hover:translate-x-1 transform"
-                          role="menuitem"
-                          title={service.description}
-                        >
-                          {service.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            {/* Special handling for Partnerships - use 4 columns for better layout */}
+            {sectionType === 'PARTNERSHIPS' ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {content.categories.map((category, categoryIndex) => (
+                  <div
+                    key={category.id}
+                    className="space-y-4 animate-fadeInUp"
+                    style={{
+                      animationDelay: `${categoryIndex * 100}ms`,
+                      animationFillMode: 'both'
+                    }}
+                  >
+                    {/* Partnerships section titles should be static, others should have links */}
+                    <span className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 block">
+                      {category.title}
+                    </span>
+                    <ul className="space-y-2 mt-4" role="group" aria-labelledby={`category-${category.id}`}>
+                      {category.services.map((service, serviceIndex) => (
+                        <li key={serviceIndex}>
+                          <Link
+                            href={service.href!}
+                            className="block text-sm text-credera-gray-600 hover:text-credera-red cursor-pointer transition-colors duration-200"
+                            title={service.description}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {content.categories.map((category, categoryIndex) => (
+                  <div
+                    key={category.id}
+                    className="space-y-4 animate-fadeInUp"
+                    style={{
+                      animationDelay: `${categoryIndex * 100}ms`,
+                      animationFillMode: 'both'
+                    }}
+                  >
+                    {/* Partnerships section titles should be static, others should have links */}
+                    {sectionType === 'NEWSROOM' ? (
+                      <Link
+                        href={`/newsroom?category=${category.id}`}
+                        className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 hover:text-credera-red transition-colors duration-200 block"
+                      >
+                        {category.title}
+                      </Link>
+                    ) : (
+                      <Link
+                        href={`/${category.id}`}
+                        className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 hover:text-credera-red transition-colors duration-200 block"
+                      >
+                        {category.title}
+                      </Link>
+                    )}
+                    <ul className="space-y-3 mt-4" role="group" aria-labelledby={`category-${category.id}`}>
+                      {category.services.map((service, serviceIndex) => (
+                        <li key={serviceIndex}>
+                          {/* Services sections sub-items should have href, others are static text */}
+                          {sectionType === 'SERVICES' && service.href ? (
+                            <Link
+                              href={service.href}
+                              className="block text-sm text-credera-gray-600 hover:text-credera-red cursor-pointer transition-colors duration-200"
+                              title={service.description}
+                            >
+                              {service.label}
+                            </Link>
+                          ) : (
+                            <span
+                              className="block text-sm text-credera-gray-600 cursor-default"
+                              title={service.description}
+                            >
+                              {service.label}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Banner Section */}
-        {content.banner && (
-          <div className="mt-8 pt-8 border-t border-gray-200">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  {content.banner.icon && (
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <Image
-                        src={`/icons/${content.banner.icon}.svg`}
-                        alt=""
-                        width={24}
-                        height={24}
-                        className="text-white"
-                      />
-                    </div>
-                  )}
-                  <span className="text-lg font-semibold">
-                    {content.banner.text}
-                  </span>
-                </div>
-                <Link
-                  href={content.banner.link}
-                  className="inline-flex items-center px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-blue-50 transition-colors duration-200 text-sm font-semibold"
-                  role="menuitem"
-                >
-                  Learn More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );
