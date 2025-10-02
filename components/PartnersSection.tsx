@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { partnerships } from '@/data/partnerships';
+import PartnersModal from './PartnersModal';
 import { 
   FaAws,
   FaMicrosoft
@@ -32,6 +33,8 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
   subtitle = "Trusted technology partners powering our solutions",
   partners
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const partnerItems: PartnerItem[] = partnerships.map(partnership => ({
     id: partnership.id,
     name: partnership.name,
@@ -43,91 +46,94 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
   const duplicatedPartners = [...partnerItems, ...partnerItems];
 
   return (
-    <section className="bg-white py-20 px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            {title}
-          </h2>
-          <p className="text-lg text-dark-gray max-w-3xl mx-auto mb-6">
-            {subtitle}
-          </p>
-          <div className="w-24 h-1 bg-yellow mx-auto"></div>
-        </div>
+    <>
+      <section className="bg-white py-20 px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              {title}
+            </h2>
+            <p className="text-lg text-dark-gray max-w-3xl mx-auto mb-6">
+              {subtitle}
+            </p>
+            <div className="w-24 h-1 bg-yellow mx-auto"></div>
+          </div>
 
-        {/* Partners Infinite Scroll */}
-        <div className="relative overflow-hidden">
-          <div className="flex animate-scroll space-x-16 mb-12">
-            {duplicatedPartners.map((partner, index) => (
-              <Link
-                key={`${partner.id}-${index}`}
-                href={partner.href}
-                className="group flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
+          {/* Partners Infinite Scroll */}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll space-x-16 mb-12">
+              {duplicatedPartners.map((partner, index) => (
+                <Link
+                  key={`${partner.id}-${index}`}
+                  href={partner.href}
+                  className="group flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
+                >
+                  <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                      sizes="96px"
+                    />
+                  </div>
+
+                  {/* Hover tooltip */}
+                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
+                    {partner.name}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* View All Partners Button */}
+          <div className="text-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center text-yellow hover:text-opacity-80 font-medium transition-colors duration-200"
+            >
+              View All Partners
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    sizes="96px"
-                  />
-                </div>
-                
-                {/* Hover tooltip */}
-                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
-                  {partner.name}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
-                </div>
-              </Link>
-            ))}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* View All Partners Link */}
-        <div className="text-center">
-          <Link
-            href="/partnerships"
-            className="inline-flex items-center text-yellow hover:text-opacity-80 font-medium transition-colors duration-200"
-          >
-            View All Partners
-            <svg
-              className="ml-2 w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
-        </div>
-      </div>
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
 
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
+          .animate-scroll {
+            animation: scroll 60s linear infinite;
           }
-          100% {
-            transform: translateX(-50%);
+
+          .animate-scroll:hover {
+            animation-play-state: paused;
           }
-        }
-        
-        .animate-scroll {
-          animation: scroll 60s linear infinite;
-        }
-        
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-    </section>
+        `}</style>
+      </section>
+      <PartnersModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 

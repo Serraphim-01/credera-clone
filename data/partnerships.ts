@@ -224,7 +224,7 @@ export const partnerships: Partnership[] = [
     ],
     whatWeDo: 'We implement Zebra mobile computing and data capture solutions including barcode scanners, mobile computers, printers, and workforce management systems. Our services cover warehouse automation, inventory management, and mobile workforce solutions.',
     partnerStory: 'Our Zebra partnership began with a warehouse automation project that required rugged mobile computers and advanced data capture capabilities. We deployed Zebra devices that improved inventory accuracy by 99.5% and reduced processing time by 50%, establishing our expertise in Zebra enterprise mobility solutions.',
-    logo: '/images/partners/zebra-logo.svg',
+    logo: '/images/partners/zebra-logo.svg', // Placeholder
     website: 'https://zebra.com',
     category: 'hardware',
     specializations: ['Mobile Computing', 'Data Capture', 'Warehouse Automation', 'Inventory Management', 'Workforce Solutions']
