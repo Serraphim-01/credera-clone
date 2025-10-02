@@ -25,7 +25,7 @@ const PartnershipPage: React.FC<PartnershipPageProps> = async ({ params }) => {
       <section className="relative h-screen max-h-[600px] overflow-hidden">
         {/* Background Image - I'll add a real one later */}
         <Image
-          src="/TaskImages/services.jpg" // Placeholder, will be replaced with partner building image
+          src={partnership.heroImage}
           alt={`${partnership.name} office building`}
           fill
           className="object-cover absolute inset-0 z-0"
