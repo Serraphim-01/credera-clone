@@ -43,17 +43,17 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
   const duplicatedPartners = [...partnerItems, ...partnerItems];
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-8">
+    <section className="bg-white py-20 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-credera-dark mb-4">
+        <div className="text-center mb-16 animate-fadeInUp">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             {title}
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+          <p className="text-lg text-dark-gray max-w-3xl mx-auto mb-6">
             {subtitle}
           </p>
-          <div className="w-24 h-1 bg-credera-red mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow mx-auto"></div>
         </div>
 
         {/* Partners Infinite Scroll */}
@@ -63,7 +63,7 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
               <Link
                 key={`${partner.id}-${index}`}
                 href={partner.href}
-                className="group flex flex-col items-center cursor-pointer relative flex-shrink-0"
+                className="group flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
               >
                 <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
                   <Image
@@ -76,9 +76,9 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
                 </div>
                 
                 {/* Hover tooltip */}
-                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-credera-dark text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
+                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
                   {partner.name}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-credera-dark"></div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
                 </div>
               </Link>
             ))}
@@ -89,7 +89,7 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
         <div className="text-center">
           <Link
             href="/partnerships"
-            className="inline-flex items-center text-credera-red hover:text-opacity-80 font-medium transition-colors duration-200"
+            className="inline-flex items-center text-yellow hover:text-opacity-80 font-medium transition-colors duration-200"
           >
             View All Partners
             <svg

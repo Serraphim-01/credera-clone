@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Roboto, Exo } from "next/font/google";
 import NavigationComponent from '@/components/NavigationComponent';
 import SocialMediaSidebar from '@/components/SocialMediaSidebar';
 import { NavigationItem, TopBarItem } from '@/types';
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ['400', '500', '600', '700']
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ['400', '500', '700']
+});
+
+const exo = Exo({
+  variable: "--font-exo",
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700']
 });
 
 export const metadata: Metadata = {
@@ -244,7 +252,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} ${roboto.variable} ${exo.variable} antialiased`}
       >
         {/* Social Media Sidebar */}
         <SocialMediaSidebar />

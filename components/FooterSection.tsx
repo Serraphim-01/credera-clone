@@ -11,7 +11,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
   copyright = `© ${new Date().getFullYear()} Task Systems. All rights reserved.`
 }) => {
   return (
-    <footer className="bg-credera-dark text-white">
+    <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-8">
         {/* Main Footer Content */}
         <div className="py-12">
@@ -26,7 +26,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                   height={40}
                   className="mb-4 rounded-lg"
                 />
-                <p className="text-gray-300 text-sm leading-relaxed max-w-md">
+                <p className="text-light-gray text-sm leading-relaxed max-w-md">
                   {description}
                 </p>
               </div>
@@ -41,7 +41,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/solutions"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Solutions
                   </Link>
@@ -49,7 +49,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/consult"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Consult
                   </Link>
@@ -57,7 +57,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/company"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Company
                   </Link>
@@ -65,7 +65,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/careers"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Careers
                   </Link>
@@ -82,7 +82,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/about"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Our Story
                   </Link>
@@ -90,7 +90,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/team"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Our Team
                   </Link>
@@ -98,7 +98,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                 <li>
                   <Link
                     href="/contact"
-                    className="text-gray-300 hover:text-credera-red transition-colors duration-200 text-sm"
+                    className="text-light-gray hover:text-yellow transition-colors duration-200 text-sm"
                   >
                     Contact
                   </Link>
@@ -109,9 +109,9 @@ const FooterSection: React.FC<FooterSectionProps> = ({
         </div>
 
         {/* Copyright */}
-        <div className="py-6 border-t border-gray-700">
+        <div className="py-6 border-t border-dark-gray">
           <div className="text-center">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray">
               {copyright}
             </p>
           </div>

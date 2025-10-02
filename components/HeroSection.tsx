@@ -28,15 +28,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Hero Content */}
           <div className="max-w-xl">
-            <h1 className="text-hero text-credera-orange font-bold mb-6">
+            <h1 className="text-hero text-white font-bold mb-6">
               Unlock{' '}
-              <span className="orange-underline">
+              <span className="text-yellow">
                 extraordinary
               </span>{' '}
               opportunities.
             </h1>
 
-            <p className="text-xl italic text-credera-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl italic text-light-gray mb-8 leading-relaxed">
               {description}
             </p>
 
@@ -105,7 +105,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <Link
               href={ctaLink}
-              className="inline-flex items-center px-8 py-4 bg-credera-red text-white font-medium text-sm tracking-wide hover:bg-opacity-90 transition-all duration-200 hover-lift focus-visible rounded-md"
+              className="inline-flex items-center px-8 py-4 bg-yellow text-black font-semibold text-sm tracking-wide hover:bg-opacity-80 transition-all duration-200 hover-lift focus-visible rounded-md"
               aria-label={ctaText}
             >
               {ctaText}

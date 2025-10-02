@@ -1,81 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  /* Credera Brand Colors - Updated for orange, blue, gray scheme */
-  --credera-orange: #FF6B35;
-  --task-yellow: #fbc000;
-  --credera-blue: #2563EB;
-  --credera-green: #10B981;
-  --credera-navy: #1E3A8A;
-  --credera-dark: #111827;
-  --credera-gray-600: #6B7280;
-  --credera-gray-400: #9CA3AF;
-  --credera-gray-100: #F3F4F6;
-  --credera-gray-50: #F9FAFB;
-  --credera-blue-50: #F0F9FF;
-  --credera-blue-100: #E0F2FE;
-  --credera-slate-50: #F8FAFC;
-  
   /* Background and foreground */
-  --background: #ffffff;
-  --foreground: #111827;
+  --background: #fdfdfc;
+  --foreground: #181817;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-  /* Credera color utilities - Updated for orange, blue, gray scheme */
-  --color-credera-orange: var(--credera-orange);
-  --color-credera-blue: var(--credera-blue);
-  --color-credera-green: var(--credera-green);
-  --color-credera-dark: var(--credera-dark);
-  --color-credera-navy: var(--credera-navy);
-  --color-credera-gray-600: var(--credera-gray-600);
-  --color-credera-gray-400: var(--credera-gray-400);
-  --color-credera-gray-100: var(--credera-gray-100);
-  --color-credera-gray-50: var(--credera-gray-50);
-  --color-credera-blue-50: var(--credera-blue-50);
-  --color-credera-blue-100: var(--credera-blue-100);
-  --color-credera-slate-50: var(--credera-slate-50);
-  --color-credera-red: #E55F4C;
+  --font-sans: var(--font-roboto);
+  --font-headings: var(--font-poppins);
+  --font-accents: var(--font-exo);
 }
-
-/* Credera brand color utility classes */
-.text-credera-dark { color: var(--credera-dark); }
-.text-credera-gray-600 { color: var(--credera-gray-600); }
-.text-credera-gray-400 { color: var(--credera-gray-400); }
-.text-credera-red { color: var(--color-credera-red); }
-.bg-credera-gray-50 { background-color: var(--credera-gray-50); }
-.bg-credera-gray-100 { background-color: var(--credera-gray-100); }
-.bg-credera-blue-50 { background-color: var(--credera-blue-50); }
-.bg-credera-slate-50 { background-color: var(--credera-slate-50); }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
 /* Typography Utilities */
+h1, h2, h3, h4, h5, h6, .text-hero {
+  font-family: var(--font-headings);
+}
+
+p, span, div {
+  font-family: var(--font-sans);
+}
+
+.text-accent {
+  font-family: var(--font-accents);
+}
+
 .text-hero {
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 400;
+  font-weight: 700; /* Bolder for hero */
   line-height: 1.2;
 }
 
 .text-nav {
+  font-family: var(--font-accents);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600; /* Semi-bold for nav */
   letter-spacing: 0.5px;
 }
 
 .text-card-title {
+  font-family: var(--font-headings);
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600; /* Semi-bold for card titles */
   line-height: 1.4;
 }
 
@@ -106,17 +81,25 @@ body {
 
 /* Focus states for accessibility */
 .focus-visible {
-  outline: 2px solid var(--credera-orange);
+  outline: 2px solid var(--yellow);
   outline-offset: 2px;
 }
 
 /* Hover transitions */
 .hover-lift {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+}
+
+.subtle-lift {
+  transition: transform 0.2s ease-out;
+}
+
+.subtle-lift:hover {
+  transform: translateY(-2px);
 }
 
 .hover-shadow {
@@ -124,67 +107,75 @@ body {
 }
 
 .hover-shadow:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* Orange Underline Effect */
-.orange-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.orange-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: url('/images/orange-curve-underline.svg') no-repeat;
-  background-size: 100% 100%;
-}
 
 /* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes slideIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(-20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes slideInFromRight {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(100%);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 /* Animation utility classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
 .animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
 }
 
 .animate-slideIn {
-  animation: slideIn 0.6s ease-out;
+  animation: slideIn 0.6s ease-out forwards;
 }
 
 .animate-slideInFromRight {
@@ -252,24 +243,24 @@ body {
 
 /* Form styling */
 .form-input {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent;
 }
 
 .form-textarea {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent resize-none;
 }
 
 /* Button variants */
 .btn-primary {
-  @apply px-6 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-colors duration-200;
+  @apply px-6 py-3 bg-yellow-500 text-black font-semibold rounded-md hover:bg-yellow-600 transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-md hover:bg-orange-500 hover:text-white transition-colors duration-200;
+  @apply px-6 py-3 border-2 border-yellow-500 text-yellow-500 font-semibold rounded-md hover:bg-yellow-500 hover:text-black transition-colors duration-200;
 }
 
 .btn-outline {
-  @apply px-6 py-3 border border-gray-300 text-gray-600 font-semibold rounded-md hover:border-orange-500 hover:text-orange-500 transition-colors duration-200;
+  @apply px-6 py-3 border border-gray-300 text-gray-600 font-semibold rounded-md hover:border-yellow-500 hover:text-yellow-500 transition-colors duration-200;
 }
 
 /* Card hover effects */
@@ -283,8 +274,8 @@ body {
 
 /* Loading spinner */
 .spinner {
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid var(--credera-orange);
+  border: 2px solid var(--light-gray);
+  border-top: 2px solid var(--yellow);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -297,14 +288,6 @@ body {
 }
 
 /* Gradient backgrounds */
-.gradient-orange {
-  background: linear-gradient(135deg, var(--credera-orange) 0%, #e55f4c 100%);
-}
-
-.gradient-blue {
-  background: linear-gradient(135deg, var(--credera-blue) 0%, #1e40af 100%);
-}
-
 .gradient-overlay {
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
 }
@@ -340,17 +323,17 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--light-gray);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--credera-orange);
+  background: var(--yellow);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--credera-dark);
+  background: var(--dark-gray);
 }
 
 /* Print styles */

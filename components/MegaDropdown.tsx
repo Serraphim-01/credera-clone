@@ -58,10 +58,10 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
           <div className="col-span-12 lg:col-span-3">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-credera-dark mb-3">
+                <h3 className="text-xl font-bold text-black mb-3">
                   {content.overview.title}
                 </h3>
-                <p className="text-credera-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-dark-gray text-sm leading-relaxed mb-4">
                   {content.overview.description}
                 </p>
               </div>
@@ -95,7 +95,7 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                     }}
                   >
                     {/* Partnerships section titles should be static, others should have links */}
-                    <span className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 block">
+                    <span className="text-lg font-bold text-black border-b border-gray-200 pb-2 block">
                       {category.title}
                     </span>
                     <ul className="space-y-2 mt-4" role="group" aria-labelledby={`category-${category.id}`}>
@@ -103,7 +103,7 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                         <li key={serviceIndex}>
                           <Link
                             href={service.href!}
-                            className="block text-sm text-credera-gray-600 hover:text-credera-red cursor-pointer transition-colors duration-200"
+                            className="block text-sm text-dark-gray hover:text-yellow cursor-pointer transition-colors duration-200"
                             title={service.description}
                           >
                             {service.label}
@@ -129,14 +129,14 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                     {sectionType === 'NEWSROOM' ? (
                       <Link
                         href={`/newsroom?category=${category.id}`}
-                        className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 hover:text-credera-red transition-colors duration-200 block"
+                        className="text-lg font-bold text-black border-b border-gray-200 pb-2 hover:text-yellow transition-colors duration-200 block"
                       >
                         {category.title}
                       </Link>
                     ) : (
                       <Link
                         href={`/${category.id}`}
-                        className="text-lg font-bold text-credera-dark border-b border-gray-200 pb-2 hover:text-credera-red transition-colors duration-200 block"
+                        className="text-lg font-bold text-black border-b border-gray-200 pb-2 hover:text-yellow transition-colors duration-200 block"
                       >
                         {category.title}
                       </Link>
@@ -148,14 +148,14 @@ const MegaDropdown: React.FC<MegaDropdownProps> = ({
                           {sectionType === 'SERVICES' && service.href ? (
                             <Link
                               href={service.href}
-                              className="block text-sm text-credera-gray-600 hover:text-credera-red cursor-pointer transition-colors duration-200"
+                              className="block text-sm text-dark-gray hover:text-yellow cursor-pointer transition-colors duration-200"
                               title={service.description}
                             >
                               {service.label}
                             </Link>
                           ) : (
                             <span
-                              className="block text-sm text-credera-gray-600 cursor-default"
+                              className="block text-sm text-dark-gray cursor-default"
                               title={service.description}
                             >
                               {service.label}
