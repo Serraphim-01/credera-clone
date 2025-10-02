@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { newsArticles } from '@/data/newsroom';
 import NewsCard from '@/components/NewsCard';
 import NewsFilter from '@/components/NewsFilter';
@@ -16,6 +17,7 @@ const NewsRoomPage: React.FC = () => {
     start: '',
     end: ''
   });
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   // Handle URL parameter filtering
   useEffect(() => {
@@ -69,18 +71,40 @@ const NewsRoomPage: React.FC = () => {
       </div>
 
       {/* Filters Section */}
-      <div className="bg-gray-50 py-8">
+      <div className="bg-gray-50 py-4">
         <div className="max-w-[2000px] mx-auto px-8">
-          <NewsFilter
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-            selectedCategories={selectedCategories}
-            onCategoriesChange={setSelectedCategories}
-            selectedAuthor={selectedAuthor}
-            onAuthorChange={setSelectedAuthor}
-            dateRange={dateRange}
-            onDateRangeChange={setDateRange}
-          />
+          <div className="flex justify-end">
+            <button
+              onClick={() => setIsFilterVisible(!isFilterVisible)}
+              className="flex items-center gap-2 px-4 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium hover:bg-gray-100"
+            >
+              {isFilterVisible ? (
+                <>
+                  <XMarkIcon className="w-5 h-5" />
+                  <span>Hide Filters</span>
+                </>
+              ) : (
+                <>
+                  <FunnelIcon className="w-5 h-5" />
+                  <span>Show Filters</span>
+                </>
+              )}
+            </button>
+          </div>
+          {isFilterVisible && (
+            <div className="mt-4">
+              <NewsFilter
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+                selectedCategories={selectedCategories}
+                onCategoriesChange={setSelectedCategories}
+                selectedAuthor={selectedAuthor}
+                onAuthorChange={setSelectedAuthor}
+                dateRange={dateRange}
+                onDateRangeChange={setDateRange}
+              />
+            </div>
+          )}
         </div>
       </div>
 

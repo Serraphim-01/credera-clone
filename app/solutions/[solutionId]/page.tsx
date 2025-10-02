@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getSolutionById, generateStaticParams as getSolutionParams } from '@/data/solutions';
 import { SolutionPageProps } from '@/types';
-import { TechStackSection } from '@/components/TechStackSection';
+import SolutionPartnersSection from '@/components/SolutionPartnersSection';
 import { SolutionCertificationsSection } from '@/components/SolutionCertificationsSection';
 import FooterSection from '@/components/FooterSection';
 import { CustomerStoriesSection } from '@/components/CustomerStoriesSection';
@@ -25,18 +25,18 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb Navigation */}
-      <section className="bg-gray-50 py-4 px-4">
+      <section className="bg-light-gray py-4 px-4">
         <div className="max-w-7xl mx-auto">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link href="/" className="text-gray-600 hover:text-orange-500">
+            <Link href="/" className="text-gray hover:text-yellow">
               Home
             </Link>
-            <span className="text-gray-400">/</span>
-            <Link href="/solutions" className="text-gray-600 hover:text-orange-500">
+            <span className="text-gray">/</span>
+            <Link href="/solutions" className="text-gray hover:text-yellow">
               Solutions
             </Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">
+            <span className="text-gray">/</span>
+            <span className="text-black font-medium">
               {solution.title}
             </span>
           </nav>
@@ -56,24 +56,24 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl font-bold text-black mb-8">
               Overview
             </h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-dark-gray mb-8 leading-relaxed">
                 {solution.fullDescription || solution.description}
               </p>
               
               {solution.benefits && solution.benefits.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                  <h3 className="text-2xl font-semibold text-black mb-6">
                     Key Benefits
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {solution.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-orange-500 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <p className="text-gray-700">{benefit}</p>
+                        <div className="w-2 h-2 bg-yellow rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                        <p className="text-dark-gray">{benefit}</p>
                       </div>
                     ))}
                   </div>
@@ -84,9 +84,9 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
         </div>
       </section>
 
-      {/* Tech Stack Section */}
-      {solution.technologies && solution.technologies.length > 0 && (
-        <TechStackSection technologies={solution.technologies} minimizable={true} />
+      {/* Partners Section */}
+      {solution.partnerIds && solution.partnerIds.length > 0 && (
+        <SolutionPartnersSection partnerIds={solution.partnerIds} />
       )}
 
       {/* Certifications Section */}
@@ -103,20 +103,20 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       )}      
 
       {/* Book Demo/Service Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-light-gray">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl font-bold text-black mb-6">
             Ready to Get Started with {solution.title}?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-dark-gray mb-8 max-w-3xl mx-auto">
             Take the next step in your digital transformation journey. Book a personalized demo 
             or schedule a consultation with our expert team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-200">
+            <button className="bg-yellow text-black px-8 py-4 rounded-lg font-semibold hover:bg-opacity-80 transition-colors duration-200">
               BOOK A DEMO
             </button>
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+            <button className="bg-dark-gray text-white px-8 py-4 rounded-lg font-semibold hover:bg-black transition-colors duration-200">
               BOOK A SERVICE
             </button>
           </div>

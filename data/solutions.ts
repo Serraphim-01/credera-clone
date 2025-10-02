@@ -30,6 +30,7 @@ export const solutionsData: Solution[] = [
       'VMware NSX',
       'Software-Defined Networking'
     ],
+    partnerIds: ['cisco', 'dell', 'hpe'],
     certifications: [
       {
         id: 'cisco-enterprise',
@@ -118,6 +119,7 @@ export const solutionsData: Solution[] = [
       'BlackBerry UEM',
       'Mobile Application Management'
     ],
+    partnerIds: ['microsoft', 'ibm'],
     certifications: [
       {
         id: 'microsoft-mobility',
@@ -205,6 +207,7 @@ export const solutionsData: Solution[] = [
       'RingCentral',
       'Session Initiation Protocol'
     ],
+    partnerIds: ['microsoft', 'cisco'],
     certifications: [
       {
         id: 'cisco-collaboration',
@@ -292,6 +295,7 @@ export const solutionsData: Solution[] = [
       'Atlassian Suite',
       'SharePoint Online'
     ],
+    partnerIds: ['microsoft', 'google'],
     certifications: [
       {
         id: 'microsoft-365',
@@ -379,6 +383,7 @@ export const solutionsData: Solution[] = [
       'Splunk SIEM',
       'Zero Trust Architecture'
     ],
+    partnerIds: ['microsoft', 'checkpoint'],
     certifications: [
       {
         id: 'cissp',
@@ -466,6 +471,7 @@ export const solutionsData: Solution[] = [
       'Docker Containers',
       'Kubernetes Orchestration'
     ],
+    partnerIds: ['microsoft', 'aws', 'google', 'oracle', 'ibm'],
     certifications: [
       {
         id: 'aws-solutions-architect',
@@ -553,6 +559,7 @@ export const solutionsData: Solution[] = [
       'Splunk Infrastructure',
       'ITIL Best Practices'
     ],
+    partnerIds: ['microsoft'],
     certifications: [
       {
         id: 'itil-expert',
@@ -640,6 +647,7 @@ export const solutionsData: Solution[] = [
       'Kubernetes Services',
       'Serverless Computing'
     ],
+    partnerIds: ['aws', 'microsoft', 'google'],
     certifications: [
       {
         id: 'aws-certified-architect',

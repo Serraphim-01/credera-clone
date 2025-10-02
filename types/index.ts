@@ -371,6 +371,7 @@ export interface Solution {
   features?: string[]; // Key features list
   benefits?: string[]; // Business benefits
   technologies?: string[]; // Technology stack
+  partnerIds?: string[]; // Associated partner IDs
   certifications?: Certification[]; // Solution-specific certifications
   customerStories?: CustomerStory[]; // Solution-specific customer stories
   caseStudies?: CaseStudy[]; // Related case studies
@@ -444,7 +445,7 @@ export interface TechStackSectionProps {
 // Partnership Types
 export interface Partnership {
   id: string;
-  name: string;
+  name:string;
   description: string;
   partnershipLevel: string;
   certifications: string[];
@@ -454,6 +455,7 @@ export interface Partnership {
   website: string;
   category: 'technology' | 'hardware' | 'infrastructure' | 'enterprise' | 'security';
   specializations: string[];
+  heroImage: string;
 }
 
 export interface PartnershipPageProps {

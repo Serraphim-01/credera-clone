@@ -5,35 +5,16 @@ import Image from 'next/image';
 import { FaCloud, FaExpandArrowsAlt, FaDollarSign, FaExchangeAlt, FaShieldAlt, FaChartBar, FaCog, FaUsers, FaPlane } from 'react-icons/fa';
 import FooterSection from '@/components/FooterSection';
 import BookingModal from '@/components/BookingModal';
-import NextStepsModal from '@/components/NextStepsModal';
-import { NextStepsFormData } from '@/types';
 
 export default function ConsultOverview() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState<'demo' | 'service'>('demo');
-  const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
 
-  const handleBooking = (type: 'demo' | 'service') => {
-    setModalType(type);
+  const handleOpenModal = () => {
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleNextStepsClick = () => {
-    setIsNextStepsModalOpen(true);
-  };
-
-  const handleNextStepsClose = () => {
-    setIsNextStepsModalOpen(false);
-  };
-
-  const handleNextStepsSubmit = async (data: NextStepsFormData) => {
-    console.log('Next Steps form submitted:', data);
-    // Handle form submission logic here
-    alert('Thank you! We will contact you soon to schedule your initial call.');
   };
   return (
     <div className="min-h-screen bg-white">
@@ -328,8 +309,8 @@ export default function ConsultOverview() {
                     Take the first step towards cloud success with our comprehensive GetConsult service.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button 
-                      onClick={handleNextStepsClick}
+                    <button
+                      onClick={handleOpenModal}
                       className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-200"
                     >
                       Book a Demo
@@ -344,20 +325,11 @@ export default function ConsultOverview() {
 
       {/* Footer */}
       <FooterSection />
-      
+
       {/* Booking Modal */}
-      <BookingModal 
+      <BookingModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        type={modalType}
-      />
-      
-      {/* Next Steps Modal */}
-      <NextStepsModal 
-        isOpen={isNextStepsModalOpen}
-        onClose={handleNextStepsClose}
-        onSubmit={handleNextStepsSubmit}
-        showConsultTypeSelection={true}
       />
     </div>
   );

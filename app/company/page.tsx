@@ -106,13 +106,13 @@ const LeadershipCard: React.FC<{
       />
     </div>
     <div className="p-6 sm:p-4">
-      <h3 className="text-xl sm:text-lg font-bold text-gray-900 mb-2">{person.name}</h3>
-      <p className="text-blue-600 font-semibold mb-3 sm:mb-2 sm:text-sm">{person.title}</p>
+      <h3 className="text-xl sm:text-lg font-bold text-black mb-2">{person.name}</h3>
+      <p className="text-dark-gray font-semibold mb-3 sm:mb-2 sm:text-sm">{person.title}</p>
       <a
         href={person.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm sm:text-xs font-medium"
+        className="inline-flex items-center text-dark-gray hover:text-yellow text-sm sm:text-xs font-medium"
       >
         <svg
           className="w-4 h-4 sm:w-3 sm:h-3 mr-2"
@@ -156,23 +156,23 @@ const CompanyPage = () => {
   }> = ({ id, title, icon, description }) => (
     <div className="flex items-center justify-between mb-8 sm:mb-6">
       <div className="flex items-center space-x-4 sm:space-x-3">
-        <div className="p-3 sm:p-2 bg-blue-100 rounded-lg">
+        <div className="p-3 sm:p-2 bg-light-gray rounded-lg">
           {icon}
         </div>
         <div>
-          <h2 className="text-3xl sm:text-xl font-bold text-gray-900">{title}</h2>
-          <p className="text-gray-600 mt-1 sm:text-sm">{description}</p>
+          <h2 className="text-3xl sm:text-xl font-bold text-black">{title}</h2>
+          <p className="text-gray mt-1 sm:text-sm">{description}</p>
         </div>
       </div>
       <button
         onClick={() => toggleSection(id)}
-        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        className="p-2 hover:bg-light-gray rounded-full transition-colors"
         aria-label={`${expandedSections[id] ? 'Collapse' : 'Expand'} ${title} section`}
       >
         {expandedSections[id] ? (
-          <ChevronUp className="w-6 h-6 sm:w-5 sm:h-5 text-gray-600" />
+          <ChevronUp className="w-6 h-6 sm:w-5 sm:h-5 text-dark-gray" />
         ) : (
-          <ChevronDown className="w-6 h-6 sm:w-5 sm:h-5 text-gray-600" />
+          <ChevronDown className="w-6 h-6 sm:w-5 sm:h-5 text-dark-gray" />
         )}
       </button>
     </div>
@@ -201,42 +201,12 @@ const CompanyPage = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-2 py-16 sm:py-8 space-y-16 sm:space-y-8">
-        {/* Customer Stories Section */}
-        <section id="customer-stories">
-          <SectionHeader
-            id="customer-stories"
-            title="Customer Stories"
-            icon={<Users className="w-6 h-6 text-blue-600" />}
-            description="Real stories of transformation and success from our valued clients"
-          />
-          {expandedSections['customer-stories'] && (
-            <div className="transition-all duration-300">
-              <CustomerStoriesSection />
-            </div>
-          )}
-        </section>
-
-        {/* Certifications Section */}
-        <section id="certifications">
-          <SectionHeader
-            id="certifications"
-            title="Certifications & Awards"
-            icon={<Award className="w-6 h-6 text-blue-600" />}
-            description="Industry recognition and professional certifications that validate our expertise"
-          />
-          {expandedSections['certifications'] && (
-            <div className="transition-all duration-300">
-              <CertificationsSection />
-            </div>
-          )}
-        </section>
-
         {/* Leadership Section */}
         <section id="leadership">
           <SectionHeader
             id="leadership"
             title="Leadership"
-            icon={<Building className="w-6 h-6 text-blue-600" />}
+            icon={<Building className="w-6 h-6 text-black" />}
             description="Meet the visionary leaders driving our organization forward"
           />
           {expandedSections['leadership'] && (
@@ -257,7 +227,7 @@ const CompanyPage = () => {
 
               {/* Management Team */}
               <div>
-                <h3 className="text-2xl sm:text-xl font-bold text-gray-900 mb-6 sm:mb-4">Management Team</h3>
+                <h3 className="text-2xl sm:text-xl font-bold text-black mb-6 sm:mb-4">Management Team</h3>
                 <div className="flex flex-wrap justify-center gap-6 sm:gap-4">
                   {leadershipTeam.management.map((person) => (
                     <LeadershipCard key={person.id} person={person} />
@@ -273,12 +243,42 @@ const CompanyPage = () => {
           <SectionHeader
             id="company-history"
             title="Company History"
-            icon={<Clock className="w-6 h-6 text-blue-600" />}
+            icon={<Clock className="w-6 h-6 text-black" />}
             description="Our journey of growth, innovation, and impact over the years"
           />
           {expandedSections['company-history'] && (
             <div className="transition-all duration-300">
               <CompanyHistoryTimeline />
+            </div>
+          )}
+        </section>
+
+        {/* Certifications Section */}
+        <section id="certifications">
+          <SectionHeader
+            id="certifications"
+            title="Certifications & Awards"
+            icon={<Award className="w-6 h-6 text-black" />}
+            description="Industry recognition and professional certifications that validate our expertise"
+          />
+          {expandedSections['certifications'] && (
+            <div className="transition-all duration-300">
+              <CertificationsSection />
+            </div>
+          )}
+        </section>
+
+        {/* Customer Stories Section */}
+        <section id="customer-stories">
+          <SectionHeader
+            id="customer-stories"
+            title="Customer Stories"
+            icon={<Users className="w-6 h-6 text-black" />}
+            description="Real stories of transformation and success from our valued clients"
+          />
+          {expandedSections['customer-stories'] && (
+            <div className="transition-all duration-300">
+              <CustomerStoriesSection />
             </div>
           )}
         </section>
