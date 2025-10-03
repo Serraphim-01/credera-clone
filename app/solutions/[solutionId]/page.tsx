@@ -103,7 +103,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       )}      
 
       {/* Book Demo/Service Section */}
-      <section className="py-16 px-4 bg-light-gray">
+      <section className="py-16 px-4 bg-[color:var(--color-light-yellow)]">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-black mb-6">
             Ready to Get Started with {solution.title}?

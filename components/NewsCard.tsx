@@ -36,11 +36,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
 
   const getCategoryColor = (cat: string) => {
     switch (cat) {
-      case 'blog': return 'bg-blue-500';
-      case 'article': return 'bg-green-500';
-      case 'news': return 'bg-red-500';
-      case 'event': return 'bg-purple-500';
-      default: return 'bg-gray-500';
+      case 'blog': return 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]';
+      case 'article': return 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]';
+      case 'news': return 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]';
+      case 'event': return 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]';
+      default: return 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]';
     }
   };
 
@@ -58,7 +58,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
           
           {/* Category Badge and Timer */}
           <div className="absolute top-4 right-4 flex flex-col items-end space-y-2">
-            <div className={`px-3 py-1 rounded-full text-white text-sm font-semibold uppercase tracking-wide ${getCategoryColor(category)}`}>
+            <div className={`px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wide ${getCategoryColor(category)}`}>
               {category}
             </div>
             {category === 'event' && (
@@ -67,14 +67,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
           </div>
           
           {/* Initial Title Overlay - positioned at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-black/70 to-transparent text-white">
             <h3 className="text-xl font-bold leading-tight mb-2 line-clamp-2">
               {title}
             </h3>
           </div>
           
           {/* Hover Overlay - slides up from bottom */}
-          <div className="absolute inset-0 bg-credera-red transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+          <div className="absolute inset-0 bg-[color:var(--color-foreground)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
             <div className="flex flex-col justify-center items-center h-full p-6 text-white text-center">
               <h3 className="text-xl font-bold mb-4 line-clamp-2">
                 {title}

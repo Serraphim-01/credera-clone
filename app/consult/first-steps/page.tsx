@@ -55,8 +55,8 @@ export default function CurrentStatePortfolioAnalysis() {
                   <li><strong>Tools</strong>: capability, dependencies, usage.</li>
                 </ul>
 
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-                  <blockquote className="text-lg italic text-blue-800">
+                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-6 mb-8">
+                  <blockquote className="text-lg italic text-[color:var(--color-yellow)] ">
                     <strong>Forrester</strong>: 45% complexity reduction & 51% higher availability start with <strong>accurate discovery</strong>.
                   </blockquote>
                 </div>
@@ -135,25 +135,25 @@ export default function CurrentStatePortfolioAnalysis() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-green-800 mb-4">
+                <div className="bg-[color:var(--color-foreground)] border border-green-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
                     Outcomes
                   </h3>
-                  <ul className="space-y-3 text-sm text-green-700">
+                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
                       Single source of truth for apps & infra
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
                       Move-blockers surfaced early
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
                       Quick-win candidates highlighted
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-3 text-xl">✓</span>
+                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
                       Data-driven input to TCO, security & migration waves
                     </li>
                   </ul>
@@ -186,26 +186,26 @@ export default function CurrentStatePortfolioAnalysis() {
                 </ul>
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h3 className="text-lg font-semibold text-blue-800 mb-4">
+              <div className="bg-[color:var(--color-foreground)] p-6 rounded-lg border border-[color:var(--color-yellow)] ">
+                <h3 className="text-lg font-semibold text-[color:var(--color-yellow)]  mb-4">
                   Next Steps
                 </h3>
-                <p className="text-sm text-blue-700 mb-4">
+                <p className="text-sm text-[color:var(--color-yellow)] mb-4">
                   Ready to begin your portfolio analysis?
                 </p>
                 <button 
                   onClick={handleNextStepsClick}
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold"
+                  className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold"
                 >
                   Start Portfolio Analysis
                 </button>
-                <div className="mt-4 pt-4 border-t border-blue-200">
-                  <p className="text-xs text-blue-600 mb-2">Navigation:</p>
+                <div className="mt-4 pt-4 border-t border-[color:var(--color-yellow)]">
+                  <p className="text-xs text-[color:var(--color-yellow)] mb-2">Navigation:</p>
                   <div className="space-y-2">
-                    <a href="/consult" className="block text-xs text-blue-600 hover:underline">
+                    <a href="/consult" className="block text-xs text-[color:var(--color-yellow)] hover:underline">
                       ← Back to Overview
                     </a>
-                    <a href="/consult/cloud-tco-assessment" className="block text-xs text-blue-600 hover:underline">
+                    <a href="/consult/cloud-tco-assessment" className="block text-xs text-[color:var(--color-yellow)] hover:underline">
                       Next: TCO Assessment →
                     </a>
                   </div>

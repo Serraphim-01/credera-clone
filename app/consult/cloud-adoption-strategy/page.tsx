@@ -9,17 +9,11 @@ import { NextStepsFormData } from '@/types';
 export default function CloudAdoptionStrategy() {
   const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
 
-  const handleNextStepsClick = () => {
-    setIsNextStepsModalOpen(true);
-  };
-
-  const handleNextStepsClose = () => {
-    setIsNextStepsModalOpen(false);
-  };
+  const handleNextStepsClick = () => setIsNextStepsModalOpen(true);
+  const handleNextStepsClose = () => setIsNextStepsModalOpen(false);
 
   const handleNextStepsSubmit = async (data: NextStepsFormData) => {
     console.log('Next Steps form submitted:', data);
-    // Handle form submission logic here
     alert('Thank you! We will contact you soon to schedule your Strategy Development.');
   };
 
@@ -40,151 +34,131 @@ export default function CloudAdoptionStrategy() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
-                Purpose
-              </h2>
-              
+              <h2 className="text-3xl font-bold text-credera-dark mb-6">Purpose</h2>
+
               <div className="prose prose-lg max-w-none text-credera-gray-600">
-                <p className="mb-6">
-                  We consolidate findings from:
-                </p>
-                
+                <p className="mb-6">We consolidate findings from:</p>
                 <ol className="list-decimal list-inside mb-6 space-y-2">
                   <li>Current-State Portfolio Analysis</li>
                   <li>Cloud TCO Assessment</li>
                   <li>Future-State Realisation Feasibility</li>
                 </ol>
-                
                 <p className="mb-8">
                   into a single, board-level <strong>Cloud Adoption Strategy</strong> that guarantees ROI, resilience & readiness.
                 </p>
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
-                Strategy canvas
-              </h2>
-              
+              <h2 className="text-3xl font-bold text-credera-dark mb-6">Strategy canvas</h2>
+
               <div className="overflow-x-auto mb-12">
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Input</th>
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Output</th>
+                    <tr className="bg-credera-gray-50">
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Input</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Output</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">R-strategy (Retain, Rehost, Replatform, Refactor, Retire)</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Migration wave plan</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">
+                        R-strategy (Retain, Rehost, Replatform, Refactor, Retire)
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Migration wave plan</td>
                     </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Gap analysis & RAID log</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Risk-mitigated execution path</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Reference architecture</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Landing-zone design & guard-rails</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Cost-governance recs</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">FinOps policy set</td>
+                    <tr className="bg-credera-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Gap analysis & RAID log</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Risk-mitigated execution path</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Security considerations</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Compliance controls</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Reference architecture</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Landing-zone design & guard-rails</td>
                     </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Change-readiness score</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Communications & training plan</td>
+                    <tr className="bg-credera-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Cost-governance recs</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">FinOps policy set</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Security considerations</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Compliance controls</td>
+                    </tr>
+                    <tr className="bg-credera-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Change-readiness score</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Comms & training plan</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
-                Roadmap snapshot
-              </h2>
-
+              <h2 className="text-3xl font-bold text-credera-dark mb-6">Roadmap snapshot</h2>
               <div className="space-y-8">
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Phase 0: Governance setup, landing zone build, pilot (30 days)
-                  </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Initial foundation setup with governance framework and pilot environment.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Phase 1–3: Migration waves by business priority (3–9 months)
-                  </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Phased migration approach prioritized by business value and complexity.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Phase 4: Transformation sprints (containerise, serverless, DevOps)
-                  </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Advanced transformation initiatives including modernization and automation.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
-                    Steady-State: No-Ops target, continuous cost optimisation
-                  </h3>
-                  <p className="text-credera-gray-600 mb-4">
-                    Ongoing optimization and automated operations for sustained value.
-                  </p>
-                </div>
+                {[
+                  {
+                    title: 'Phase 0: Governance setup, landing zone build, pilot (30 days)',
+                    desc: 'Initial foundation setup with governance framework and pilot environment.',
+                  },
+                  {
+                    title: 'Phase 1–3: Migration waves by business priority (3–9 months)',
+                    desc: 'Phased migration approach prioritized by business value and complexity.',
+                  },
+                  {
+                    title: 'Phase 4: Transformation sprints (containerise, serverless, DevOps)',
+                    desc: 'Advanced transformation initiatives including modernization and automation.',
+                  },
+                  {
+                    title: 'Steady-State: No-Ops target, continuous cost optimisation',
+                    desc: 'Ongoing optimization and automated operations for sustained value.',
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 className="text-xl font-semibold text-credera-dark mb-4">{item.title}</h3>
+                    <p className="text-credera-gray-600 mb-4">{item.desc}</p>
+                  </div>
+                ))}
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
-                Governance & cadence
-              </h2>
-              
+              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">Governance & cadence</h2>
               <div className="overflow-x-auto mb-12">
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Tier</th>
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Cadence</th>
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Audience</th>
-                      <th className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Focus</th>
+                    <tr className="bg-credera-gray-50">
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Tier</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Cadence</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Audience</th>
+                      <th className="border border-gray-300 px-4 py-3 font-semibold text-credera-dark">Focus</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Strategic</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Bi-weekly</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Leadership</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Milestones, ROI</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Strategic</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Bi-weekly</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Leadership</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Milestones, ROI</td>
                     </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Tactical</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Weekly</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Program office</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">RAID, performance</td>
+                    <tr className="bg-credera-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Tactical</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Weekly</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Program office</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">RAID, performance</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Operational</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Daily</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Delivery squads</td>
-                      <td className="border border-gray-300 px-4 py-3 text-gray-700">Task board, burndown</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Operational</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Daily</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Delivery squads</td>
+                      <td className="border border-gray-300 px-4 py-3 text-credera-gray-600">Task board, burndown</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-blue-800 mb-4">
+
+              {/* Resources card with brand styling */}
+              <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
                   Download Resources
                 </h3>
-                <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <a
+                  href="#"
+                  className="inline-flex items-center text-[color:var(--color-yellow)] hover:underline font-medium"
+                >
                   Download sample strategy deck (PPT) →
                 </a>
               </div>
@@ -193,120 +167,95 @@ export default function CloudAdoptionStrategy() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                  <h3 className="text-lg font-semibold text-indigo-800 mb-4">
+                {/* Expectation Card */}
+                <div className="bg-[color:var(--color-foreground)] p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
                     What to Expect
                   </h3>
-                  <ul className="space-y-3 text-sm text-indigo-700">
-                    <li className="flex items-start">
-                      <span className="text-indigo-600 mr-2">→</span>
-                      Comprehensive strategy consolidation
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-indigo-600 mr-2">→</span>
-                      Board-level presentation materials
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-indigo-600 mr-2">→</span>
-                      Phased migration roadmap
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-indigo-600 mr-2">→</span>
-                      Governance and cadence framework
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-indigo-600 mr-2">→</span>
-                      ROI guarantees and success metrics
-                    </li>
+                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                    <li>→ Comprehensive strategy consolidation</li>
+                    <li>→ Board-level presentation materials</li>
+                    <li>→ Phased migration roadmap</li>
+                    <li>→ Governance and cadence framework</li>
+                    <li>→ ROI guarantees and success metrics</li>
                   </ul>
                 </div>
 
-                <div className="bg-credera-gray-50 p-6 rounded-lg">
+                {/* Engagement Process */}
+                <div className="bg-credera-gray-50 p-6 rounded-lg border border-[color:var(--color-yellow)]">
                   <h3 className="text-lg font-semibold text-credera-dark mb-4">
                     Engagement Process
                   </h3>
                   <div className="space-y-4 text-sm text-credera-gray-600">
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
                       <div className="font-semibold">Phase 1: Assessment</div>
                       <div>Current state analysis and readiness evaluation</div>
                     </div>
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
                       <div className="font-semibold">Phase 2: Strategy</div>
                       <div>Target state design and migration planning</div>
                     </div>
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
                       <div className="font-semibold">Phase 3: Roadmap</div>
                       <div>Detailed implementation plan development</div>
                     </div>
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
                       <div className="font-semibold">Phase 4: Validation</div>
                       <div>Strategy review and stakeholder alignment</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-                  <h3 className="text-lg font-semibold text-yellow-800 mb-4">
+                {/* Benefits */}
+                <div className="bg-[color:var(--color-light-yellow)] p-6 rounded-lg ">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-foreground)] mb-4">
                     Strategy Benefits
                   </h3>
-                  <ul className="space-y-2 text-sm text-yellow-700">
-                    <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">✓</span>
-                      Reduced migration risks
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">✓</span>
-                      Optimized cloud costs
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">✓</span>
-                      Faster time to value
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">✓</span>
-                      Improved scalability
-                    </li>
+                  <ul className="space-y-2 text-sm text-[color:var(--color-foreground)]">
+                    <li>✓ Reduced migration risks</li>
+                    <li>✓ Optimized cloud costs</li>
+                    <li>✓ Faster time to value</li>
+                    <li>✓ Improved scalability</li>
                   </ul>
                 </div>
 
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                  <h3 className="text-lg font-semibold text-blue-800 mb-4">
+                {/* Next Steps */}
+                <div className="bg-[color:var(--color-foreground)] p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
                     Next Steps
                   </h3>
-                  <p className="text-sm text-blue-700 mb-4">
+                  <p className="text-sm text-[color:var(--color-yellow)] mb-4">
                     Ready to develop your cloud adoption strategy?
                   </p>
-                  <button 
+                  <button
                     onClick={handleNextStepsClick}
-                    className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors duration-200 text-sm font-semibold"
+                    className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-200 text-sm font-semibold"
                   >
                     Start Strategy Development
                   </button>
-                  <div className="mt-4 pt-4 border-t border-blue-200">
-                    <p className="text-xs text-blue-600 mb-2">Navigation:</p>
+                  <div className="mt-4 pt-4 border-t border-[color:var(--color-yellow)]">
+                    <p className="text-xs text-[color:var(--color-yellow)] mb-2">Navigation:</p>
                     <div className="space-y-2">
-                      <a href="/consult/next-steps" className="block text-xs text-blue-600 hover:underline">
+                      <a href="/consult/next-steps" className="block text-xs text-[color:var(--color-yellow)] hover:underline">
                         ← Future-State Feasibility
                       </a>
-                      <a href="/consult" className="block text-xs text-blue-600 hover:underline">
-                        Back to Start →
+                      <a href="/consult/cloud-assessment" className="block text-xs text-[color:var(--color-yellow)] hover:underline">
+                        Back to Cloud Assessment →
                       </a>
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <FooterSection />
-      
+
       {/* Next Steps Modal */}
-      <NextStepsModal 
+      <NextStepsModal
         isOpen={isNextStepsModalOpen}
         onClose={handleNextStepsClose}
         onSubmit={handleNextStepsSubmit}

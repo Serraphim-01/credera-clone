@@ -19,31 +19,31 @@ const SocialMediaSidebar: React.FC<SocialMediaSidebarProps> = ({ links }) => {
       platform: 'LinkedIn',
       href: 'https://www.linkedin.com/company/tasksystems',
       icon: <FaLinkedin size={20} />,
-      hoverColor: 'hover:text-[#0077B5]'
+      hoverColor: 'hover:text-[color:var(--color-yellow)]'
     },
     {
       platform: 'Twitter',
       href: 'https://twitter.com/credera',
       icon: <FaTwitter size={20} />,
-      hoverColor: 'hover:text-[#1DA1F2]'
+      hoverColor: 'hover:text-[color:var(--color-yellow)]'
     },
     {
       platform: 'Facebook',
       href: 'https://www.facebook.com/credera',
       icon: <FaFacebook size={20} />,
-      hoverColor: 'hover:text-[#1877F2]'
+      hoverColor: 'hover:text-[color:var(--color-yellow)]'
     },
     {
       platform: 'Instagram',
       href: 'https://www.instagram.com/credera',
       icon: <FaInstagram size={20} />,
-      hoverColor: 'hover:text-[#E4405F]'
+      hoverColor: 'hover:text-[color:var(--color-yellow)]'
     },
     {
       platform: 'YouTube',
       href: 'https://www.youtube.com/credera',
       icon: <FaYoutube size={20} />,
-      hoverColor: 'hover:text-[#FF0000]'
+      hoverColor: 'hover:text-[color:var(--color-yellow)]'
     }
   ];
 

@@ -28,7 +28,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We provide comprehensive Microsoft solutions including cloud migration to Azure, Microsoft 365 deployment and management, Power Platform development, and custom application development using Microsoft technologies. Our expertise spans across Windows Server, SQL Server, SharePoint, and modern workplace solutions.',
     partnerStory: 'Our partnership with Microsoft began over a decade ago when we helped a Fortune 500 client migrate their entire infrastructure to Microsoft technologies. Since then, we\'ve completed over 200 successful Microsoft-based implementations, ranging from small business Office 365 deployments to enterprise-scale Azure cloud transformations. Our certified team has consistently delivered measurable ROI through Microsoft solutions.',
     logo: '/images/partners/microsoft-logo.svg',
-    heroImage: 'https://picsum.photos/seed/microsoft/1920/1080',
+    heroImage: '/partners-hero/microsoft.jpg',
     website: 'https://microsoft.com',
     category: 'technology',
     specializations: ['Cloud Migration', 'Azure Infrastructure', 'Microsoft 365', 'Power Platform', 'Modern Workplace']
@@ -47,7 +47,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We design and implement Dell infrastructure solutions including server deployments, storage solutions, networking equipment, and hyper-converged infrastructure. Our services include hardware procurement, installation, configuration, and ongoing support for Dell enterprise systems.',
     partnerStory: 'Our Dell partnership was forged through a critical datacenter transformation project where we replaced aging infrastructure with Dell PowerEdge servers and EMC storage solutions. The project was completed ahead of schedule and under budget, establishing our reputation as a trusted Dell implementation partner. We\'ve since deployed over $50M in Dell infrastructure across various industries.',
     logo: '/images/partners/dell-logo.svg',
-    heroImage: 'https://picsum.photos/seed/dell/1920/1080',
+    heroImage: '/partners-hero/dell.jpg',
     website: 'https://dell.com',
     category: 'hardware',
     specializations: ['Server Infrastructure', 'Storage Solutions', 'Hyper-converged Infrastructure', 'Datacenter Modernization']
@@ -66,7 +66,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We architect and implement AWS cloud solutions including infrastructure migration, serverless applications, containerized workloads, and cloud-native development. Our expertise covers EC2, S3, RDS, Lambda, EKS, and comprehensive DevOps practices on AWS.',
     partnerStory: 'Our AWS journey started with a startup that needed to scale rapidly. We built their entire infrastructure on AWS, enabling them to handle 10x traffic growth without downtime. This success led to our Advanced Partner status and over 150 successful AWS implementations, including several Well-Architected Framework reviews and cost optimization projects that saved clients millions.',
     logo: '/images/partners/aws-logo.svg',
-    heroImage: 'https://picsum.photos/seed/aws/1920/1080',
+    heroImage: '/partners-hero/aws.jpg',
     website: 'https://aws.amazon.com',
     category: 'technology',
     specializations: ['Cloud Architecture', 'Serverless Computing', 'Container Orchestration', 'DevOps Automation', 'Cost Optimization']
@@ -85,7 +85,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We design and deploy Cisco networking solutions including enterprise networking, security appliances, collaboration tools, and wireless infrastructure. Our services encompass network architecture, implementation, security hardening, and ongoing network management.',
     partnerStory: 'Our Cisco partnership was established when we successfully designed and implemented a global network infrastructure for a multinational corporation, connecting 50+ offices across 15 countries. The project involved Cisco routers, switches, firewalls, and collaboration tools, all delivered on time and meeting strict security requirements. This achievement earned us Gold Partner status and numerous follow-up engagements.',
     logo: '/images/partners/cisco-logo.svg',
-    heroImage: 'https://picsum.photos/seed/cisco/1920/1080',
+    heroImage: '/partners-hero/cisco.jpg',
     website: 'https://cisco.com',
     category: 'technology',
     specializations: ['Network Infrastructure', 'Security Solutions', 'Collaboration Tools', 'Wireless Solutions', 'SD-WAN']
@@ -104,7 +104,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement IBM enterprise solutions including IBM Cloud, Watson AI services, enterprise software, and mainframe modernization. Our expertise spans IBM middleware, database solutions, and artificial intelligence implementations.',
     partnerStory: 'Our IBM partnership began with a complex mainframe modernization project for a financial services client. We successfully migrated legacy systems to modern IBM platforms while maintaining 99.99% uptime. This project showcased our ability to handle mission-critical IBM implementations and led to our certification in multiple IBM technologies.',
     logo: '/images/partners/ibm-logo.svg',
-    heroImage: 'https://picsum.photos/seed/ibm/1920/1080',
+    heroImage: '/partners-hero/ibm.webp',
     website: 'https://ibm.com',
     category: 'technology',
     specializations: ['Enterprise Software', 'AI and Watson', 'Cloud Services', 'Mainframe Modernization', 'Data Analytics']
@@ -123,7 +123,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement comprehensive Check Point security solutions including firewalls, intrusion prevention systems, endpoint protection, and cloud security. Our services cover security architecture design, implementation, policy configuration, and ongoing security management.',
     partnerStory: 'Our Check Point partnership was established through a high-profile security implementation for a government agency requiring the highest levels of protection. We deployed Check Point\'s next-generation firewalls and threat prevention solutions, achieving certification compliance and preventing multiple sophisticated attack attempts. This success established our reputation as a trusted Check Point security implementer.',
     logo: '/images/partners/checkpoint-logo.svg',
-    heroImage: 'https://picsum.photos/seed/checkpoint/1920/1080',
+    heroImage: '/partners-hero/checkpoint.jpg',
     website: 'https://checkpoint.com',
     category: 'security',
     specializations: ['Network Security', 'Endpoint Protection', 'Cloud Security', 'Threat Prevention', 'Security Management']
@@ -142,7 +142,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We deploy Huawei telecommunications and enterprise solutions including networking equipment, storage systems, cloud solutions, and wireless infrastructure. Our expertise covers Huawei enterprise products and telecommunications infrastructure.',
     partnerStory: 'Our Huawei partnership developed through telecommunications infrastructure projects in emerging markets. We successfully deployed Huawei networking and wireless solutions for multiple service providers, demonstrating our capability to implement large-scale telecommunications infrastructure using Huawei technologies.',
     logo: '/images/partners/huawei-logo.svg',
-    heroImage: 'https://picsum.photos/seed/huawei/1920/1080',
+    heroImage: '/partners-hero/huawei.jpeg',
     website: 'https://huawei.com',
     category: 'hardware',
     specializations: ['Telecommunications', 'Networking Equipment', 'Storage Systems', 'Wireless Infrastructure', 'Cloud Solutions']
@@ -161,7 +161,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We provide HP desktop and mobile computing solutions, printing infrastructure, and managed print services. Our services include device procurement, deployment, configuration, and ongoing support for HP hardware across enterprise environments.',
     partnerStory: 'Our HP partnership was built through a comprehensive workplace transformation project where we replaced 5,000+ desktop computers and implemented a centralized printing infrastructure. The project improved productivity and reduced costs by 30%, establishing our expertise in large-scale HP device deployments.',
     logo: '/images/partners/hp-logo.svg',
-    heroImage: 'https://picsum.photos/seed/hp/1920/1080',
+    heroImage: '/partners-hero/hp.jpg',
     website: 'https://hp.com',
     category: 'hardware',
     specializations: ['Desktop Computing', 'Mobile Workstations', 'Printing Solutions', 'Device Management', 'Workplace Technology']
@@ -180,7 +180,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement HPE enterprise infrastructure including servers, storage, networking, and hybrid cloud solutions. Our expertise covers HPE ProLiant servers, 3PAR storage, Aruba networking, and HPE GreenLake cloud services.',
     partnerStory: 'Our HPE partnership was forged through a critical datacenter consolidation project where we migrated from legacy infrastructure to HPE Synergy composable infrastructure. The implementation reduced power consumption by 40% and improved performance by 60%, earning recognition from HPE as a top-performing partner.',
     logo: '/images/partners/hpe-logo.svg',
-    heroImage: 'https://picsum.photos/seed/hpe/1920/1080',
+    heroImage: '/partners-hero/hpe.jpg',
     website: 'https://hpe.com',
     category: 'hardware',
     specializations: ['Server Infrastructure', 'Storage Solutions', 'Hybrid Cloud', 'Composable Infrastructure', 'Edge Computing']
@@ -199,7 +199,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We provide Apple enterprise solutions including Mac deployment, iOS device management, Apple Business Manager implementation, and mobile application development for iOS platforms. Our services cover device procurement, configuration, and enterprise mobility management.',
     partnerStory: 'Our Apple partnership developed when a creative agency needed to standardize on Apple technology for their design workflow. We deployed 200+ Mac workstations and implemented comprehensive iOS device management, enabling seamless collaboration and improving creative productivity by 45%.',
     logo: '/images/partners/apple-logo.svg',
-    heroImage: 'https://picsum.photos/seed/apple/1920/1080',
+    heroImage: '/partners-hero/apple.jpeg',
     website: 'https://apple.com',
     category: 'hardware',
     specializations: ['Mac Deployment', 'iOS Management', 'Creative Workflows', 'Mobile Development', 'Enterprise Mobility']
@@ -218,7 +218,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement Samsung enterprise solutions including digital displays, mobile devices, memory solutions, and Knox security platform. Our expertise covers Samsung business displays, enterprise mobility, and memory infrastructure.',
     partnerStory: 'Our Samsung partnership was established through a digital signage project for a retail chain, where we deployed Samsung displays across 100+ locations. The implementation included content management, remote monitoring, and achieved 99.8% uptime, leading to expansion into mobile device management using Samsung Knox.',
     logo: '/images/partners/samsung-logo.svg',
-    heroImage: 'https://picsum.photos/seed/samsung/1920/1080',
+    heroImage: '/partners-hero/samsung.jpg',
     website: 'https://samsung.com',
     category: 'hardware',
     specializations: ['Digital Displays', 'Enterprise Mobility', 'Memory Solutions', 'Security Platforms', 'Retail Technology']
@@ -237,7 +237,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement Zebra mobile computing and data capture solutions including barcode scanners, mobile computers, printers, and workforce management systems. Our services cover warehouse automation, inventory management, and mobile workforce solutions.',
     partnerStory: 'Our Zebra partnership began with a warehouse automation project that required rugged mobile computers and advanced data capture capabilities. We deployed Zebra devices that improved inventory accuracy by 99.5% and reduced processing time by 50%, establishing our expertise in Zebra enterprise mobility solutions.',
     logo: '/images/partners/zebra-logo.svg', // Placeholder
-    heroImage: 'https://picsum.photos/seed/zebra/1920/1080',
+    heroImage: '/partners-hero/zebra.jpg',
     website: 'https://zebra.com',
     category: 'hardware',
     specializations: ['Mobile Computing', 'Data Capture', 'Warehouse Automation', 'Inventory Management', 'Workforce Solutions']
@@ -256,16 +256,16 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement Schneider Electric power management and automation solutions including UPS systems, power distribution, building automation, and industrial control systems. Our expertise covers energy efficiency, power protection, and smart building technologies.',
     partnerStory: 'Our Schneider partnership was formed through a critical power infrastructure upgrade for a data center that required 99.999% uptime. We implemented Schneider UPS systems and power distribution units that have maintained perfect reliability for over 5 years, preventing any power-related outages.',
     logo: '/images/partners/schneider-logo.svg',
-    heroImage: 'https://picsum.photos/seed/schneider/1920/1080',
+    heroImage: '/partners-hero/schneider-electric.jpg',
     website: 'https://schneider-electric.com',
     category: 'infrastructure',
     specializations: ['Power Management', 'UPS Systems', 'Building Automation', 'Energy Efficiency', 'Industrial Control']
   },
   {
     id: 'google',
-    name: 'Google Cloud',
-    description: 'Google Cloud Platform is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products.',
-    partnershipLevel: 'Google Cloud Partner',
+    name: 'Google ',
+    description: 'Google Platform is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products.',
+    partnershipLevel: 'Google Partner',
     certifications: [
       'Google Cloud Professional Cloud Architect',
       'Google Cloud Professional Data Engineer',
@@ -275,7 +275,7 @@ export const partnerships: Partnership[] = [
     whatWeDo: 'We implement Google Cloud solutions including cloud migration, application modernization, data analytics, and Google Workspace deployment. Our expertise covers GCP infrastructure, BigQuery, Kubernetes Engine, and AI/ML services.',
     partnerStory: 'Our Google Cloud partnership developed through a machine learning project that required processing massive datasets. We implemented a scalable solution using BigQuery and AI Platform that reduced processing time from days to hours, demonstrating our capability to leverage Google\'s advanced cloud technologies.',
     logo: '/images/partners/google-logo.svg',
-    heroImage: 'https://picsum.photos/seed/google/1920/1080',
+    heroImage: '/partners-hero/google.jpg',
     website: 'https://cloud.google.com',
     category: 'infrastructure',
     specializations: ['Cloud Migration', 'Data Analytics', 'Machine Learning', 'Kubernetes', 'Workspace Solutions']

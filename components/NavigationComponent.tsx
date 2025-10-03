@@ -76,7 +76,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
     <>
       <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
         {/* Top Bar */}
-        <div className="h-10 bg-light-gray border-b border-gray-200">
+        <div className="h-10 bg-[color:var(--color-background)] border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-8 h-full">
             <div className="flex items-center justify-end h-full">
               <div className="flex items-center space-x-6">

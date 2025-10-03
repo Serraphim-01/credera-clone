@@ -223,7 +223,7 @@ const VideoCell: React.FC<{ item: VideoGridItem; row: number; col: number }> = (
 // Text Cell Component - Only icon and title, no description or links
 const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ item }) => {
   return (
-    <div className="w-full h-full bg-white rounded-lg p-8 sm:p-4 flex flex-col justify-center items-center group hover:bg-credera-navy hover:text-white transition-all duration-300 hover-lift">
+    <div className="w-full h-full bg-white rounded-lg p-8 sm:p-4 flex flex-col justify-center items-center group transition-all duration-300 hover-lift">
       {/* Icon at the top */}
       {item.iconSrc && (
         <div className="mb-6 sm:mb-3">
@@ -232,14 +232,14 @@ const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ 
               src={item.iconSrc}
               alt=""
               fill
-              className="object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+              className="object-contain transition-all duration-300"
             />
           </div>
         </div>
       )}
       
       {/* Title only */}
-      <h3 className="text-5xl sm:text-2xl font-bold text-credera-dark group-hover:text-white transition-colors duration-200 text-center">
+      <h3 className="text-5xl sm:text-2xl font-bold text-credera-dark transition-colors duration-200 text-center">
         {item.title}
       </h3>
     </div>

@@ -48,14 +48,14 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
                 {partnership.description}
               </p>
                <div className="flex flex-wrap gap-4">
-                <span className="bg-light-gray text-dark-gray px-4 py-2 rounded-lg font-semibold">
+                <span className="bg-[color:var(--color-yellow)] text-dark-gray px-4 py-2 rounded-lg font-semibold">
                   {partnership.partnershipLevel}
                 </span>
                 <a
                   href={partnership.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow text-black px-6 py-2 rounded-lg font-semibold hover:bg-opacity-80 transition-colors duration-300"
+                  className="bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)] px-6 py-2 rounded-lg font-semibold hover:bg-opacity-80 transition-colors duration-300"
                 >
                   Visit Website
                 </a>
@@ -95,7 +95,7 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
                   {partnership.specializations.map((spec, index) => (
                     <div
                       key={index}
-                      className="bg-light-gray border border-gray-200 rounded-lg p-4 hover:border-yellow transition-colors duration-300"
+                      className="bg-[color:var(--color-background)] border border-gray-200 rounded-lg p-4 hover:border-yellow transition-colors duration-300"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-yellow rounded-full flex items-center justify-center">
@@ -113,13 +113,13 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
 
             {/* Sidebar */}
             <div className="space-y-8">
-              <div className="bg-light-gray rounded-lg p-6">
+              <div className="bg-[color:var(--color-background)] rounded-lg p-6">
                 <h3 className="text-xl font-bold text-black mb-4">Partnership Level</h3>
                 <div className="bg-yellow text-black px-4 py-2 rounded-lg text-center font-semibold">
                   {partnership.partnershipLevel}
                 </div>
               </div>
-              <div className="bg-light-gray rounded-lg p-6">
+              <div className="bg-[color:var(--color-background)] rounded-lg p-6">
                 <h3 className="text-xl font-bold text-black mb-4">Our Certifications</h3>
                 <div className="space-y-3">
                   {partnership.certifications.map((cert, index) => (
@@ -139,7 +139,7 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
                   ))}
                 </div>
               </div>
-              <div className="bg-light-gray rounded-lg p-6">
+              <div className="bg-[color:var(--color-background)] rounded-lg p-6">
                 <h3 className="text-xl font-bold text-black mb-4">Quick Links</h3>
                 <div className="space-y-3">
                   <a
@@ -169,7 +169,7 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
         </div>
       </div>
 
-      <div className="bg-light-gray py-16">
+      <div className="bg-[color:var(--color-background)] py-16">
         <div className="max-w-4xl mx-auto text-center px-8">
           <h2 className="text-3xl font-bold text-black mb-4">
             Explore More Partnerships

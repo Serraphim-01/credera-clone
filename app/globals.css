@@ -4,6 +4,11 @@
   /* Background and foreground */
   --background: #fdfdfc;
   --foreground: #181817;
+  --yellow: #f7b90c;
+  --light-yellow: #fdf1ce;
+  --light-gray: #d3d3d3;
+  --gray: #757575;
+  --dark-gray: #313131;
 }
 
 @theme inline {
@@ -12,6 +17,11 @@
   --font-sans: var(--font-roboto);
   --font-headings: var(--font-poppins);
   --font-accents: var(--font-exo);
+  --color-yellow: var(--yellow);
+  --color-light-yellow: var(--light-yellow);
+  --color-light-gray: var(--light-gray);
+  --color-gray: var(--gray);
+  --color-dark-gray: var(--dark-gray);
 }
 
 body {

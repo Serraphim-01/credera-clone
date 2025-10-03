@@ -46,9 +46,6 @@ const SolutionCertificationsSection: React.FC<SolutionCertificationsSectionProps
             className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             aria-label={isMinimized ? 'Expand certifications' : 'Minimize certifications'}
           >
-            <span className="text-sm font-medium text-gray-700">
-              {isMinimized ? 'Show' : 'Hide'}
-            </span>
             {isMinimized ? (
               <ChevronDownIcon className="w-4 h-4 text-gray-600" />
             ) : (
@@ -66,7 +63,7 @@ const SolutionCertificationsSection: React.FC<SolutionCertificationsSectionProps
                 className="relative bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200"
               >
                 {/* Certification Image */}
-                <div className="relative h-64 bg-gradient-to-br from-orange-500 to-orange-600">
+                <div className="relative h-64">
                   <Image
                     src={certification.imageUrl}
                     alt={certification.name}
@@ -75,7 +72,7 @@ const SolutionCertificationsSection: React.FC<SolutionCertificationsSectionProps
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
                   />
                   {/* Text Overlay at Bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-white p-4 bg-orange-500">
+                  <div className="absolute bottom-0 left-0 right-0 text-white p-4 bg-[color:var(--color-foreground)]/70">
                     <h3 className="font-semibold text-sm mb-1 leading-tight">
                       {certification.name}
                     </h3>
@@ -85,13 +82,13 @@ const SolutionCertificationsSection: React.FC<SolutionCertificationsSectionProps
                     <div className="flex items-center justify-between">
                       <div className="space-x-2">
                         {certification.level && (
-                          <span className="text-xs text-orange-300 px-1">
+                          <span className="text-xs text-[color:var(--color-background)] px-1">
                             {certification.level}
                           </span>
                         )}
                       </div>
                       {certification.validUntil && (
-                        <span className="text-xs text-gray-300">
+                        <span className="text-xs text-[color:var(--color-yellow)]">
                           Valid until {new Date(certification.validUntil).getFullYear()}
                         </span>
                       )}

@@ -8,20 +8,20 @@ import FooterSection from '@/components/FooterSection';
 const ContactPage = () => {
   const locations = [
     {
-      name: 'Main Office',
-      address: '123 Tech Avenue, Silicon Valley, CA 94043',
-      phone: '+1 (555) 123-4567',
-      email: 'contact@tasksystems.com',
+      name: 'Lagos Office',
+      address: 'Yudala Heights Building, 13 Idowu Martins Street, Victoria Island, Lagos',
+      phone: '+234 911 080 8619',
+      email: 'engage@tasksystems.com',
     },
     {
-      name: 'East Coast Branch',
-      address: '456 Innovation Drive, New York, NY 10001',
-      phone: '+1 (555) 987-6543',
+      name: 'Abuja Office',
+      address: '20 Port Harcourt Crescent, off Gimbiya Street, Area 11 Garki District, Abuja',
+      phone: '+234 911 080 8619',
     },
     {
-      name: 'European Headquarters',
-      address: '789 Future Street, London, UK SW1A 0AA',
-      phone: '+44 20 7946 0958',
+      name: 'Rivers Office',
+      address: '146 Trans Amadi Industrial Layout, Port Harcourt, Rivers State',
+      phone: '+234 911 080 8619',
     },
   ];
 
@@ -31,7 +31,7 @@ const ContactPage = () => {
         title="Contact Us"
         subtitle="Get in Touch"
         description="We're here to help. Whether you have a question about our services, want to discuss a project, or are interested in a partnership, we'd love to hear from you."
-        backgroundImage="/TaskImages/contact.jpg"
+        backgroundImage="/TaskImages/meet.jpg"
         maxContentWidth="max-w-4xl"
       />
 

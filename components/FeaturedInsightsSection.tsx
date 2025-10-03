@@ -10,7 +10,7 @@ const FeaturedInsightsSection: React.FC<FeaturedInsightsSectionProps> = ({
   viewAllLink = "/insights"
 }) => {
   return (
-    <section className="py-20 sm:py-12 bg-light-gray">
+    <section className="py-20 sm:py-12">
       <div className="max-w-7xl mx-auto px-8 sm:px-4">
         {/* Section Header with Title and Link */}
         <div className="flex justify-between items-center mb-12 sm:mb-8 animate-fadeInUp">

@@ -56,12 +56,12 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-credera-navy/80 via-credera-navy/40 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
 
           {/* Navy Blue Slide-up Overlay */}
-          <div className="absolute inset-0 bg-credera-navy opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0" />
+          <div className="absolute inset-0 bg-[color:var(--color-foreground)] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0" />
 
           {/* Category Badge */}
           {card.category && (
             <div className="absolute top-8 left-8 sm:top-4 sm:left-4 z-10">
-              <span className="inline-block px-3 py-1 sm:px-2 sm:py-1 text-xs sm:text-xs font-medium text-white bg-credera-red rounded-full">
+              <span className="inline-block px-3 py-1 sm:px-2 sm:py-1 text-xs sm:text-xs font-medium text-[color:var(--color-yellow)] bg-[color:var(--color-foreground)] rounded-full">
                 {card.category}
               </span>
             </div>
@@ -70,15 +70,15 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
 
         {/* Card Content - Fixed at bottom with responsive padding */}
         <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-4 z-10 text-white transition-all duration-500 group-hover:pb-8 sm:group-hover:pb-4 h-[200px] sm:h-[120px]">
-          <h3 className="text-card-title sm:text-lg font-medium mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-8px]">
+          <h3 className="text-card-title text-[color:var(--color-background)] sm:text-lg font-medium mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-15px]">
             {card.title}
           </h3>
-          <p className="text-white/90 leading-relaxed mb-4 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:translate-y-[-8px]">
+          <p className="text-[color:var(--color-background)]/90 leading-relaxed mb-4 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:translate-y-[-15px]">
             {card.description}
           </p>
 
           {/* Learn More Link - Hidden by default, shows on hover */}
-          <div className="flex items-center text-credera-red font-medium text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
+          <div className="flex items-center text-[color:var(--color-yellow)] font-bold text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 transition-all duration-300 delay-200">
             <span>Learn More</span>
             <svg
               className="ml-2 w-4 h-4 sm:w-3 sm:h-3 transition-transform duration-200 group-hover:translate-x-1"
@@ -129,16 +129,16 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         </div>
 
         {/* Text Overlay at Bottom - Fixed height with responsive sizing */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] sm:h-[120px] p-8 sm:p-4 bg-white text-credera-dark transition-all duration-500 group-hover:bg-credera-navy group-hover:text-white">
+        <div className="absolute bottom-0 left-0 right-0 h-[200px] sm:h-[120px] p-8 sm:p-4 bg-white text-credera-dark transition-all duration-500 group-hover:bg-[color:var(--color-background)] group-hover:text-[color:var(--color-foreground)]">
           <h3 className="text-card-title sm:text-lg font-medium mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-8px]">
             {card.title}
           </h3>
-          <p className="text-credera-gray-600 leading-relaxed mb-0 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:text-white/90 group-hover:translate-y-[-8px] group-hover:mb-4">
+          <p className="text-credera-gray-600 leading-relaxed mb-0 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:text-[color:var(--color-foreground)]/90 group-hover:translate-y-[-8px] group-hover:mb-4">
             {card.description}
           </p>
 
           {/* Learn More Link - Hidden by default, shows on hover */}
-          <div className="flex items-center text-credera-red font-medium text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
+          <div className="flex items-center text-font-medium text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
             <span>Learn More</span>
             <svg
               className="ml-2 w-4 h-4 sm:w-3 sm:h-3 transition-transform duration-200 group-hover:translate-x-1"
@@ -169,7 +169,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
           <div className="w-full h-2 bg-credera-gray-100 rounded-full overflow-hidden">
             {/* Inner line that moves with scroll */}
             <div
-              className="h-full bg-credera-red rounded-full transition-all duration-150"
+              className="h-full bg-[color:var(--color-yellow)] rounded-full transition-all duration-150"
               style={{ width: `${scrollProgress}%` }}
             />
           </div>
@@ -184,7 +184,10 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
           className="scroll-container overflow-x-auto pb-4"
           style={{ scrollBehavior }}
         >
-          <div className="flex space-x-6 sm:space-x-4 min-w-max pl-8 sm:pl-4 pr-8 sm:pr-4">
+          <div
+            className="flex space-x-6 sm:space-x-4 min-w-max pr-8 sm:pr-4"
+            style={{ paddingLeft: "calc(50% - 314px)", paddingRight: "calc(50% - 314px)" }}
+          >
             {cards.map((card, index) =>
               index % 2 === 0 ? (
                 <CardType1 key={card.id} card={card} />

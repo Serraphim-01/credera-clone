@@ -123,11 +123,20 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black bg-opacity-50"
+        className={`
+      absolute inset-0 bg-black/50 transition-opacity duration-300
+      ${isOpen ? "opacity-100" : "opacity-0"}
+    `}
         style={{ backdropFilter: 'blur(8px)' }}
         onClick={onClose}
       />
-      <div className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div
+        className={`
+      relative bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto
+      transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+      ${isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"}
+    `}
+      >
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900">Book a Demo or Service</h2>
           <button

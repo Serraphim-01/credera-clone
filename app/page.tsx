@@ -25,7 +25,7 @@ export default function HomePage() {
     {
       id: '1',
       title: 'Digital Transformation Strategy',
-      description: 'Accelerating business growth through innovative technology solutions and strategic digital initiatives.',
+      description: 'Accelerating business growth through innovative technology solutions & digital initiatives.',
       imageUrl: '/TaskImages/digitization.jpg',
       linkUrl: '/solutions',
       category: 'Strategy'
@@ -49,7 +49,7 @@ export default function HomePage() {
     {
       id: '4',
       title: 'Industry Expertise',
-      description: 'Deep domain knowledge across financial services, healthcare, retail, and technology sectors.',
+      description: 'Domain knowledge across financial services, healthcare, and technology sectors.',
       imageUrl: '/TaskImages/meet.jpg',
       linkUrl: '/solutions',
       category: 'Industries'

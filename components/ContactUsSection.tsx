@@ -22,7 +22,7 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({
         <div className="text-center">
           <Link
             href={contactLink}
-            className="inline-flex items-center px-8 py-4 bg-credera-red text-white font-semibold rounded-md hover:bg-credera-dark transition-colors duration-200 space-x-3"
+            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)] font-semibold rounded-md hover:bg-[color:var(--color-dark-gray)] transition-colors duration-200 space-x-3"
           >
             <span>Contact Us</span>
             <svg

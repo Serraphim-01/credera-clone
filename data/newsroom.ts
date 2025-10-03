@@ -189,7 +189,7 @@ export const newsArticles: NewsArticle[] = [
       name: 'Conference Team',
       profileImage: 'https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
     },
-    publishedAt: '2025-04-10T14:00:00Z',
+    publishedAt: '2025-10-4T14:00:00Z',
     imageUrl: 'https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     readTime: 5,
     tags: ['Conference', 'Future of Work', 'Technology'],

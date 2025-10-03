@@ -52,10 +52,10 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-credera-navy/80 via-credera-navy/40 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
 
           {/* Navy Blue Slide-up Overlay */}
-          <div className="absolute inset-0 bg-credera-navy opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0" />
+          <div className="absolute inset-0 bg-[color:var(--color-foreground)] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0" />
 
           {/* Content Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-4 text-white z-10 transition-all duration-500 group-hover:pb-8 sm:group-hover:pb-4">

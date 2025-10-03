@@ -24,15 +24,15 @@ export default function SolutionsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution, index) => (
-              <div
-                key={solution.id}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100"
+              <Link
+                href={`/solutions/${solution.id}`}
+                className="group block bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100 h-full"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
               >
                 <div className="flex flex-col justify-between h-full">
-                  {/* Title and Description at top-left */}
+                  {/* Title and Description */}
                   <div className="text-left">
                     <h3 className="text-2xl font-bold text-credera-dark mb-4">
                       {solution.title}
@@ -41,36 +41,33 @@ export default function SolutionsPage() {
                       {solution.description}
                     </p>
                   </div>
-                  
-                  {/* CTA at bottom-left */}
-                  <div className="mt-auto">
-                    <Link
-                      href={`/solutions/${solution.id}`}
-                      className="inline-flex items-center text-credera-red hover:text-red-700 font-semibold transition-colors duration-200"
+
+                  {/* CTA */}
+                  <div className="mt-auto relative inline-flex items-center font-semibold text-black">
+                    EXPLORE {solution.title.toUpperCase()}
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      EXPLORE {solution.title.toUpperCase()}
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[var(--color-yellow)] transition-all duration-300 group-hover:w-full"></span>
                   </div>
                 </div>
-              </div>
+              </Link>
+
             ))}
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <FooterSection />
     </>

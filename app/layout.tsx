@@ -246,7 +246,6 @@ export default function RootLayout({
   const topBarItems: TopBarItem[] = [
     { label: 'CONTACT', href: '/contact' },
     { label: 'SEARCH', href: '/search', icon: 'search' },
-    { label: 'GLOBAL', href: '/global', icon: 'globe' }
   ];
 
   return (

@@ -20,7 +20,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       const maxScroll = scrollWidth - clientWidth;
       const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
       setScrollProgress(progress);
-      
+
       // Update button states
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
@@ -69,11 +69,11 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           <h3 className="text-3xl font-bold text-credera-dark mb-4">
             {solution.title}
           </h3>
-          
+
           <p className="text-lg text-credera-gray-600 leading-relaxed mb-8">
             {solution.description}
           </p>
-          
+
           <Link
             href={solution.linkUrl}
             className="inline-flex items-center text-credera-red hover:text-credera-dark font-semibold transition-colors duration-200 space-x-2"
@@ -118,17 +118,17 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             className="object-cover"
             sizes="350px"
           />
-          
+
           {/* Text Overlay */}
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-center p-6">
             <h3 className="text-xl font-bold text-white mb-3">
               {solution.title}
             </h3>
-            
+
             <p className="text-sm text-white/90 leading-relaxed mb-4 line-clamp-3">
               {solution.description}
             </p>
-            
+
             <Link
               href={solution.linkUrl}
               className="inline-flex items-center text-credera-red hover:text-white font-semibold transition-colors duration-200 space-x-2"
@@ -163,7 +163,12 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           className="scroll-container overflow-x-auto pb-4"
           style={{ scrollBehavior }}
         >
-          <div className="flex min-w-max pl-8 sm:pl-4">
+          <div
+            className="
+      flex min-w-max
+      pr-[calc(50%-400px)] pl-[calc(50%-400px)]
+    "
+          >
             {solutions.map((solution) => (
               <SolutionCard key={solution.id} solution={solution} />
             ))}
@@ -178,11 +183,10 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
-                canScrollLeft
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${canScrollLeft
                   ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
                   : 'border-gray-300 text-gray-300 cursor-not-allowed'
-              }`}
+                }`}
               aria-label="Previous solution"
             >
               <svg
@@ -199,15 +203,14 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
                 />
               </svg>
             </button>
-            
+
             <button
               onClick={scrollRight}
               disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
-                canScrollRight
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${canScrollRight
                   ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
                   : 'border-gray-300 text-gray-300 cursor-not-allowed'
-              }`}
+                }`}
               aria-label="Next solution"
             >
               <svg
