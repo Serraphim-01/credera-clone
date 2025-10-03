@@ -56,6 +56,14 @@ def main():
         page.screenshot(path="jules-scratch/verification/05_company_page.png")
         print("...Done")
 
+        # 6. Verify Contact Page
+        print("Verifying Contact Page...")
+        page.goto("http://localhost:3000/contact", wait_until="networkidle")
+        contact_heading = page.get_by_role("heading", name="Contact Us")
+        contact_heading.scroll_into_view_if_needed()
+        page.screenshot(path="jules-scratch/verification/06_contact_page.png")
+        print("...Done")
+
         browser.close()
 
 if __name__ == "__main__":

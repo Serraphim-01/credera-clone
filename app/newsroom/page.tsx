@@ -7,6 +7,7 @@ import { newsArticles } from '@/data/newsroom';
 import NewsCard from '@/components/NewsCard';
 import NewsFilter from '@/components/NewsFilter';
 import FooterSection from '@/components/FooterSection';
+import StandardHeroSection from '@/components/StandardHeroSection';
 
 const NewsRoomPage: React.FC = () => {
   const searchParams = useSearchParams();
@@ -58,17 +59,13 @@ const NewsRoomPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-credera-red to-red-600 text-white py-24">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">NewsRoom</h1>
-            <p className="text-xl text-red-100 leading-relaxed">
-              Stay ahead of industry trends with our expert insights, research, and analysis. 
-              Access comprehensive resources covering emerging technologies, best practices, and strategic guidance.
-            </p>
-          </div>
-        </div>
-      </div>
+      <StandardHeroSection
+        title="Newsroom"
+        subtitle="Insights and Analysis"
+        description="Stay ahead of industry trends with our expert insights, research, and analysis. Access comprehensive resources covering emerging technologies, best practices, and strategic guidance."
+        backgroundImage="/TaskImages/insights.jpg"
+        maxContentWidth="max-w-4xl"
+      />
 
       {/* Filters Section */}
       <div className="bg-gray-50 py-4">

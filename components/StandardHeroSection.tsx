@@ -20,7 +20,7 @@ const StandardHeroSection: React.FC<StandardHeroSectionProps> = ({
     <section className="relative h-screen max-h-[600px] overflow-hidden">
       {/* Background Image */}
       <Image
-        src={backgroundImage}
+        src="/TaskImages/hero-background.jpg"
         alt={title}
         fill
         className="object-cover absolute inset-0 z-0"
@@ -29,18 +29,19 @@ const StandardHeroSection: React.FC<StandardHeroSectionProps> = ({
       />
 
       {/* Content */}
-      <div className="relative h-full max-w-7xl mx-auto px-8 z-20">
-        <div className="absolute bottom-0 left-8">
-          <div className={`bg-white p-8 shadow-xl ${maxContentWidth}`}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+      <div className="absolute inset-0 bg-black opacity-30 z-10" />
+      <div className="relative h-full flex items-center max-w-7xl mx-auto px-8 z-20">
+        <div className={`max-w-full md:${maxContentWidth}`}>
+          <div className="bg-white p-8 shadow-xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
               {title}
             </h1>
             {subtitle && (
-              <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-700">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 text-dark-gray">
                 {subtitle}
               </h2>
             )}
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-dark-gray">
               {description}
             </p>
           </div>
