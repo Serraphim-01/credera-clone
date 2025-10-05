@@ -33,12 +33,12 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
         <div className="relative h-full max-w-7xl mx-auto px-8 z-20">
           <div className="absolute bottom-0 left-8 max-w-lg">
             <div className="bg-white p-8 shadow-xl">
-               <div className="w-40 h-16 relative mb-4">
+              <div className="w-40 h-16 relative mb-4">
                 <Image
-                    src={partnership.logo}
-                    alt={`${partnership.name} logo`}
-                    fill
-                    className="object-contain"
+                  src={partnership.logo}
+                  alt={`${partnership.name} logo`}
+                  fill
+                  className="object-contain"
                 />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
@@ -47,19 +47,29 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
               <p className="text-lg text-dark-gray mb-4">
                 {partnership.description}
               </p>
-               <div className="flex flex-wrap gap-4">
-                <span className="bg-[color:var(--color-yellow)] text-dark-gray px-4 py-2 rounded-lg font-semibold">
-                  {partnership.partnershipLevel}
-                </span>
+              <div className="flex flex-wrap gap-4">
                 <a
                   href={partnership.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)] px-6 py-2 rounded-lg font-semibold hover:bg-opacity-80 transition-colors duration-300"
+                  className="group relative inline-flex items-center text-[color:var(--color-foreground)] py-2 font-semibold transition-colors duration-200 hover:text-[color:var(--color-yellow)]"
                 >
-                  Visit Website
+                  <span>Visit Website</span>
+
+                  {/* Arrow */}
+                  <span
+                    className="ml-2 opacity-0 translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+                  >
+                    →
+                  </span>
+
+                  {/* Underline */}
+                  <span
+                    className="absolute left-0 bottom-0 h-[2px] w-0 bg-[color:var(--color-yellow)] transition-all duration-300 group-hover:w-full"
+                  ></span>
                 </a>
               </div>
+
             </div>
           </div>
         </div>
@@ -115,7 +125,7 @@ const PartnershipClientPage: React.FC<PartnershipClientPageProps> = ({ partnersh
             <div className="space-y-8">
               <div className="bg-[color:var(--color-background)] rounded-lg p-6">
                 <h3 className="text-xl font-bold text-black mb-4">Partnership Level</h3>
-                <div className="bg-yellow text-black px-4 py-2 rounded-lg text-center font-semibold">
+                <div className="bg-yellow text-black py-2 rounded-lg text-center font-semibold">
                   {partnership.partnershipLevel}
                 </div>
               </div>
