@@ -25,84 +25,78 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
   let textIndex = 0;
 
   return (
-    <section className="py-20 px-8 bg-credera-slate-50">
+    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-credera-slate-50">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header - Left aligned and half width on large screens */}
-        <div className="mb-16 lg:w-1/2 lg:text-left text-center">
-          <h2 className="text-4xl font-normal text-credera-dark mb-6">
+        {/* Section Header - Responsive adjustments */}
+        <div className="mb-12 md:mb-16 lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-3xl md:text-4xl font-normal text-credera-dark mb-6">
             {title}
           </h2>
-          <p className="text-lg text-credera-gray-600 leading-relaxed">
+          <p className="text-base md:text-lg text-credera-gray-600 leading-relaxed">
             {description}
           </p>
         </div>
 
-        {/* 3x3 Grid Container */}
-        <div className="grid grid-cols-3 grid-rows-3 gap-6 md:gap-6 sm:gap-3 relative">
-          {gridLayout.map((row, rowIndex) =>
-            row.map((cellType, colIndex) => {
-              const cellKey = `${rowIndex}-${colIndex}`;
+        {/* Responsive Grid Container */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 relative">
+          {gridLayout.flat().map((cellType, index) => {
+            const cellKey = `cell-${index}`;
 
-              // Get the appropriate item based on cell type
-              let item: ImageGridItem | VideoGridItem | TextGridItem | undefined;
-              switch (cellType) {
-                case 'image':
-                  item = imageItems[imageIndex % imageItems.length];
-                  imageIndex++;
-                  break;
-                case 'video':
-                  item = videoItems[videoIndex % videoItems.length];
-                  videoIndex++;
-                  break;
-                case 'text':
-                  item = textItems[textIndex % textItems.length];
-                  textIndex++;
-                  break;
-              }
+            // Get the appropriate item based on cell type
+            let item: ImageGridItem | VideoGridItem | TextGridItem | undefined;
+            switch (cellType) {
+              case 'image':
+                item = imageItems[imageIndex % imageItems.length];
+                imageIndex++;
+                break;
+              case 'video':
+                item = videoItems[videoIndex % videoItems.length];
+                videoIndex++;
+                break;
+              case 'text':
+                item = textItems[textIndex % textItems.length];
+                textIndex++;
+                break;
+            }
 
-              // Apply vertical displacement
-              let verticalDisplacement = '';
-              if (colIndex === 0) {
-                verticalDisplacement = 'md:translate-y-20 sm:translate-y-10'; // Responsive displacement
-              } else if (colIndex === 2) {
-                verticalDisplacement = 'md:-translate-y-20 sm:-translate-y-10'; // Responsive displacement
-              }
+            // Apply vertical displacement only on large screens
+            const colIndex = index % 3;
+            let verticalDisplacement = '';
+            if (colIndex === 0) {
+              verticalDisplacement = 'lg:translate-y-20';
+            } else if (colIndex === 2) {
+              verticalDisplacement = 'lg:-translate-y-20';
+            }
 
-              // Type guards to ensure item exists and is of correct type
-              const isImageItem = (item: any): item is ImageGridItem => 
-                item && cellType === 'image' && 'imageUrl' in item;
-              
-              const isVideoItem = (item: any): item is VideoGridItem => 
-                item && cellType === 'video' && 'videoUrl' in item;
-              
-              const isTextItem = (item: any): item is TextGridItem => 
-                item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
+            // Type guards
+            const isImageItem = (item: any): item is ImageGridItem => item && cellType === 'image' && 'imageUrl' in item;
+            const isVideoItem = (item: any): item is VideoGridItem => item && cellType === 'video' && 'videoUrl' in item;
+            const isTextItem = (item: any): item is TextGridItem => item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
 
-              return (
-                <div
-                  key={cellKey}
-                  className={`w-[350px] h-[350px] md:w-[350px] md:h-[350px] sm:w-[175px] sm:h-[175px] ${verticalDisplacement} transition-transform duration-300`}
-                >
-                  {isImageItem(item) && (
-                    <ImageCell item={item} row={rowIndex} col={colIndex} />
-                  )}
-                  {isVideoItem(item) && (
-                    <VideoCell item={item} row={rowIndex} col={colIndex} />
-                  )}
-                  {isTextItem(item) && (
-                    <TextCell item={item} row={rowIndex} col={colIndex} />
-                  )}
-                  
-                  {/* Fallback for missing items */}
-                  {!item && (
-                    <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-500">No {cellType} available</span>
-                    </div>
-                  )}
-                </div>
-              );
-            })
-          )}
+            return (
+              <div
+                key={cellKey}
+                className={`w-full aspect-square ${verticalDisplacement} transition-transform duration-300`}
+              >
+                {isImageItem(item) && (
+                  <ImageCell item={item} row={Math.floor(index / 3)} col={colIndex} />
+                )}
+                {isVideoItem(item) && (
+                  <VideoCell item={item} row={Math.floor(index / 3)} col={colIndex} />
+                )}
+                {isTextItem(item) && (
+                  <TextCell item={item} row={Math.floor(index / 3)} col={colIndex} />
+                )}
+
+                {/* Fallback for missing items */}
+                {!item && (
+                  <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-500">No {cellType} available</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -118,7 +112,7 @@ const ImageCell: React.FC<{ item: ImageGridItem; row: number; col: number }> = (
         alt=""
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-110"
-        sizes="350px"
+        sizes="(max-width: 1024px) 50vw, 33vw"
       />
     </div>
   );
@@ -223,11 +217,11 @@ const VideoCell: React.FC<{ item: VideoGridItem; row: number; col: number }> = (
 // Text Cell Component - Only icon and title, no description or links
 const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ item }) => {
   return (
-    <div className="w-full h-full bg-white rounded-lg p-8 sm:p-4 flex flex-col justify-center items-center group transition-all duration-300 hover-lift">
+    <div className="w-full h-full bg-white rounded-lg p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center group transition-all duration-300 hover-lift">
       {/* Icon at the top */}
       {item.iconSrc && (
-        <div className="mb-6 sm:mb-3">
-          <div className="w-32 h-32 sm:w-16 sm:h-16 relative">
+        <div className="mb-3 sm:mb-6">
+          <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 relative">
             <Image
               src={item.iconSrc}
               alt=""
@@ -239,7 +233,7 @@ const TextCell: React.FC<{ item: TextGridItem; row: number; col: number }> = ({ 
       )}
       
       {/* Title only */}
-      <h3 className="text-5xl sm:text-2xl font-bold text-credera-dark transition-colors duration-200 text-center">
+      <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-credera-dark transition-colors duration-200 text-center">
         {item.title}
       </h3>
     </div>

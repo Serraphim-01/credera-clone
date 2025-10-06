@@ -12,20 +12,18 @@ const FooterSection: React.FC<FooterSectionProps> = ({
 }) => {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* First Column - Twice the width (spans 2 columns) */}
+        <div className="py-12 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            {/* First Column - Logo and Description */}
             <div className="md:col-span-2">
               <div className="mb-6">
-
                 <Link
                   href="/"
-                  className="relative inline-flex items-center overflow-hidden group rounded-lg w-[120px] h-[60px] mb-4"
+                  className="relative inline-flex items-center overflow-hidden group rounded-lg w-[120px] h-[60px] mb-4 mx-auto md:mx-0"
                   aria-label="Task Home"
                 >
-                  {/* Base Logo (stays visible underneath) */}
                   <Image
                     src={logoUrl}
                     alt="Task Systems Logo"
@@ -33,8 +31,6 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                     className="rounded-lg object-contain"
                     priority
                   />
-
-                  {/* Hover Logo (slides over the base on hover) */}
                   <Image
                     src="/TaskImages/logo-black-hover.png"
                     alt="Task Systems Hover Logo"
@@ -43,7 +39,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                     priority
                   />
                 </Link>
-                <p className="text-light-gray text-sm leading-relaxed max-w-md">
+                <p className="text-light-gray text-sm leading-relaxed max-w-md mx-auto md:mx-0">
                   {description}
                 </p>
               </div>
@@ -54,7 +50,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
               <h3 className="text-lg font-semibold text-white mb-4">
                 Explore
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li>
                   <Link
                     href="/solutions"
@@ -95,7 +91,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
               <h3 className="text-lg font-semibold text-white mb-4">
                 About Us
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li>
                   <Link
                     href="/about"
@@ -128,7 +124,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
         {/* Copyright */}
         <div className="py-6 border-t border-dark-gray">
           <div className="text-center">
-            <p className="text-sm text-gray">
+            <p className="text-xs sm:text-sm text-gray">
               {copyright}
             </p>
           </div>

@@ -29,18 +29,18 @@ export default function FutureStateRealisationFeasibility() {
       />
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">The WHAT</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6">The WHAT</h2>
 
-              <div className="prose prose-lg max-w-none text-credera-gray-600">
-                <p className="mb-6">
+              <div className="prose max-w-none text-credera-gray-600">
+                <p className="mb-6 text-base sm:text-lg">
                   Before we commit to a target architecture, we pressure-test:
                 </p>
-                <ul className="list-disc list-inside mb-6 space-y-2">
+                <ul className="list-disc list-inside mb-6 space-y-2 text-sm sm:text-base">
                   <li>
                     <strong>Execution</strong>: ease of operations, location strategy, partner/service model, tooling, automation, repeatability.
                   </li>
@@ -53,18 +53,18 @@ export default function FutureStateRealisationFeasibility() {
                 </ul>
 
                 {/* Callout with brand colors */}
-                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-6 mb-8">
-                  <blockquote className="text-lg text-[color:var(--color-yellow)]">
+                <div className="bg-foreground border-l-4 border-yellow p-6 mb-8">
+                  <blockquote className="text-base sm:text-lg text-yellow">
                     <strong>World Skills UK 2021</strong>: 76% of firms expect profitability hit from digital-skills shortage.
                   </blockquote>
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6 mt-12">
                 The HOW – scalability by design
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {[
                   {
                     step: '1. Model multiple future-state operating patterns',
@@ -84,8 +84,8 @@ export default function FutureStateRealisationFeasibility() {
                   },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                    <h3 className="text-xl font-semibold text-credera-dark mb-4">{item.step}</h3>
-                    <p className="text-credera-gray-600 mb-4">{item.desc}</p>
+                    <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">{item.step}</h3>
+                    <p className="text-credera-gray-600 text-sm sm:text-base">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -94,12 +94,11 @@ export default function FutureStateRealisationFeasibility() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                {/* Success Markers */}
-                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-foreground border border-yellow rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-yellow mb-4">
                     Success Markers
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                  <ul className="space-y-2 text-sm text-yellow">
                     <li>✓ Modular cloud landing zones</li>
                     <li>✓ Automation-first ops model</li>
                     <li>✓ KPI tree aligned to business OKRs</li>
@@ -107,12 +106,11 @@ export default function FutureStateRealisationFeasibility() {
                   </ul>
                 </div>
 
-                {/* What to Expect */}
-                <div className="bg-[color:var(--color-light-yellow)] p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-foreground)] mb-4">
+                <div className="bg-light-yellow p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">
                     What to Expect
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-foreground)]">
+                  <ul className="space-y-2 text-sm text-foreground">
                     <li>• Multiple operating model scenarios</li>
                     <li>• KPI-based stress testing and evaluation</li>
                     <li>• Workforce capability assessment</li>
@@ -121,32 +119,30 @@ export default function FutureStateRealisationFeasibility() {
                   </ul>
                 </div>
 
-                {/* Timeline */}
-                <div className="bg-credera-gray-50 p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                <div className="bg-credera-gray-50 p-6 rounded-lg border border-yellow">
                   <h3 className="text-lg font-semibold text-credera-dark mb-4">Typical Timeline</h3>
                   <div className="space-y-4 text-sm text-credera-gray-600">
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-yellow pl-4">
                       <div className="font-semibold">Weeks 1-3</div>
                       <div>Roadmap development and planning</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-yellow pl-4">
                       <div className="font-semibold">Weeks 4-6</div>
                       <div>Governance setup and pilot planning</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-yellow pl-4">
                       <div className="font-semibold">Weeks 7-12</div>
                       <div>Pilot execution and validation</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-yellow pl-4">
                       <div className="font-semibold">Week 13+</div>
                       <div>Full implementation planning</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Next Steps */}
-                <div className="bg-[color:var(--color-foreground)] p-6 rounded-lg border border-[color:var(--color-yellow)]">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-foreground p-6 rounded-lg border border-yellow">
+                  <h3 className="text-lg font-semibold text-yellow mb-4">
                     Next Steps
                   </h3>
                   <p className="text-sm text-[color:var(--color-yellow)] mb-4">

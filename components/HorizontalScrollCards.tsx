@@ -38,7 +38,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   const CardType1 = ({ card }: { card: any }) => (
     <Link
       href={card.linkUrl}
-      className="group block w-[628px] h-[670px] md:w-[628px] md:h-[670px] sm:w-[300px] sm:h-[400px] flex-shrink-0 relative overflow-hidden"
+      className="group block w-[80vw] h-[480px] sm:w-[350px] sm:h-[420px] md:w-[500px] md:h-[600px] lg:w-[628px] lg:h-[670px] flex-shrink-0 relative overflow-hidden"
       aria-label={`Read more about ${card.title}`}
     >
       <article className="bg-white rounded-lg overflow-hidden shadow-md hover-lift hover-shadow h-full relative">
@@ -49,7 +49,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
             alt={card.title}
             fill
             className="object-cover transition-all duration-500 group-hover:scale-110"
-            sizes="(max-width: 640px) 300px, 628px"
+            sizes="(max-width: 640px) 80vw, (max-width: 768px) 350px, (max-width: 1024px) 500px, 628px"
           />
 
           {/* Gradient Overlay - dark blue at bottom, transparent at top */}
@@ -60,8 +60,8 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
 
           {/* Category Badge */}
           {card.category && (
-            <div className="absolute top-8 left-8 sm:top-4 sm:left-4 z-10">
-              <span className="inline-block px-3 py-1 sm:px-2 sm:py-1 text-xs sm:text-xs font-medium text-[color:var(--color-yellow)] bg-[color:var(--color-foreground)] rounded-full">
+            <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10">
+              <span className="inline-block px-2 py-1 text-xs sm:px-3 font-medium text-[color:var(--color-yellow)] bg-[color:var(--color-foreground)] rounded-full">
                 {card.category}
               </span>
             </div>
@@ -69,19 +69,19 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         </div>
 
         {/* Card Content - Fixed at bottom with responsive padding */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-4 z-10 text-white transition-all duration-500 group-hover:pb-8 sm:group-hover:pb-4 h-[200px] sm:h-[120px]">
-          <h3 className="text-card-title text-[color:var(--color-background)] sm:text-lg font-medium mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-15px]">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 z-10 text-white transition-all duration-500 group-hover:pb-8 h-auto">
+          <h3 className="text-lg sm:text-card-title text-[color:var(--color-background)] font-medium mb-2 sm:mb-3 transition-all duration-300 group-hover:translate-y-[-15px]">
             {card.title}
           </h3>
-          <p className="text-[color:var(--color-background)]/90 leading-relaxed mb-4 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:translate-y-[-15px]">
+          <p className="text-sm sm:text-base text-[color:var(--color-background)]/90 leading-relaxed mb-2 sm:mb-4 transition-all duration-300 group-hover:translate-y-[-15px]">
             {card.description}
           </p>
 
           {/* Learn More Link - Hidden by default, shows on hover */}
-          <div className="flex items-center text-[color:var(--color-yellow)] font-bold text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 transition-all duration-300 delay-200">
+          <div className="flex items-center text-[color:var(--color-yellow)] font-bold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 transition-all duration-300 delay-200">
             <span>Learn More</span>
             <svg
-              className="ml-2 w-4 h-4 sm:w-3 sm:h-3 transition-transform duration-200 group-hover:translate-x-1"
+              className="ml-2 w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   const CardType2 = ({ card }: { card: any }) => (
     <Link
       href={card.linkUrl}
-      className="group block w-[628px] h-[670px] md:w-[628px] md:h-[670px] sm:w-[300px] sm:h-[400px] flex-shrink-0 relative overflow-hidden"
+      className="group block w-[80vw] h-[480px] sm:w-[350px] sm:h-[420px] md:w-[500px] md:h-[600px] lg:w-[628px] lg:h-[670px] flex-shrink-0 relative overflow-hidden"
       aria-label={`Read more about ${card.title}`}
     >
       <article className="bg-white rounded-lg overflow-hidden shadow-md hover-lift hover-shadow h-full relative">
@@ -115,13 +115,13 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
             alt={card.title}
             fill
             className="object-cover transition-all duration-500 group-hover:scale-110"
-            sizes="(max-width: 640px) 300px, 628px"
+            sizes="(max-width: 640px) 80vw, (max-width: 768px) 350px, (max-width: 1024px) 500px, 628px"
           />
 
           {/* Category Badge */}
           {card.category && (
-            <div className="absolute top-8 left-8 sm:top-4 sm:left-4 z-10">
-              <span className="inline-block px-3 py-1 sm:px-2 sm:py-1 text-xs sm:text-xs font-medium text-white bg-credera-red rounded-full">
+            <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10">
+              <span className="inline-block px-2 py-1 text-xs sm:px-3 font-medium text-white bg-credera-red rounded-full">
                 {card.category}
               </span>
             </div>
@@ -129,19 +129,19 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         </div>
 
         {/* Text Overlay at Bottom - Fixed height with responsive sizing */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] sm:h-[120px] p-8 sm:p-4 bg-white text-credera-dark transition-all duration-500 group-hover:bg-[color:var(--color-background)] group-hover:text-[color:var(--color-foreground)]">
-          <h3 className="text-card-title sm:text-lg font-medium mb-3 sm:mb-2 transition-all duration-300 group-hover:translate-y-[-8px]">
+        <div className="absolute bottom-0 left-0 right-0 h-auto p-4 sm:p-6 md:p-8 bg-white text-credera-dark transition-all duration-500 group-hover:bg-[color:var(--color-background)] group-hover:text-[color:var(--color-foreground)]">
+          <h3 className="text-lg sm:text-card-title font-medium mb-2 sm:mb-3 transition-all duration-300 group-hover:translate-y-[-8px]">
             {card.title}
           </h3>
-          <p className="text-credera-gray-600 leading-relaxed mb-0 sm:mb-2 sm:text-sm transition-all duration-300 group-hover:text-[color:var(--color-foreground)]/90 group-hover:translate-y-[-8px] group-hover:mb-4">
+          <p className="text-sm sm:text-base text-credera-gray-600 leading-relaxed mb-2 transition-all duration-300 group-hover:text-[color:var(--color-foreground)]/90 group-hover:translate-y-[-8px] group-hover:mb-4">
             {card.description}
           </p>
 
           {/* Learn More Link - Hidden by default, shows on hover */}
-          <div className="flex items-center text-font-medium text-sm sm:text-xs opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
+          <div className="flex items-center text-font-medium text-xs sm:text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200">
             <span>Learn More</span>
             <svg
-              className="ml-2 w-4 h-4 sm:w-3 sm:h-3 transition-transform duration-200 group-hover:translate-x-1"
+              className="ml-2 w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -161,12 +161,12 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   );
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       {/* Scroll Indicator Container - Centered with max-width */}
-      <div className="max-w-7xl mx-auto px-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="scroll-indicator-container">
           {/* Outer line */}
-          <div className="w-full h-2 bg-credera-gray-100 rounded-full overflow-hidden">
+          <div className="w-full h-1 bg-credera-gray-100 rounded-full overflow-hidden">
             {/* Inner line that moves with scroll */}
             <div
               className="h-full bg-[color:var(--color-yellow)] rounded-full transition-all duration-150"
@@ -185,8 +185,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
           style={{ scrollBehavior }}
         >
           <div
-            className="flex space-x-6 sm:space-x-4 min-w-max pr-8 sm:pr-4"
-            style={{ paddingLeft: "calc(50% - 314px)", paddingRight: "calc(50% - 314px)" }}
+            className="flex items-center space-x-4 md:space-x-6 min-w-max px-4 sm:px-6 lg:px-0 lg:pl-[calc(50vw-314px)] lg:pr-[calc(50vw-314px)]"
           >
             {cards.map((card, index) =>
               index % 2 === 0 ? (

@@ -29,16 +29,16 @@ export default function CloudAssessment() {
       />
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6">
                 How we do it: Our Assessment Approach
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8">
                 {[
                   {
                     title: 'Discover',
@@ -86,8 +86,8 @@ export default function CloudAssessment() {
                   },
                 ].map((block, idx) => (
                   <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                    <h3 className="text-xl font-semibold text-credera-dark mb-4">{block.title}</h3>
-                    <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
+                    <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">{block.title}</h3>
+                    <ul className="list-disc list-inside text-credera-gray-600 space-y-2 text-sm sm:text-base">
                       {block.items.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
@@ -97,17 +97,35 @@ export default function CloudAssessment() {
               </div>
 
               {/* Execution Table */}
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6 mt-12">
                 How we do it: Assessment Execution
               </h2>
-              <div className="overflow-x-auto mb-12">
+
+              {/* Mobile Card Layout */}
+              <div className="md:hidden space-y-4 mb-12">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Discover</h4>
+                  <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
+                    <li>Automated Discovery</li>
+                    <li>Conduct Interviews</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Analyse</h4>
+                  <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
+                    <li>Current Cost Identification</li>
+                    <li>TCO Insights</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Desktop Table */}
+              <div className="hidden md:block overflow-x-auto mb-12">
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
                     <tr className="bg-credera-gray-50">
                       <th className="border px-4 py-3 font-semibold text-credera-dark">Discover</th>
                       <th className="border px-4 py-3 font-semibold text-credera-dark">Analyse</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Recommend</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Visualise</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -116,36 +134,12 @@ export default function CloudAssessment() {
                         <ul className="text-sm space-y-1">
                           <li>Automated Discovery</li>
                           <li>Conduct Interviews</li>
-                          <li>Benchmarking current state of App/Infra Management</li>
-                          <li>Cost Comparison</li>
-                          <li>App Dependency Mapping</li>
-                          <li>Deliver Indicative Migration Plan & Ops Model</li>
                         </ul>
                       </td>
                       <td className="border px-4 py-3 text-credera-gray-600 align-top">
                         <ul className="text-sm space-y-1">
                           <li>Current Cost Identification</li>
-                          <li>Map Change Readiness</li>
-                          <li>Benchmarking current cost</li>
                           <li>TCO Insights</li>
-                        </ul>
-                      </td>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
-                          <li>Cost Mapping</li>
-                          <li>Data Validation</li>
-                          <li>Ops Benchmarking</li>
-                          <li>Strategy Report</li>
-                          <li>Draft Program Roadmap (R-Strategy)</li>
-                          <li>Identify Risks, Security, Governance needs</li>
-                        </ul>
-                      </td>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
-                          <li>Stop Automated Discovery</li>
-                          <li>Service Mapping</li>
-                          <li>Service Maturity Overview</li>
-                          <li>Cost Analysis</li>
                         </ul>
                       </td>
                     </tr>
@@ -153,42 +147,39 @@ export default function CloudAssessment() {
                 </table>
               </div>
 
-              <p className="text-sm italic text-gray-500 mb-12">
+              <p className="text-xs sm:text-sm italic text-gray-500 mb-12">
                 *Example timeline with flexibility for deal-specific scenarios
               </p>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6">
                 Cloud Assessment: Governance
               </h2>
 
-              <div className="overflow-x-auto">
+              {/* Mobile Card Layout */}
+              <div className="md:hidden space-y-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Leadership Engagement (Strategic)</h4>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                    <div><strong className="font-semibold text-gray-600">Cadence:</strong> Bi-Weekly</div>
+                    <div><strong className="font-semibold text-gray-600">Leads:</strong> Customer + Partner</div>
+                    <div className="col-span-2"><strong className="font-semibold text-gray-600">Topics:</strong> Overall Engagement Progress, Key Milestones Forecast</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Table */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
                     <tr className="bg-credera-gray-50">
                       <th className="border px-4 py-3 font-semibold text-credera-dark">Tier</th>
                       <th className="border px-4 py-3 font-semibold text-credera-dark">Cadence</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Leads</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Topics</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td className="border px-4 py-3 font-semibold text-credera-gray-600">Leadership Engagement (Strategic)</td>
                       <td className="border px-4 py-3 text-credera-gray-600">Bi-Weekly</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Overall Engagement Progress, Key Milestones Forecast</td>
-                    </tr>
-                    <tr className="bg-credera-gray-50">
-                      <td className="border px-4 py-3 font-semibold text-credera-gray-600">Program Performance (Tactical)</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Weekly</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Key Milestones Performance, RAID Log</td>
-                    </tr>
-                    <tr>
-                      <td className="border px-4 py-3 font-semibold text-credera-gray-600">Task Tracking (Operational)</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Daily</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Task Completion Status, Task Planning</td>
                     </tr>
                   </tbody>
                 </table>
@@ -198,25 +189,20 @@ export default function CloudAssessment() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                {/* What to Expect */}
-                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-foreground border border-yellow p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-yellow mb-4">
                     What to Expect
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                  <ul className="space-y-2 text-sm text-yellow">
                     <li>✓ Comprehensive discovery and analysis</li>
                     <li>✓ Detailed assessment report</li>
-                    <li>✓ Migration readiness evaluation</li>
-                    <li>✓ Strategic recommendations</li>
-                    <li>✓ Implementation roadmap</li>
                   </ul>
                 </div>
 
-                {/* Process */}
-                <div className="bg-credera-gray-50 p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                <div className="bg-credera-gray-50 p-6 rounded-lg border border-yellow">
                   <h3 className="text-lg font-semibold text-credera-dark mb-4">Assessment Process</h3>
                   <div className="space-y-4 text-sm text-credera-gray-600">
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-yellow pl-4">
                       <div className="font-semibold">Discovery</div>
                       <div>Scoping and data gathering</div>
                     </div>

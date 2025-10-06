@@ -20,13 +20,13 @@ export default function SolutionsPage() {
       />
 
       {/* Solutions Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {solutions.map((solution, index) => (
               <Link
                 href={`/solutions/${solution.id}`}
-                className="group block bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100 h-full"
+                className="group block bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 md:p-8 border border-gray-100 h-full"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
@@ -34,19 +34,19 @@ export default function SolutionsPage() {
                 <div className="flex flex-col justify-between h-full">
                   {/* Title and Description */}
                   <div className="text-left">
-                    <h3 className="text-2xl font-bold text-credera-dark mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-credera-dark mb-4">
                       {solution.title}
                     </h3>
-                    <p className="text-credera-gray-600 leading-relaxed mb-6">
+                    <p className="text-sm md:text-base text-credera-gray-600 leading-relaxed mb-6">
                       {solution.description}
                     </p>
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-auto relative inline-flex items-center font-semibold text-black">
-                    EXPLORE {solution.title.toUpperCase()}
+                  <div className="mt-auto relative inline-flex items-center font-semibold text-black text-sm group">
+                    <span>EXPLORE {solution.title.toUpperCase()}</span>
                     <svg
-                      className="w-4 h-4 ml-2"
+                      className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

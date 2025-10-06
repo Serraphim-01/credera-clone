@@ -59,28 +59,38 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
     }
   };
 
-  // Card component with responsive layout
+  // Card component with unified responsive layout
   const SolutionCard = ({ solution }: { solution: any }) => (
-    <div className="flex-shrink-0 w-[1090px] h-[580px] md:w-[1090px] md:h-[580px] sm:w-[350px] sm:h-[400px] overflow-hidden mx-[40px] sm:mx-[20px]">
-      {/* Desktop Layout */}
-      <div className="hidden md:grid grid-cols-2 h-full gap-20">
-        {/* Text Section - Left */}
-        <div className="flex flex-col justify-center">
-          <h3 className="text-3xl font-bold text-credera-dark mb-4">
+    <div className="flex-shrink-0 w-[85vw] sm:w-[400px] md:w-[700px] lg:w-[1090px] aspect-video md:aspect-[16/9] lg:aspect-[1.8/1] overflow-hidden mx-2 sm:mx-4 md:mx-6">
+      <div className="bg-white h-full flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg">
+        {/* Image Section - Takes full background on mobile, half on desktop */}
+        <div className="relative w-full h-1/2 md:h-full md:w-1/2 order-1 md:order-2">
+          <Image
+            src={solution.imageUrl}
+            alt={solution.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 350px, 545px"
+          />
+        </div>
+
+        {/* Text Section - Overlay on mobile, separate on desktop */}
+        <div className="relative w-full h-1/2 md:h-full md:w-1/2 p-6 md:p-8 lg:p-12 flex flex-col justify-center order-2 md:order-1">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-credera-dark mb-3 md:mb-4">
             {solution.title}
           </h3>
 
-          <p className="text-lg text-credera-gray-600 leading-relaxed mb-8">
+          <p className="text-sm md:text-base lg:text-lg text-credera-gray-600 leading-relaxed mb-4 md:mb-8 line-clamp-3 md:line-clamp-none">
             {solution.description}
           </p>
 
           <Link
             href={solution.linkUrl}
-            className="inline-flex items-center text-credera-red hover:text-credera-dark font-semibold transition-colors duration-200 space-x-2"
+            className="inline-flex items-center text-credera-red hover:text-credera-dark font-semibold transition-colors duration-200 space-x-2 group"
           >
             <span>Learn More</span>
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -94,68 +104,12 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             </svg>
           </Link>
         </div>
-
-        {/* Image Section - Right - Full width of its container */}
-        <div className="relative w-full">
-          <Image
-            src={solution.imageUrl}
-            alt={solution.title}
-            fill
-            className="object-cover"
-            sizes="545px"
-          />
-        </div>
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="md:hidden h-full relative">
-        {/* Background Image */}
-        <div className="relative w-full h-full">
-          <Image
-            src={solution.imageUrl}
-            alt={solution.title}
-            fill
-            className="object-cover"
-            sizes="350px"
-          />
-
-          {/* Text Overlay */}
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center p-6">
-            <h3 className="text-xl font-bold text-white mb-3">
-              {solution.title}
-            </h3>
-
-            <p className="text-sm text-white/90 leading-relaxed mb-4 line-clamp-3">
-              {solution.description}
-            </p>
-
-            <Link
-              href={solution.linkUrl}
-              className="inline-flex items-center text-credera-red hover:text-white font-semibold transition-colors duration-200 space-x-2"
-            >
-              <span>Learn More</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   );
 
   return (
-    <section className="py-20 bg-credera-gray-100">
+    <section className="py-16 md:py-20 bg-credera-gray-100">
       {/* Full width scroll container */}
       <div className="w-full overflow-hidden">
         <div
@@ -163,12 +117,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           className="scroll-container overflow-x-auto pb-4"
           style={{ scrollBehavior }}
         >
-          <div
-            className="
-      flex min-w-max
-      pr-[calc(50%-400px)] pl-[calc(50%-400px)]
-    "
-          >
+          <div className="flex min-w-max px-4 sm:px-6 lg:px-0 lg:pl-[calc(50vw-545px)] lg:pr-[calc(50vw-545px)]">
             {solutions.map((solution) => (
               <SolutionCard key={solution.id} solution={solution} />
             ))}
@@ -177,7 +126,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       </div>
 
       {/* Navigation Buttons - Bottom Right */}
-      <div className="max-w-7xl mx-auto px-8 mt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="flex justify-end">
           <div className="flex space-x-2.5"> {/* 10px gap = 2.5 = 10px */}
             <button

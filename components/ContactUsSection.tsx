@@ -9,11 +9,11 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({
   contactLink = "/contact"
 }) => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-credera-dark">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-credera-dark">
             {title}
           </h2>
         </div>
@@ -22,11 +22,11 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({
         <div className="text-center">
           <Link
             href={contactLink}
-            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)] font-semibold rounded-md hover:bg-[color:var(--color-dark-gray)] transition-colors duration-200 space-x-3"
+            className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)] font-semibold rounded-md hover:bg-[color:var(--color-dark-gray)] transition-colors duration-200 space-x-2 group"
           >
             <span>Contact Us</span>
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

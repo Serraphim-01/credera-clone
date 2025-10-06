@@ -35,97 +35,97 @@ export default function CurrentStatePortfolioAnalysis() {
       />
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6">
                 The WHAT
               </h2>
 
-              <div className="prose prose-lg max-w-none text-credera-gray-600">
-                <p className="mb-6">
+              <div className="prose max-w-none text-credera-gray-600">
+                <p className="mb-6 text-base sm:text-lg">
                   A forensic, criteria-based scan of every application & infrastructure asset:
                 </p>
 
-                <ul className="list-disc list-inside mb-6 space-y-2">
+                <ul className="list-disc list-inside mb-6 space-y-2 text-sm sm:text-base">
                   <li><strong>Apps</strong>: architecture, complexity, criticality, cost, dependencies, integrations, risk, scalability, tech stack, usage.</li>
                   <li><strong>Infrastructure</strong>: ditto—plus data size, security, storage.</li>
                   <li><strong>Tools</strong>: capability, dependencies, usage.</li>
                 </ul>
 
-                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-6 mb-8">
-                  <blockquote className="text-lg italic text-[color:var(--color-yellow)] ">
+                <div className="bg-foreground border-l-4 border-yellow p-6 mb-8">
+                  <blockquote className="text-base sm:text-lg italic text-yellow">
                     <strong>Forrester</strong>: 45% complexity reduction & 51% higher availability start with <strong>accurate discovery</strong>.
                   </blockquote>
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-credera-dark mb-6 mt-12">
                 The HOW – bottom-up automation, top-down governance
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     1. Stakeholder kick-off & scoping
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Initial meetings to define scope, objectives, and establish project governance framework.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     2. QUEST agentless discovery (automated)
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Comprehensive automated discovery using QUEST tooling to identify all assets and dependencies.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     3. Dependency & business-service mapping
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Detailed mapping of application dependencies and alignment with business services.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     4. CMDB compare & data validation
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Cross-validation with existing CMDB data to ensure accuracy and completeness.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     5. Risk/complexity scoring
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Systematic assessment and scoring of migration risk and complexity factors.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     6. Gap & readiness identification
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Identification of gaps and assessment of cloud readiness across all components.
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-credera-dark mb-4">
                     7. Publish Portfolio Analysis Report
                   </h3>
-                  <p className="text-credera-gray-600 mb-4">
+                  <p className="text-credera-gray-600 text-sm sm:text-base">
                     Comprehensive report with move-group recommendations and strategic insights.
                   </p>
                 </div>
@@ -135,25 +135,25 @@ export default function CurrentStatePortfolioAnalysis() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-8 space-y-6">
-                <div className="bg-[color:var(--color-foreground)] border border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-foreground border border-green-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-yellow mb-4">
                     Outcomes
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                  <ul className="space-y-2 text-sm text-yellow">
                     <li className="flex items-start">
-                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
+                      <span className="text-yellow mr-2 mt-1 text-lg">✓</span>
                       Single source of truth for apps & infra
                     </li>
                     <li className="flex items-start">
-                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
+                      <span className="text-yellow mr-2 mt-1 text-lg">✓</span>
                       Move-blockers surfaced early
                     </li>
                     <li className="flex items-start">
-                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
+                      <span className="text-yellow mr-2 mt-1 text-lg">✓</span>
                       Quick-win candidates highlighted
                     </li>
                     <li className="flex items-start">
-                      <span className="text-[color:var(--color-yellow)] mr-3 text-xl">✓</span>
+                      <span className="text-yellow mr-2 mt-1 text-lg">✓</span>
                       Data-driven input to TCO, security & migration waves
                     </li>
                   </ul>

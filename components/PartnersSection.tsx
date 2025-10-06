@@ -47,57 +47,58 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
 
   return (
     <>
-      <section className="bg-white py-20 px-8">
+      <section className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+          <div className="text-center mb-12 md:mb-16 animate-fadeInUp">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4">
               {title}
             </h2>
-            <p className="text-lg text-dark-gray max-w-3xl mx-auto mb-6">
+            <p className="text-base md:text-lg text-dark-gray max-w-3xl mx-auto mb-6">
               {subtitle}
             </p>
-            <div className="w-24 h-1 bg-yellow mx-auto"></div>
+            <div className="w-20 h-1 bg-yellow mx-auto"></div>
           </div>
 
           {/* Partners Infinite Scroll */}
-          <div className="relative overflow-hidden">
-            <div className="flex animate-scroll space-x-16 mb-12">
+          <div className="relative overflow-hidden group">
+            <div className="flex animate-scroll group-hover:pause space-x-12 sm:space-x-16 mb-12">
               {duplicatedPartners.map((partner, index) => (
                 <Link
                   key={`${partner.id}-${index}`}
                   href={partner.href}
-                  className="group flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
+                  className="group/partner flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
                 >
-                  <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 relative mb-4 transition-all duration-300 group-hover/partner:scale-110">
                     <Image
                       src={partner.logo}
                       alt={partner.name}
                       fill
-                      className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                      sizes="96px"
+                      className="object-contain filter grayscale group-hover/partner:grayscale-0 transition-all duration-300"
+                      sizes="(max-width: 640px) 80px, 96px"
                     />
                   </div>
 
                   {/* Hover tooltip */}
-                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
+                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover/partner:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
                     {partner.name}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
                   </div>
                 </Link>
               ))}
             </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white pointer-events-none"></div>
           </div>
 
           {/* View All Partners Button */}
           <div className="text-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center text-yellow hover:text-opacity-80 font-medium transition-colors duration-200"
+              className="inline-flex items-center text-yellow hover:text-opacity-80 font-medium transition-colors duration-200 group"
             >
-              View All Partners
+              <span>View All Partners</span>
               <svg
-                className="ml-2 w-4 h-4"
+                className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -124,10 +125,10 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
           }
 
           .animate-scroll {
-            animation: scroll 60s linear infinite;
+            animation: scroll 45s linear infinite;
           }
 
-          .animate-scroll:hover {
+          .group:hover .animate-scroll {
             animation-play-state: paused;
           }
         `}</style>
