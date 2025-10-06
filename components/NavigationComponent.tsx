@@ -109,16 +109,32 @@ const NavigationComponent: React.FC<NavigationProps> = ({
           <div className="max-w-7xl mx-auto px-8 h-full">
             <div className="flex items-center justify-between h-full">
               {/* Logo */}
-              <Link href="/" className="flex items-center" aria-label="Task Home">
+              <Link
+                href="/"
+                className="relative flex items-center overflow-hidden group rounded-lg"
+                aria-label="Task Home"
+              >
+                {/* Base Logo (stays in place) */}
                 <Image
                   src="/TaskImages/logo.png"
                   alt="Task"
-                  width={200} 
-                  height={64} 
+                  width={200}
+                  height={64}
                   priority
-                  className="h-16 w-auto"
+                  className="h-16 w-auto rounded-lg"
+                />
+
+                {/* Hover Logo (slides over on hover) */}
+                <Image
+                  src="/TaskImages/logo-black-hover.png"
+                  alt="Task Hover"
+                  width={200}
+                  height={64}
+                  priority
+                  className="h-16 w-auto absolute top-0 left-0 rounded-lg translate-x-[-100%] transition-transform duration-500 group-hover:translate-x-0"
                 />
               </Link>
+
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-12">
@@ -266,7 +282,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                         {item.label}
                       </span>
                     )}
-                    
+
                     {/* Mobile dropdown toggle */}
                     {item.megaMenuContent && (
                       <button
@@ -289,7 +305,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                       </button>
                     )}
                   </div>
-                  
+
                   {/* Mobile mega menu dropdown */}
                   {item.megaMenuContent && mobileActiveDropdown === item.label && (
                     <div className="mt-2 pl-4 space-y-4 border-l-2 border-yellow">
@@ -323,7 +339,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                       ))}
                     </div>
                   )}
-                  
+
                   {/* Standard dropdown items (if no mega menu) */}
                   {item.dropdownItems && !item.megaMenuContent && (
                     <div className="pl-4 mt-2 space-y-2">

@@ -481,8 +481,45 @@ export interface NextStepsModalProps {
   showConsultTypeSelection?: boolean; // For main consult page
 }
 
-export interface NextStepsModalProps {
+// Job Opening Types
+export interface JobOpening {
+  id: string;
+  title: string;
+  category: 'student-intern' | 'professional';
+  applicationDeadline: string;
+  description: string;
+  fullDescription?: string;
+  requirements: string[];
+  responsibilities: string[];
+  whatYouWillDo?: string[];
+  whoYouAre?: string[];
+  benefits?: string[];
+}
+
+// Application Form Types
+export interface ApplicationFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  country: string;
+  phone: string;
+  location: string;
+  resume: File | null;
+  education: string;
+  linkedinProfile: string;
+}
+
+// Application Modal Types
+export interface ApplicationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: NextStepsFormData) => Promise<void>;
+  jobTitle: string;
+  onSubmit: (data: ApplicationFormData) => Promise<void>;
+}
+
+// Success Modal Types
+export interface SuccessModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  message: string;
 }

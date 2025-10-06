@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FooterSectionProps } from '@/types';
 
 const FooterSection: React.FC<FooterSectionProps> = ({
-  logoUrl = "/TaskImages/logo.png",
+  logoUrl = "/TaskImages/logo-white.png",
   description = "We are a global consulting firm that combines deep industry expertise with innovative technology solutions to help our clients achieve extraordinary results.",
   copyright = `© ${new Date().getFullYear()} Task Systems. All rights reserved.`
 }) => {
@@ -19,13 +19,30 @@ const FooterSection: React.FC<FooterSectionProps> = ({
             {/* First Column - Twice the width (spans 2 columns) */}
             <div className="md:col-span-2">
               <div className="mb-6">
-                <Image
-                  src={logoUrl}
-                  alt="Task Systems Logo"
-                  width={120}
-                  height={40}
-                  className="mb-4 rounded-lg"
-                />
+
+                <Link
+                  href="/"
+                  className="relative inline-flex items-center overflow-hidden group rounded-lg w-[120px] h-[60px] mb-4"
+                  aria-label="Task Home"
+                >
+                  {/* Base Logo (stays visible underneath) */}
+                  <Image
+                    src={logoUrl}
+                    alt="Task Systems Logo"
+                    fill
+                    className="rounded-lg object-contain"
+                    priority
+                  />
+
+                  {/* Hover Logo (slides over the base on hover) */}
+                  <Image
+                    src="/TaskImages/logo-black-hover.png"
+                    alt="Task Systems Hover Logo"
+                    fill
+                    className="absolute top-0 left-0 rounded-lg object-contain translate-x-[-100%] transition-transform duration-500 group-hover:translate-x-0"
+                    priority
+                  />
+                </Link>
                 <p className="text-light-gray text-sm leading-relaxed max-w-md">
                   {description}
                 </p>

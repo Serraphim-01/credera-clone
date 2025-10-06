@@ -6,6 +6,7 @@
   --foreground: #181817;
   --yellow: #f7b90c;
   --light-yellow: #fdf1ce;
+  --very-light-yellow: #fef9eb;
   --light-gray: #d3d3d3;
   --gray: #757575;
   --dark-gray: #313131;
@@ -19,6 +20,7 @@
   --font-accents: var(--font-exo);
   --color-yellow: var(--yellow);
   --color-light-yellow: var(--light-yellow);
+  --color-very-light-yellow: var(--very-light-yellow);
   --color-light-gray: var(--light-gray);
   --color-gray: var(--gray);
   --color-dark-gray: var(--dark-gray);
