@@ -359,3 +359,25 @@ p, span, div {
     color: black !important;
   }
 }
+
+/* Force left-right layout even on small screens */
+@media screen and (max-width: 1170px) {
+  .vertical-timeline.vertical-timeline--two-columns {
+    width: 100% !important;
+  }
+  .vertical-timeline.vertical-timeline--two-columns .vertical-timeline-element {
+    width: 100% !important;
+  }
+  .vertical-timeline::before {
+    left: 50% !important;
+    margin-left: -2px !important;
+  }
+  .vertical-timeline-element-content {
+    margin-left: 0 !important;
+  }
+  .vertical-timeline-element-date {
+    position: absolute !important;
+    left: -120px !important;
+    text-align: right !important;
+  }
+}

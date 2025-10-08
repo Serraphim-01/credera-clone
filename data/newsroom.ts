@@ -69,7 +69,7 @@ export const newsArticles: NewsArticle[] = [
       name: 'Emma Thompson',
       profileImage: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
     },
-    publishedAt: '2025-03-15T10:00:00Z',
+    publishedAt: '2025-10-15T10:00:00Z',
     imageUrl: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     readTime: 3,
     tags: ['Event', 'Digital Transformation', 'Summit'],
@@ -129,7 +129,7 @@ export const newsArticles: NewsArticle[] = [
       name: 'Jennifer Lee',
       profileImage: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
     },
-    publishedAt: '2025-02-20T09:00:00Z',
+    publishedAt: '2025-10-09T09:00:00Z',
     imageUrl: 'https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     readTime: 2,
     tags: ['Webinar', 'Technology', 'Innovation'],
@@ -189,7 +189,7 @@ export const newsArticles: NewsArticle[] = [
       name: 'Conference Team',
       profileImage: 'https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
     },
-    publishedAt: '2025-10-4T14:00:00Z',
+    publishedAt: '2025-10-07T10:00:00Z',
     imageUrl: 'https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     readTime: 5,
     tags: ['Conference', 'Future of Work', 'Technology'],

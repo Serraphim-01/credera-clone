@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
 import NextStepsModal from '@/components/NextStepsModal';
 import { NextStepsFormData } from '@/types';
+import Image from 'next/image';
 
 export default function CloudAssessment() {
   const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
@@ -20,25 +20,46 @@ export default function CloudAssessment() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <StandardHeroSection
-        title="Cloud Assessment"
-        subtitle="Complete Cloud Evaluation"
-        description="Comprehensive evaluation of your cloud readiness, infrastructure, and applications. Get detailed insights into your current state and recommendations for cloud optimization."
-        backgroundImage="/TaskImages/services.jpg"
-        maxContentWidth="max-w-lg"
-      />
+      <section className="relative h-screen max-h-[600px] overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/TaskImages/services.jpg"
+          alt="Cloud Assessment"
+          fill
+          className="object-cover absolute inset-0 z-0"
+          priority
+          sizes="100vw"
+        />
+
+        {/* Content */}
+        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-8 z-20">
+          <div className="absolute bottom-0 left-4 sm:left-8 w-[60%] max-w-lg">
+            <div className="bg-white p-4 sm:p-6 md:p-8 shadow-xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-gray-900">
+                Cloud Assessment
+              </h1>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-4 text-gray-700">
+                Complete Cloud Evaluation
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-2 sm:mb-4">
+                Comprehensive evaluation of your cloud readiness, infrastructure, and applications. Get detailed insights into your current state and recommendations for cloud optimization.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-8 sm:py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">
                 How we do it: Our Assessment Approach
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {[
                   {
                     title: 'Discover',
@@ -85,9 +106,9 @@ export default function CloudAssessment() {
                     ],
                   },
                 ].map((block, idx) => (
-                  <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                    <h3 className="text-xl font-semibold text-credera-dark mb-4">{block.title}</h3>
-                    <ul className="list-disc list-inside text-credera-gray-600 space-y-2">
+                  <div key={idx} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm">
+                    <h3 className="text-lg sm:text-xl font-semibold text-credera-dark mb-3 sm:mb-4">{block.title}</h3>
+                    <ul className="list-disc list-inside text-credera-gray-600 space-y-1 sm:space-y-2 text-sm sm:text-base">
                       {block.items.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
@@ -97,23 +118,23 @@ export default function CloudAssessment() {
               </div>
 
               {/* Execution Table */}
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6 mt-8 sm:mt-12">
                 How we do it: Assessment Execution
               </h2>
-              <div className="overflow-x-auto mb-12">
+              <div className="overflow-x-auto mb-8 sm:mb-12">
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
                     <tr className="bg-credera-gray-50">
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Discover</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Analyse</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Recommend</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Visualise</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Discover</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Analyse</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Recommend</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Visualise</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 align-top text-xs sm:text-sm">
+                        <ul className="space-y-1">
                           <li>Automated Discovery</li>
                           <li>Conduct Interviews</li>
                           <li>Benchmarking current state of App/Infra Management</li>
@@ -122,16 +143,16 @@ export default function CloudAssessment() {
                           <li>Deliver Indicative Migration Plan & Ops Model</li>
                         </ul>
                       </td>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 align-top text-xs sm:text-sm">
+                        <ul className="space-y-1">
                           <li>Current Cost Identification</li>
                           <li>Map Change Readiness</li>
                           <li>Benchmarking current cost</li>
                           <li>TCO Insights</li>
                         </ul>
                       </td>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 align-top text-xs sm:text-sm">
+                        <ul className="space-y-1">
                           <li>Cost Mapping</li>
                           <li>Data Validation</li>
                           <li>Ops Benchmarking</li>
@@ -140,8 +161,8 @@ export default function CloudAssessment() {
                           <li>Identify Risks, Security, Governance needs</li>
                         </ul>
                       </td>
-                      <td className="border px-4 py-3 text-credera-gray-600 align-top">
-                        <ul className="text-sm space-y-1">
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 align-top text-xs sm:text-sm">
+                        <ul className="space-y-1">
                           <li>Stop Automated Discovery</li>
                           <li>Service Mapping</li>
                           <li>Service Maturity Overview</li>
@@ -153,11 +174,11 @@ export default function CloudAssessment() {
                 </table>
               </div>
 
-              <p className="text-sm italic text-gray-500 mb-12">
+              <p className="text-xs sm:text-sm italic text-gray-500 mb-8 sm:mb-12">
                 *Example timeline with flexibility for deal-specific scenarios
               </p>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">
                 Cloud Assessment: Governance
               </h2>
 
@@ -165,30 +186,30 @@ export default function CloudAssessment() {
                 <table className="w-full border-collapse border border-gray-300 text-left">
                   <thead>
                     <tr className="bg-credera-gray-50">
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Tier</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Cadence</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Leads</th>
-                      <th className="border px-4 py-3 font-semibold text-credera-dark">Topics</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Tier</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Cadence</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Leads</th>
+                      <th className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-dark text-sm sm:text-base">Topics</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border px-4 py-3 font-semibold text-credera-gray-600">Leadership Engagement (Strategic)</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Bi-Weekly</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Overall Engagement Progress, Key Milestones Forecast</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-gray-600 text-xs sm:text-sm">Leadership Engagement (Strategic)</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Bi-Weekly</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Customer + Partner</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Overall Engagement Progress, Key Milestones Forecast</td>
                     </tr>
                     <tr className="bg-credera-gray-50">
-                      <td className="border px-4 py-3 font-semibold text-credera-gray-600">Program Performance (Tactical)</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Weekly</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Key Milestones Performance, RAID Log</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-gray-600 text-xs sm:text-sm">Program Performance (Tactical)</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Weekly</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Customer + Partner</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Key Milestones Performance, RAID Log</td>
                     </tr>
                     <tr>
-                      <td className="border px-4 py-3 font-semibold text-credera-gray-600">Task Tracking (Operational)</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Daily</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Customer + Partner</td>
-                      <td className="border px-4 py-3 text-credera-gray-600">Task Completion Status, Task Planning</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 font-semibold text-credera-gray-600 text-xs sm:text-sm">Task Tracking (Operational)</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Daily</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Customer + Partner</td>
+                      <td className="border px-3 sm:px-4 py-2 sm:py-3 text-credera-gray-600 text-xs sm:text-sm">Task Completion Status, Task Planning</td>
                     </tr>
                   </tbody>
                 </table>
@@ -197,13 +218,13 @@ export default function CloudAssessment() {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-8 space-y-6">
+              <div className="sticky top-8 space-y-4 sm:space-y-6">
                 {/* What to Expect */}
-                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] p-4 sm:p-6 rounded-lg">
+                  <h3 className="text-base sm:text-lg font-semibold text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     What to Expect
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                  <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[color:var(--color-yellow)]">
                     <li>✓ Comprehensive discovery and analysis</li>
                     <li>✓ Detailed assessment report</li>
                     <li>✓ Migration readiness evaluation</li>
@@ -213,22 +234,22 @@ export default function CloudAssessment() {
                 </div>
 
                 {/* Process */}
-                <div className="bg-credera-gray-50 p-6 rounded-lg border border-[color:var(--color-yellow)]">
-                  <h3 className="text-lg font-semibold text-credera-dark mb-4">Assessment Process</h3>
-                  <div className="space-y-4 text-sm text-credera-gray-600">
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                <div className="bg-credera-gray-50 p-4 sm:p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                  <h3 className="text-base sm:text-lg font-semibold text-credera-dark mb-3 sm:mb-4">Assessment Process</h3>
+                  <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-credera-gray-600">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Discovery</div>
                       <div>Scoping and data gathering</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Analysis</div>
                       <div>Technical evaluation and assessment</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Recommendations</div>
                       <div>Strategy development and roadmapping</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Visualisation</div>
                       <div>Results presentation and planning</div>
                     </div>
@@ -236,22 +257,22 @@ export default function CloudAssessment() {
                 </div>
 
                 {/* Next Steps */}
-                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] p-4 sm:p-6 rounded-lg">
+                  <h3 className="text-base sm:text-lg font-semibold text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     Next Steps
                   </h3>
-                  <p className="text-sm text-[color:var(--color-yellow)] mb-4">
+                  <p className="text-xs sm:text-sm text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     Ready to begin your comprehensive cloud assessment?
                   </p>
                   <button
                     onClick={handleNextStepsClick}
-                    className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-200 text-sm font-semibold"
+                    className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-200 text-xs sm:text-sm font-semibold"
                   >
                     Start Assessment
                   </button>
-                  <div className="mt-4 pt-4 border-t border-[color:var(--color-yellow)]">
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[color:var(--color-yellow)]">
                     <p className="text-xs text-[color:var(--color-yellow)] mb-2">Navigation:</p>
-                    <div className="space-y-2">
+                    <div className="space-y-1 sm:space-y-2">
                       <a
                         href="/consult/cloud-adoption-strategy"
                         className="block text-xs text-[color:var(--color-yellow)] hover:underline"

@@ -76,27 +76,27 @@ const NavigationComponent: React.FC<NavigationProps> = ({
     <>
       <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
         {/* Top Bar */}
-        <div className="h-10 bg-[color:var(--color-background)] border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-8 h-full">
+        <div className="h-8 sm:h-10 bg-[color:var(--color-background)] border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 h-full">
             <div className="flex items-center justify-end h-full">
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-4 sm:space-x-6">
                 {topBarItems.map((item, index) => (
                   <Link
                     key={index}
                     href={item.href}
-                    className="text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-2"
+                    className="text-xs sm:text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-1 sm:space-x-2"
                     aria-label={item.label}
                   >
                     {item.icon && (
                       <Image
                         src={`/icons/${item.icon}.svg`}
                         alt=""
-                        width={16}
-                        height={16}
-                        className="text-current"
+                        width={14}
+                        height={14}
+                        className="text-current w-3 h-3 sm:w-4 sm:h-4"
                       />
                     )}
-                    <span>{item.label}</span>
+                    <span className="font-medium">{item.label}</span>
                   </Link>
                 ))}
               </div>
@@ -105,8 +105,8 @@ const NavigationComponent: React.FC<NavigationProps> = ({
         </div>
 
         {/* Main Navigation */}
-        <div className="h-20 bg-white">
-          <div className="max-w-7xl mx-auto px-8 h-full">
+        <div className="h-16 sm:h-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 h-full">
             <div className="flex items-center justify-between h-full">
               {/* Logo */}
               <Link
@@ -118,26 +118,25 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                 <Image
                   src="/TaskImages/logo.png"
                   alt="Task"
-                  width={200}
-                  height={64}
+                  width={160}
+                  height={52}
                   priority
-                  className="h-16 w-auto rounded-lg"
+                  className="h-12 w-auto sm:h-16 rounded-lg"
                 />
 
                 {/* Hover Logo (slides over on hover) */}
                 <Image
                   src="/TaskImages/logo-black-hover.png"
                   alt="Task Hover"
-                  width={200}
-                  height={64}
+                  width={160}
+                  height={52}
                   priority
-                  className="h-16 w-auto absolute top-0 left-0 rounded-lg translate-x-[-100%] transition-transform duration-500 group-hover:translate-x-0"
+                  className="h-12 w-auto sm:h-16 absolute top-0 left-0 rounded-lg translate-x-[-100%] transition-transform duration-500 group-hover:translate-x-0"
                 />
               </Link>
 
-
               {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center space-x-12">
+              <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
                 {navigationItems.map((item, index) => (
                   <div
                     key={index}
@@ -152,14 +151,14 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className="text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-1 py-2"
+                        className="text-sm xl:text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-1 py-2 font-medium"
                         aria-expanded={activeDropdown === item.label ? 'true' : 'false'}
                         aria-haspopup={item.hasDropdown || item.megaMenuContent ? 'true' : 'false'}
                       >
                         <span>{item.label}</span>
                         {(item.hasDropdown || item.megaMenuContent) && (
                           <svg
-                            className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
+                            className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
                               }`}
                             fill="none"
                             stroke="currentColor"
@@ -175,11 +174,11 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                         )}
                       </Link>
                     ) : (
-                      <span className="text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-1 py-2 cursor-default">
+                      <span className="text-sm xl:text-nav text-dark-gray hover:text-yellow transition-colors duration-200 flex items-center space-x-1 py-2 cursor-default font-medium">
                         <span>{item.label}</span>
                         {(item.hasDropdown || item.megaMenuContent) && (
                           <svg
-                            className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
+                            className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
                               }`}
                             fill="none"
                             stroke="currentColor"
@@ -198,7 +197,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
 
                     {/* Standard Dropdown Menu (for items without mega menu) */}
                     {!item.megaMenuContent && item.hasDropdown && item.dropdownItems && (
-                      <div className={`absolute top-full left-0 w-64 bg-white shadow-lg border border-gray-100 rounded-md mt-2 transition-all duration-200 z-50 ${activeDropdown === item.label
+                      <div className={`absolute top-full left-0 w-56 xl:w-64 bg-white shadow-lg border border-gray-100 rounded-md mt-2 transition-all duration-200 z-50 ${activeDropdown === item.label
                         ? 'opacity-100 visible translate-y-0'
                         : 'opacity-0 invisible -translate-y-2'
                         }`}>
@@ -208,14 +207,14 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                               <Link
                                 key={dropIndex}
                                 href={dropdownItem.href!}
-                                className="block px-4 py-2 text-sm text-dark-gray hover:bg-light-gray hover:text-yellow transition-colors duration-150"
+                                className="block px-4 py-2 text-xs xl:text-sm text-dark-gray hover:bg-light-gray hover:text-yellow transition-colors duration-150 font-medium"
                               >
                                 {dropdownItem.label}
                               </Link>
                             ) : (
                               <span
                                 key={dropIndex}
-                                className="block px-4 py-2 text-sm text-dark-gray cursor-default"
+                                className="block px-4 py-2 text-xs xl:text-sm text-dark-gray cursor-default font-medium"
                               >
                                 {dropdownItem.label}
                               </span>
@@ -230,13 +229,13 @@ const NavigationComponent: React.FC<NavigationProps> = ({
 
               {/* Mobile Menu Button */}
               <button
-                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-light-gray transition-colors duration-200"
+                className="lg:hidden flex items-center justify-center w-8 h-8 rounded-md hover:bg-light-gray transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Toggle mobile menu"
               >
                 <svg
-                  className="w-6 h-6 text-dark-gray"
+                  className="w-5 h-5 text-dark-gray"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -265,20 +264,20 @@ const NavigationComponent: React.FC<NavigationProps> = ({
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-4 space-y-3">
               {navigationItems.map((item, index) => (
                 <div key={index}>
                   <div className="flex items-center justify-between">
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className="block text-nav text-dark-gray hover:text-yellow transition-colors duration-200 py-2 flex-1"
+                        className="block text-sm text-dark-gray hover:text-yellow transition-colors duration-200 py-2 flex-1 font-medium"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.label}
                       </Link>
                     ) : (
-                      <span className="block text-nav text-dark-gray py-2 cursor-default flex-1">
+                      <span className="block text-sm text-dark-gray py-2 cursor-default flex-1 font-medium">
                         {item.label}
                       </span>
                     )}
@@ -287,7 +286,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                     {item.megaMenuContent && (
                       <button
                         onClick={() => toggleMobileDropdown(item.label)}
-                        className="p-2 hover:bg-light-gray rounded-md transition-colors duration-200"
+                        className="p-1 hover:bg-light-gray rounded-md transition-colors duration-200"
                       >
                         <svg
                           className={`w-4 h-4 transition-transform duration-200 ${mobileActiveDropdown === item.label ? 'rotate-180' : ''}`}
@@ -308,19 +307,19 @@ const NavigationComponent: React.FC<NavigationProps> = ({
 
                   {/* Mobile mega menu dropdown */}
                   {item.megaMenuContent && mobileActiveDropdown === item.label && (
-                    <div className="mt-2 pl-4 space-y-4 border-l-2 border-yellow">
+                    <div className="mt-2 pl-4 space-y-3 border-l-2 border-yellow">
                       {item.megaMenuContent.categories.map((category, categoryIndex) => (
                         <div key={categoryIndex}>
-                          <h4 className="font-semibold text-dark-gray text-sm mb-2">
+                          <h4 className="font-semibold text-dark-gray text-xs mb-1">
                             {category.title}
                           </h4>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-2 gap-1">
                             {category.services.map((service, serviceIndex) => (
                               service.href ? (
                                 <Link
                                   key={serviceIndex}
                                   href={service.href}
-                                  className="block text-xs text-gray hover:text-yellow transition-colors duration-200 py-1"
+                                  className="block text-xs text-gray hover:text-yellow transition-colors duration-200 py-1 font-medium"
                                   onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                   {service.label}
@@ -328,7 +327,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                               ) : (
                                 <span
                                   key={serviceIndex}
-                                  className="block text-xs text-gray py-1 cursor-default"
+                                  className="block text-xs text-gray py-1 cursor-default font-medium"
                                 >
                                   {service.label}
                                 </span>
@@ -342,13 +341,13 @@ const NavigationComponent: React.FC<NavigationProps> = ({
 
                   {/* Standard dropdown items (if no mega menu) */}
                   {item.dropdownItems && !item.megaMenuContent && (
-                    <div className="pl-4 mt-2 space-y-2">
+                    <div className="pl-4 mt-2 space-y-1">
                       {item.dropdownItems.map((dropdownItem, dropIndex) => (
                         dropdownItem.href ? (
                           <Link
                             key={dropIndex}
                             href={dropdownItem.href}
-                            className="block text-sm text-gray hover:text-yellow transition-colors duration-200 py-1"
+                            className="block text-xs text-gray hover:text-yellow transition-colors duration-200 py-1 font-medium"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {dropdownItem.label}
@@ -356,7 +355,7 @@ const NavigationComponent: React.FC<NavigationProps> = ({
                         ) : (
                           <span
                             key={dropIndex}
-                            className="block text-sm text-gray py-1 cursor-default"
+                            className="block text-xs text-gray py-1 cursor-default font-medium"
                           >
                             {dropdownItem.label}
                           </span>
@@ -379,11 +378,11 @@ const NavigationComponent: React.FC<NavigationProps> = ({
             className="fixed inset-0 z-40 bg-black/50"
             onClick={handleOverlayClick}
             aria-hidden="true"
-            style={{ top: '80px' }}
+            style={{ top: '64px' }}
           />
 
           {/* Mega Dropdown */}
-          <div className="fixed top-20 left-0 w-full z-50 mt-6">
+          <div className="fixed top-16 left-0 w-full z-50 mt-6">
             <MegaDropdown
               content={activeMegaMenuContent}
               isVisible={true}

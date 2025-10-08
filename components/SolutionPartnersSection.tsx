@@ -21,21 +21,21 @@ const SolutionPartnersSection: React.FC<SolutionPartnersSectionProps> = ({ partn
   }
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-8 bg-gray-50 sm:py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-3 sm:text-3xl sm:mb-4">
             Our Technology Partners
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xs text-gray-600 max-w-3xl mx-auto sm:text-lg">
             This solution is powered by our strong partnerships with industry-leading technology providers.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
           {solutionPartners.map((partner) => (
             <Link key={partner.id} href={`/partnerships/${partner.id}`} className="group">
-              <div className="flex flex-col items-center text-center w-32">
-                <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+              <div className="flex flex-col items-center text-center w-20 sm:w-32">
+                <div className="w-16 h-16 relative mb-2 transition-all duration-300 group-hover:scale-110 sm:w-24 sm:h-24 sm:mb-4">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
@@ -43,7 +43,7 @@ const SolutionPartnersSection: React.FC<SolutionPartnersSectionProps> = ({ partn
                     className="object-contain"
                   />
                 </div>
-                <span className="text-sm font-semibold text-dark-gray">{partner.name}</span>
+                <span className="text-xs font-semibold text-dark-gray sm:text-sm">{partner.name}</span>
               </div>
             </Link>
           ))}

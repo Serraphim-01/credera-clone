@@ -44,18 +44,18 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
       />
 
       {/* Job Details Content */}
-      <div className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
+      <div className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
           {/* What You Will Do */}
           {job.whatYouWillDo && (
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">What You Will Do</h2>
-              <ul className="space-y-4">
+            <section className="mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">What You Will Do</h2>
+              <ul className="space-y-3 sm:space-y-4">
                 {job.whatYouWillDo.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-[color:var(--color-foreground)] mr-4 mt-1 text-xl">•</span>
-                    <span className="text-gray-700 text-lg">{item}</span>
+                    <span className="text-[color:var(--color-foreground)] mr-3 sm:mr-4 mt-1 text-lg sm:text-xl">•</span>
+                    <span className="text-gray-700 text-base sm:text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -63,13 +63,13 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
           )}
 
           {/* Responsibilities */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-credera-dark mb-6">Responsibilities</h2>
-            <ul className="space-y-4">
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">Responsibilities</h2>
+            <ul className="space-y-3 sm:space-y-4">
               {job.responsibilities.map((responsibility, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-[color:var(--color-foreground)] mr-4 mt-1 text-xl">•</span>
-                  <span className="text-gray-700 text-lg">{responsibility}</span>
+                  <span className="text-[color:var(--color-foreground)] mr-3 sm:mr-4 mt-1 text-lg sm:text-xl">•</span>
+                  <span className="text-gray-700 text-base sm:text-lg">{responsibility}</span>
                 </li>
               ))}
             </ul>
@@ -77,13 +77,13 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
 
           {/* Who You Are */}
           {job.whoYouAre && (
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">Who You Are</h2>
-              <ul className="space-y-4">
+            <section className="mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">Who You Are</h2>
+              <ul className="space-y-3 sm:space-y-4">
                 {job.whoYouAre.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-[color:var(--color-foreground)] mr-4 mt-1 text-xl">•</span>
-                    <span className="text-gray-700 text-lg">{item}</span>
+                    <span className="text-[color:var(--color-foreground)] mr-3 sm:mr-4 mt-1 text-lg sm:text-xl">•</span>
+                    <span className="text-gray-700 text-base sm:text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -91,13 +91,13 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
           )}
 
           {/* Requirements */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-credera-dark mb-6">Requirements</h2>
-            <ul className="space-y-4">
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">Requirements</h2>
+            <ul className="space-y-3 sm:space-y-4">
               {job.requirements.map((requirement, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-[color:var(--color-foreground)] mr-4 mt-1 text-xl">•</span>
-                  <span className="text-gray-700 text-lg">{requirement}</span>
+                  <span className="text-[color:var(--color-foreground)] mr-3 sm:mr-4 mt-1 text-lg sm:text-xl">•</span>
+                  <span className="text-gray-700 text-base sm:text-lg">{requirement}</span>
                 </li>
               ))}
             </ul>
@@ -105,13 +105,13 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
 
           {/* Benefits */}
           {job.benefits && (
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">Benefits</h2>
-              <ul className="space-y-4">
+            <section className="mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">Benefits</h2>
+              <ul className="space-y-3 sm:space-y-4">
                 {job.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-[color:var(--color-foreground)] mr-4 mt-1 text-xl">•</span>
-                    <span className="text-gray-700 text-lg">{benefit}</span>
+                    <span className="text-[color:var(--color-foreground)] mr-3 sm:mr-4 mt-1 text-lg sm:text-xl">•</span>
+                    <span className="text-gray-700 text-base sm:text-lg">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -121,17 +121,17 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
       </div>
 
       {/* Application Form Section */}
-      <div className="py-16 bg-[color:var(--color-very-light-yellow)]">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-credera-dark mb-6">
+      <div className="py-8 sm:py-12 md:py-16 bg-[color:var(--color-very-light-yellow)]">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">
             Ready to Apply?
           </h2>
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">
             Take the next step in your career and join our team of innovators and problem solvers.
           </p>
           <button
             onClick={() => setShowApplicationModal(true)}
-            className="group relative text-[color:var(--color-foreground)] px-12 py-4 rounded-md font-semibold text-lg overflow-hidden"
+            className="group relative text-[color:var(--color-foreground)] px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-md font-semibold text-base sm:text-lg overflow-hidden border border-[color:var(--color-foreground)] hover:bg-[color:var(--color-foreground)] hover:text-white transition-colors duration-300"
           >
             <span className="relative inline-flex items-center">
               Apply for {job.title}
@@ -143,36 +143,27 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
                 →
               </span>
 
-              {/* Underline */}
+              {/* Underline - hidden on hover when background changes */}
               <span
-                className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[color:var(--color-foreground)] transition-all duration-300 group-hover:w-full"
+                className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[color:var(--color-foreground)] transition-all duration-300 group-hover:w-0"
               ></span>
             </span>
           </button>
-
         </div>
       </div>
 
-      {/* Application Modal */}
-      <ApplicationModal
-        isOpen={showApplicationModal}
-        onClose={() => setShowApplicationModal(false)}
-        jobTitle={job.title}
-        onSubmit={handleApply}
-      />
-
       {/* Related Opportunities Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-credera-dark text-center mb-8">
+      <div className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark text-center mb-6 sm:mb-8">
             Other Opportunities
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[color:var(--color-very-light-yellow)] rounded-lg p-8 text-center">
-              <h3 className="text-xl font-bold text-credera-dark mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+            <div className="bg-[color:var(--color-very-light-yellow)] rounded-lg p-4 sm:p-6 md:p-8 text-center">
+              <h3 className="text-lg sm:text-xl font-bold text-credera-dark mb-3 sm:mb-4">
                 {job.category === 'student-intern' ? 'Experienced Professionals' : 'Students & Interns'}
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
                 {job.category === 'student-intern'
                   ? 'Explore senior-level positions and leadership opportunities'
                   : 'Discover entry-level positions and internship opportunities'
@@ -180,7 +171,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
               </p>
               <a
                 href={job.category === 'student-intern' ? '/careers/professionals' : '/careers/students-interns'}
-                className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold"
+                className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold text-sm sm:text-base"
               >
                 <span className="relative inline-flex items-center">
                   View Positions
@@ -194,16 +185,16 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
               </a>
             </div>
 
-            <div className="bg-[color:var(--color-very-light-yellow)] rounded-lg p-8 text-center">
-              <h3 className="text-xl font-bold text-credera-dark mb-4">
+            <div className="bg-[color:var(--color-very-light-yellow)] rounded-lg p-4 sm:p-6 md:p-8 text-center">
+              <h3 className="text-lg sm:text-xl font-bold text-credera-dark mb-3 sm:mb-4">
                 Life at Task Systems
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
                 Learn more about our culture, values, and what makes us a great place to work.
               </p>
               <a
                 href="/careers"
-                className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold"
+                className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold text-sm sm:text-base"
               >
                 <span className="relative inline-flex items-center">
                   Discover Our Culture
@@ -216,10 +207,17 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
                 </span>
               </a>
             </div>
-
           </div>
         </div>
       </div>
+
+      {/* Application Modal */}
+      <ApplicationModal
+        isOpen={showApplicationModal}
+        onClose={() => setShowApplicationModal(false)}
+        jobTitle={job.title}
+        onSubmit={handleApply}
+      />
 
       {/* Footer */}
       <FooterSection />

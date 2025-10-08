@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
 import NextStepsModal from '@/components/NextStepsModal';
 import { NextStepsFormData } from '@/types';
+import Image from 'next/image';
 
 export default function CloudTCOAssessment() {
   const [isNextStepsModalOpen, setIsNextStepsModalOpen] = useState(false);
@@ -20,54 +20,75 @@ export default function CloudTCOAssessment() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <StandardHeroSection
-        title="Cloud TCO Assessment"
-        subtitle="Gain visibility into the future"
-        description="We decode Total Cost of Ownership across people, process, technology—today vs. future cloud operating model. Gain visibility into future costs—and savings."
-        backgroundImage="/TaskImages/services.jpg"
-        maxContentWidth="max-w-lg"
-      />
+      <section className="relative h-screen max-h-[600px] overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/TaskImages/services.jpg"
+          alt="Cloud TCO Assessment"
+          fill
+          className="object-cover absolute inset-0 z-0"
+          priority
+          sizes="100vw"
+        />
+
+        {/* Content */}
+        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-8 z-20">
+          <div className="absolute bottom-0 left-4 sm:left-8 w-[60%] max-w-lg">
+            <div className="bg-white p-4 sm:p-6 md:p-8 shadow-xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-gray-900">
+                Cloud TCO Assessment
+              </h1>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-4 text-gray-700">
+                Gain visibility into the future
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-2 sm:mb-4">
+                We decode Total Cost of Ownership across people, process, technology—today vs. future cloud operating model. Gain visibility into future costs—and savings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-8 sm:py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-credera-dark mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6">
                 The WHAT
               </h2>
 
-              <div className="prose prose-lg max-w-none text-credera-gray-600">
-                <p className="mb-6">
+              <div className="prose prose-sm sm:prose-lg max-w-none text-credera-gray-600">
+                <p className="mb-4 sm:mb-6 text-sm sm:text-base">
                   We decode <strong>Total Cost of Ownership</strong> across people, process, technology—today vs. future cloud operating model.
                 </p>
 
-                <ul className="list-disc list-inside mb-6 space-y-2">
+                <ul className="list-disc list-inside mb-4 sm:mb-6 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li><strong>People</strong>: roles & responsibilities, skill categories, gaps.</li>
                   <li><strong>Process/Program</strong>: business priorities, service-management maturity, partner model, timeline.</li>
                   <li><strong>Technology</strong>: apps, facilities, hardware, software, guard-rail gaps.</li>
                 </ul>
 
                 {/* Callouts using brand colors */}
-                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-6 mb-6">
-                  <blockquote className="text-lg text-[color:var(--color-yellow)]">
+                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-4 sm:p-6 mb-4 sm:mb-6">
+                  <blockquote className="text-base sm:text-lg text-[color:var(--color-yellow)]">
                     <strong>Gartner</strong>: Hidden costs & mistimed effort are top-3 migration killers.
                   </blockquote>
                 </div>
 
-                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-6 mb-8">
-                  <blockquote className="text-lg text-[color:var(--color-yellow)]">
+                <div className="bg-[color:var(--color-foreground)] border-l-4 border-[color:var(--color-yellow)] p-4 sm:p-6 mb-6 sm:mb-8">
+                  <blockquote className="text-base sm:text-lg text-[color:var(--color-yellow)]">
                     <strong>Forrester</strong>: 79% of cloud adopters see &gt;20% savings when TCO is modelled correctly.
                   </blockquote>
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-credera-dark mb-6 mt-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-4 sm:mb-6 mt-8 sm:mt-12">
                 The HOW
               </h2>
 
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {[
                   {
                     step: '1. Current-cost identification & mapping by business service',
@@ -92,12 +113,12 @@ export default function CloudTCOAssessment() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
+                    className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm"
                   >
-                    <h3 className="text-xl font-semibold text-credera-dark mb-4">
+                    <h3 className="text-lg sm:text-xl font-semibold text-credera-dark mb-2 sm:mb-4">
                       {item.step}
                     </h3>
-                    <p className="text-credera-gray-600 mb-4">{item.desc}</p>
+                    <p className="text-credera-gray-600 text-sm sm:text-base">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -105,57 +126,72 @@ export default function CloudTCOAssessment() {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-8 space-y-6">
+              <div className="sticky top-8 space-y-4 sm:space-y-6">
                 {/* Deliverables */}
-                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-[color:var(--color-foreground)] border border-[color:var(--color-yellow)] rounded-lg p-4 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     Deliverables
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-yellow)]">
+                  <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[color:var(--color-yellow)]">
                     <li className="flex items-start">
-                      <span className="mr-3 text-xl">✓</span>
+                      <span className="mr-2 sm:mr-3 text-lg sm:text-xl">✓</span>
                       TCO & ROI dashboard (3-year horizon)
                     </li>
                     <li className="flex items-start">
-                      <span className="mr-3 text-xl">✓</span>
+                      <span className="mr-2 sm:mr-3 text-lg sm:text-xl">✓</span>
                       Cost-governance blueprint
                     </li>
                     <li className="flex items-start">
-                      <span className="mr-3 text-xl">✓</span>
+                      <span className="mr-2 sm:mr-3 text-lg sm:text-xl">✓</span>
                       Optimisation roadmap with quick-, mid- & long-term wins
                     </li>
                   </ul>
                 </div>
 
                 {/* Assessment Deliverables */}
-                <div className="bg-[color:var(--color-light-yellow)] p-6 rounded-lg ">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-foreground)] mb-4">
+                <div className="bg-[color:var(--color-light-yellow)] p-4 sm:p-6 rounded-lg ">
+                  <h3 className="text-base sm:text-lg font-semibold text-[color:var(--color-foreground)] mb-3 sm:mb-4">
                     Assessment Deliverables
                   </h3>
-                  <ul className="space-y-3 text-sm text-[color:var(--color-foreground)]">
-                    <li>✓ Detailed TCO report and analysis</li>
-                    <li>✓ Financial modeling spreadsheets</li>
-                    <li>✓ Executive summary presentation</li>
-                    <li>✓ Cost optimization recommendations</li>
-                    <li>✓ Implementation roadmap</li>
+                  <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[color:var(--color-foreground)]">
+                    <li className="flex items-start">
+                      <span className="mr-2">✓</span>
+                      Detailed TCO report and analysis
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">✓</span>
+                      Financial modeling spreadsheets
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">✓</span>
+                      Executive summary presentation
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">✓</span>
+                      Cost optimization recommendations
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">✓</span>
+                      Implementation roadmap
+                    </li>
                   </ul>
                 </div>
 
                 {/* Timeline */}
-                <div className="bg-credera-gray-50 p-6 rounded-lg border border-[color:var(--color-yellow)]">
-                  <h3 className="text-lg font-semibold text-credera-dark mb-4">
+                <div className="bg-credera-gray-50 p-4 sm:p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                  <h3 className="text-base sm:text-lg font-semibold text-credera-dark mb-3 sm:mb-4">
                     Timeline & Process
                   </h3>
-                  <div className="space-y-4 text-sm text-credera-gray-600">
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                  <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-credera-gray-600">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Week 1-2</div>
                       <div>Data collection and current state analysis</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Week 3-4</div>
                       <div>Cloud cost modeling and scenario planning</div>
                     </div>
-                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-4">
+                    <div className="border-l-2 border-[color:var(--color-yellow)] pl-3 sm:pl-4">
                       <div className="font-semibold">Week 5-6</div>
                       <div>Analysis, reporting, and recommendations</div>
                     </div>
@@ -163,22 +199,22 @@ export default function CloudTCOAssessment() {
                 </div>
 
                 {/* Next Steps */}
-                <div className="bg-[color:var(--color-foreground)] p-6 rounded-lg border border-[color:var(--color-yellow)]">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-yellow)] mb-4">
+                <div className="bg-[color:var(--color-foreground)] p-4 sm:p-6 rounded-lg border border-[color:var(--color-yellow)]">
+                  <h3 className="text-base sm:text-lg font-semibold text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     Next Steps
                   </h3>
-                  <p className="text-sm text-[color:var(--color-yellow)] mb-4">
+                  <p className="text-xs sm:text-sm text-[color:var(--color-yellow)] mb-3 sm:mb-4">
                     Ready to understand your cloud TCO?
                   </p>
                   <button
                     onClick={handleNextStepsClick}
-                    className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-200 text-sm font-semibold"
+                    className="w-full bg-[color:var(--color-yellow)] text-[color:var(--color-dark-gray)] py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-200 text-xs sm:text-sm font-semibold"
                   >
                     Request Assessment
                   </button>
-                  <div className="mt-4 pt-4 border-t border-[color:var(--color-yellow)]">
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[color:var(--color-yellow)]">
                     <p className="text-xs text-[color:var(--color-yellow)] mb-2">Navigation:</p>
-                    <div className="space-y-2">
+                    <div className="space-y-1 sm:space-y-2">
                       <a
                         href="/consult/first-steps"
                         className="block text-xs text-[color:var(--color-yellow)] hover:underline"

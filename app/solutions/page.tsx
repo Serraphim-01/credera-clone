@@ -20,13 +20,14 @@ export default function SolutionsPage() {
       />
 
       {/* Solutions Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {solutions.map((solution, index) => (
               <Link
+                key={solution.id}
                 href={`/solutions/${solution.id}`}
-                className="group block bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100 h-full"
+                className="group block bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 sm:p-6 border border-gray-100 h-full"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
@@ -34,19 +35,19 @@ export default function SolutionsPage() {
                 <div className="flex flex-col justify-between h-full">
                   {/* Title and Description */}
                   <div className="text-left">
-                    <h3 className="text-2xl font-bold text-credera-dark mb-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-credera-dark mb-2 sm:mb-3">
                       {solution.title}
                     </h3>
-                    <p className="text-credera-gray-600 leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-credera-gray-600 leading-relaxed mb-3 sm:mb-4">
                       {solution.description}
                     </p>
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-auto relative inline-flex items-center font-semibold text-black">
+                  <div className="mt-auto relative inline-flex items-center font-semibold text-black text-xs sm:text-sm">
                     EXPLORE {solution.title.toUpperCase()}
                     <svg
-                      className="w-4 h-4 ml-2"
+                      className="w-3 h-3 ml-1 sm:ml-2"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -62,7 +63,6 @@ export default function SolutionsPage() {
                   </div>
                 </div>
               </Link>
-
             ))}
           </div>
         </div>

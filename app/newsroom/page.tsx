@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { newsArticles } from '@/data/newsroom';
 import NewsCard from '@/components/NewsCard';
-import NewsFilter from '@/components/NewsFilter';
 import FooterSection from '@/components/FooterSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 
@@ -67,66 +66,29 @@ const NewsRoomPage: React.FC = () => {
         maxContentWidth="max-w-4xl"
       />
 
-      {/* Filters Section */}
-      <div className="bg-gray-50 py-4">
-        <div className="max-w-[2000px] mx-auto px-8">
-          <div className="flex justify-end">
-            <button
-              onClick={() => setIsFilterVisible(!isFilterVisible)}
-              className="flex items-center gap-2 px-4 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium hover:bg-gray-100"
-            >
-              {isFilterVisible ? (
-                <>
-                  <XMarkIcon className="w-5 h-5" />
-                  <span>Hide Filters</span>
-                </>
-              ) : (
-                <>
-                  <FunnelIcon className="w-5 h-5" />
-                  <span>Show Filters</span>
-                </>
-              )}
-            </button>
-          </div>
-          {isFilterVisible && (
-            <div className="mt-4">
-              <NewsFilter
-                searchTerm={searchTerm}
-                onSearchChange={setSearchTerm}
-                selectedCategories={selectedCategories}
-                onCategoriesChange={setSelectedCategories}
-                selectedAuthor={selectedAuthor}
-                onAuthorChange={setSelectedAuthor}
-                dateRange={dateRange}
-                onDateRangeChange={setDateRange}
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Articles Grid */}
-      <div className="py-16">
-        <div className="max-w-[2000px] mx-auto px-8">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-credera-dark mb-2">
+      <div className="py-4 sm:py-8 md:py-12 lg:py-16">
+        <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-4 sm:mb-6 md:mb-8">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-credera-dark mb-1 sm:mb-2">
               Latest Articles & Insights
             </h2>
-            <p className="text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Showing {filteredArticles.length} articles
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {/* Updated grid for mobile: 2 cards per row */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {filteredArticles.map((article) => (
               <NewsCard key={article.id} {...article} />
             ))}
           </div>
 
           {filteredArticles.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xl text-gray-500 mb-4">No articles found</p>
-              <p className="text-gray-400">Try adjusting your search terms or filters</p>
+            <div className="text-center py-8 sm:py-12 md:py-16">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 mb-2 sm:mb-3 md:mb-4">No articles found</p>
+              <p className="text-xs sm:text-sm text-gray-400">Try adjusting your search terms or filters</p>
             </div>
           )}
         </div>

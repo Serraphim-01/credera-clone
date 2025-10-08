@@ -5,8 +5,6 @@ import Link from 'next/link';
 import FooterSection from '@/components/FooterSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 
-
-
 const videos = [
   {
     id: 'dQw4w9WgXcQ',
@@ -39,25 +37,25 @@ const CareersPage: React.FC = () => {
         maxContentWidth="max-w-3xl"
       />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6">
           {/* Left: Video */}
-          <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+          <div className="aspect-w-16 aspect-h-9 rounded-lg sm:rounded-xl overflow-hidden shadow-md sm:shadow-lg">
             <iframe
               src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
               title="Leaving a Legacy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-full"
+              className="w-full h-full min-h-[200px] sm:min-h-[300px]"
             ></iframe>
           </div>
 
           {/* Right: Text */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-credera-dark mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-3 sm:mb-4">
               Leaving a legacy with our people.
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
               Our employees are the lifeblood of our company. We're passionate about
               fostering their growth and helping all team members achieve their career
               and personal aspirations—this is the legacy we want to build.
@@ -66,17 +64,17 @@ const CareersPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-center">
+      <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 items-center">
           {/* Left: Text */}
           <div>
-            <p className="text-sm font-semibold text-credera-red uppercase mb-2">
+            <p className="text-xs sm:text-sm font-semibold text-credera-red uppercase mb-2">
               Life at Task
             </p>
-            <h2 className="text-3xl font-bold text-credera-dark mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-credera-dark mb-3 sm:mb-4">
               Discover our people-first culture.
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
               Over a lifetime, the average person spends 90,000 hours at work, which
               is over 50% of our waking hours. Enjoying what you do and the people you
               work with is important! Hear what our people have to say about the Task
@@ -84,14 +82,14 @@ const CareersPage: React.FC = () => {
             </p>
             <a
               href="/life-at-company"
-              className="text-credera-red font-semibold hover:underline"
+              className="text-credera-red font-semibold hover:underline text-sm sm:text-base"
             >
               Learn more →
             </a>
           </div>
 
           {/* Right: Image */}
-          <div className="rounded-xl overflow-hidden shadow-md">
+          <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-sm sm:shadow-md">
             <img
               src="/TaskImages/join.jpg"
               alt="Life at Task"
@@ -101,30 +99,30 @@ const CareersPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6">
           {/* Left: Main Video */}
-          <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+          <div className="aspect-w-16 aspect-h-9 rounded-lg sm:rounded-xl overflow-hidden shadow-md sm:shadow-lg">
             <iframe
-              key={selectedVideo} // ensures iframe reloads on change
+              key={selectedVideo}
               src={`https://www.youtube.com/embed/${selectedVideo}`}
               title="Task Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-full"
+              className="w-full h-full min-h-[200px] sm:min-h-[300px]"
             ></iframe>
           </div>
 
           {/* Right: Video List */}
-          <div className="max-h-[500px] overflow-y-auto pr-2 space-y-6">
+          <div className="max-h-[400px] sm:max-h-[500px] overflow-y-auto pr-2 space-y-4 sm:space-y-6">
             {videos.map((vid) => (
               <button
                 key={vid.id}
                 onClick={() => setSelectedVideo(vid.id)}
-                className={`flex gap-4 items-start w-full text-left transition ${selectedVideo === vid.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
+                className={`flex gap-3 sm:gap-4 items-start w-full text-left transition ${selectedVideo === vid.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
                   }`}
               >
-                <div className="w-32 h-20 rounded-md overflow-hidden flex-shrink-0">
+                <div className="w-24 h-16 sm:w-32 sm:h-20 rounded-md overflow-hidden flex-shrink-0">
                   <img
                     src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`}
                     alt={vid.title}
@@ -132,8 +130,8 @@ const CareersPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-credera-dark">{vid.title}</h4>
-                  <p className="text-sm text-gray-500">{vid.date}</p>
+                  <h4 className="font-semibold text-credera-dark text-sm sm:text-base">{vid.title}</h4>
+                  <p className="text-xs sm:text-sm text-gray-500">{vid.date}</p>
                 </div>
               </button>
             ))}
@@ -141,18 +139,18 @@ const CareersPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-credera-dark mb-6">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-credera-dark mb-4 sm:mb-6">
             Start your Task journey.
           </h2>
-          <p className="text-gray-600 text-lg mb-12">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg mb-8 sm:mb-12">
             We're always adding new faces with unique backgrounds and perspectives to
             our Task systems team. Explore our open positions below.
           </p>
 
-          {/* Cards */}
-          <div className="grid sm:grid-cols-2 gap-[40px]">
+          {/* Cards - 2 per row on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {/* Students/Interns */}
             <Link
               href="/careers/students-interns"
@@ -161,18 +159,18 @@ const CareersPage: React.FC = () => {
               <img
                 src="/TaskImages/meet.jpg"
                 alt="Students and Interns"
-                className="w-full h-56 object-cover"
+                className="w-full h-40 sm:h-48 md:h-56 object-cover"
               />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold text-[color:var(--color-foreground)] mb-2">
+              <div className="p-3 sm:p-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-foreground)] mb-2">
                   Students & Interns
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
                   Kickstart your career with valuable experience and mentorship.
                 </p>
 
                 {/* Apply Link */}
-                <span className="inline-flex items-center text-[color:var(--color-foreground)] font-medium relative">
+                <span className="inline-flex items-center text-[color:var(--color-foreground)] font-medium text-sm sm:text-base relative">
                   Apply
                   <span className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1">
                     →
@@ -190,18 +188,18 @@ const CareersPage: React.FC = () => {
               <img
                 src="/TaskImages/join.jpg"
                 alt="Experienced Professionals"
-                className="w-full h-56 object-cover"
+                className="w-full h-40 sm:h-48 md:h-56 object-cover"
               />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold text-[color:var(--color-foreground)] mb-2">
+              <div className="p-3 sm:p-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-foreground)] mb-2">
                   Experienced Professionals
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
                   Take your expertise to the next level and lead impactful projects.
                 </p>
 
                 {/* Apply Link */}
-                <span className="inline-flex items-center text-[color:var(--color-foreground)] font-medium relative">
+                <span className="inline-flex items-center text-[color:var(--color-foreground)] font-medium text-sm sm:text-base relative">
                   Apply
                   <span className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1">
                     →
@@ -211,7 +209,6 @@ const CareersPage: React.FC = () => {
               </div>
             </Link>
           </div>
-
         </div>
       </section>
 

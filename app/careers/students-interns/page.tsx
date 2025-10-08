@@ -22,50 +22,62 @@ const StudentsInternsPage: React.FC = () => {
       />
 
       {/* Job Openings Section */}
-      <div className="py-16 sm:py-8">
-        <div className="max-w-6xl mx-auto px-8 sm:px-4">
-          <div className="text-center mb-12 sm:mb-8">
-            <h2 className="text-4xl sm:text-2xl font-bold text-credera-dark mb-4 sm:mb-2">
+      <div className="py-8 sm:py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-credera-dark mb-3 sm:mb-4">
               Current Opportunities for Students & Interns
             </h2>
-            <p className="text-lg sm:text-base text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
               Start your career journey with hands-on experience and mentorship from industry experts
             </p>
           </div>
 
           {/* Jobs grid */}
-          <div className="flex flex-col xl:flex-row gap-8">
+          <div className="flex flex-col xl:flex-row gap-6 sm:gap-8">
             {/* Job list */}
             <div className="xl:flex-1 space-y-0">
               {jobOpenings.map((job, index) => (
                 <div
                   key={job.id}
                   className={`w-full bg-white shadow-sm hover:shadow-md transition-all duration-300 ease-in-out ${index !== jobOpenings.length - 1
-                      ? 'border-b border-gray-200'
-                      : ''
+                    ? 'border-b border-gray-200'
+                    : ''
                     }`}
                 >
                   {/* Job Header */}
-                  <div className="p-8 sm:p-4 flex flex-col sm:flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                  <div className="p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
                     <div className="flex-1">
-                      <h3 className="text-2xl sm:text-lg font-bold text-credera-dark mb-2">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-credera-dark mb-2">
                         {job.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 sm:mb-3 sm:text-sm">
+                      <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
                         {job.applicationDeadline}
                       </p>
+                      {/* View More - Hidden on mobile, visible on sm and up */}
                       <Link
                         href={`/careers/${job.id}`}
-                        className="text-credera-red font-medium hover:text-red-700 transition-colors duration-200 relative group sm:text-sm"
+                        className="hidden sm:inline text-credera-red font-medium hover:text-red-700 transition-colors duration-200 relative group text-sm sm:text-base"
                       >
                         View More
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-credera-red transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                     </div>
-                    <div className="ml-0 md:ml-8">
+
+                    {/* Mobile: View More and Apply on same line */}
+                    <div className="w-full sm:w-auto mt-0 sm:mt-0 flex sm:block items-center justify-between sm:justify-normal gap-4 sm:gap-0">
+                      {/* View More - Only visible on mobile */}
                       <Link
                         href={`/careers/${job.id}`}
-                        className="relative group text-[color:var(--color-foreground)] px-8 py-3 sm:px-4 sm:py-2 rounded-md font-semibold sm:text-sm w-full md:w-auto inline-block text-center transition-colors duration-200"
+                        className="sm:hidden text-credera-red font-medium hover:text-red-700 transition-colors duration-200 relative group text-sm"
+                      >
+                        View More
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-credera-red transition-all duration-300 group-hover:w-full"></span>
+                      </Link>
+
+                      <Link
+                        href={`/careers/${job.id}`}
+                        className="relative group text-[color:var(--color-foreground)] px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 rounded-md font-semibold text-sm sm:text-base w-auto sm:w-auto inline-block text-center transition-colors duration-200"
                       >
                         <span className="inline-flex items-center gap-1">
                           Apply
@@ -78,35 +90,34 @@ const StudentsInternsPage: React.FC = () => {
                         {/* Underline (grows from left to right) */}
                         <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[color:var(--color-foreground)] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
-
                     </div>
                   </div>
                 </div>
               ))}
 
               {jobOpenings.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-gray-600 text-lg">
+                <div className="text-center py-8 sm:py-12">
+                  <p className="text-gray-600 text-base sm:text-lg">
                     No positions currently available for students and interns.
                   </p>
-                  <p className="text-gray-500 mt-2">
+                  <p className="text-gray-500 mt-2 text-sm sm:text-base">
                     Check back soon for new opportunities!
                   </p>
                 </div>
               )}
             </div>
 
-            {/* Sidebar */}
-            <div className="xl:w-96 xl:block hidden">
-              <div className="bg-gray-50 rounded-lg p-8 sm:p-4 sticky top-8">
-                <h3 className="text-2xl sm:text-xl font-bold text-credera-dark mb-2 sm:mb-6">
+            {/* Sidebar - Hidden on mobile, visible on xl */}
+            <div className="xl:w-80 lg:w-96 xl:block hidden">
+              <div className="bg-gray-50 rounded-lg p-6 sm:p-8 sticky top-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-credera-dark mb-4 sm:mb-6">
                   Why Start Your Career With Us?
                 </h3>
-                <div className="space-y-8 sm:space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 sm:w-12 sm:h-12 bg-credera-red rounded-full flex items-center justify-center mb-4 sm:mb-3">
+                <div className="space-y-6 sm:space-y-8">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-credera-red rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-8 h-8 sm:w-6 sm:h-6 [color:var(--color-foreground)]"
+                        className="w-6 h-6 sm:w-8 sm:h-8 [color:var(--color-foreground)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -119,21 +130,17 @@ const StudentsInternsPage: React.FC = () => {
                         />
                       </svg>
                     </div>
-                    
-                    <div><h4 className="text-xl sm:text-lg font-bold text-credera-dark mb-3 sm:mb-2">
-                      Learn from Experts
-                    </h4>
-                    <p className="text-gray-600 sm:text-sm">
-                      Work directly with senior professionals and gain hands-on experience
-                      with cutting-edge technologies and methodologies.
-                    </p>
+                    <div>
+                      <h4 className="text-lg sm:text-xl font-bold text-credera-dark mb-2">
+                        Learn from Experts
+                      </h4>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 sm:w-12 sm:h-12 bg-credera-red rounded-full flex items-center justify-center mb-4 sm:mb-3">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-credera-red rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-8 h-8 sm:w-6 sm:h-6 [color:var(--color-foreground)]"
+                        className="w-6 h-6 sm:w-8 sm:h-8 [color:var(--color-foreground)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -147,20 +154,17 @@ const StudentsInternsPage: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                    <h4 className="text-xl sm:text-lg font-bold text-credera-dark mb-3 sm:mb-2">
-                      Real Project Experience
-                    </h4>
-                    <p className="text-gray-600 sm:text-sm">
-                      Contribute to meaningful projects for Fortune 500 clients and see
-                      the direct impact of your work in real business environments.
-                    </p>
+                      <h4 className="text-lg sm:text-xl font-bold text-credera-dark mb-2">
+                        Real Project Experience
+                      </h4>
+                      
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 sm:w-12 sm:h-12 bg-credera-red rounded-full flex items-center justify-center mb-4 sm:mb-3">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-credera-red rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-8 h-8 sm:w-6 sm:h-6 [color:var(--color-foreground)]"
+                        className="w-6 h-6 sm:w-8 sm:h-8 [color:var(--color-foreground)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -174,20 +178,17 @@ const StudentsInternsPage: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                    <h4 className="text-xl sm:text-lg font-bold text-credera-dark mb-3 sm:mb-2">
-                      Career Development
-                    </h4>
-                    <p className="text-gray-600 sm:text-sm">
-                      Access structured learning programs, mentorship opportunities,
-                      and clear pathways to full-time positions after graduation.
-                    </p>
+                      <h4 className="text-lg sm:text-xl font-bold text-credera-dark mb-2">
+                        Career Development
+                      </h4>
+                    
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 sm:w-12 sm:h-12 bg-credera-red rounded-full flex items-center justify-center mb-4 sm:mb-3">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-credera-red rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-8 h-8 sm:w-6 sm:h-6 [color:var(--color-foreground)]"
+                        className="w-6 h-6 sm:w-8 sm:h-8 [color:var(--color-foreground)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -201,13 +202,10 @@ const StudentsInternsPage: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                    <h4 className="text-xl sm:text-lg font-bold text-credera-dark mb-3 sm:mb-2">
-                      Collaborative Environment
-                    </h4>
-                    <p className="text-gray-600 sm:text-sm">
-                      Join a supportive community of learners and professionals
-                      who are passionate about innovation and knowledge sharing.
-                    </p>
+                      <h4 className="text-lg sm:text-xl font-bold text-credera-dark mb-2">
+                        Collaborative Environment
+                      </h4>
+                      
                     </div>
                   </div>
                 </div>

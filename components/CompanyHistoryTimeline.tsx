@@ -2,15 +2,16 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { 
-  FaBriefcase, 
-  FaRocket, 
-  FaGlobe, 
-  FaLaptopCode, 
-  FaBrain, 
-  FaUsers, 
-  FaStar 
+import {
+  FaBriefcase,
+  FaRocket,
+  FaGlobe,
+  FaLaptopCode,
+  FaBrain,
+  FaUsers,
+  FaStar
 } from 'react-icons/fa';
+import '@/app/globals.css';
 
 interface TimelineEvent {
   id: string;
@@ -115,20 +116,22 @@ const CompanyHistoryTimeline: React.FC<CompanyHistoryTimelineProps> = ({
                 boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
                 padding: '2rem'
               }}
-              contentArrowStyle={{ 
+              contentArrowStyle={{
                 borderRight: '7px solid #ffffff',
                 borderLeft: '7px solid #ffffff'
               }}
               date={event.year}
               dateClassName="text-gray-700 font-bold text-lg"
-              iconStyle={{ 
-                background: '#ef4444', 
-                color: '#fff',
+              iconStyle={{
+                background: '#ef4444',
+                color: '#000',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '60px',
-                height: '60px'
+                height: '60px',
+                borderRadius: '50%',
+                fontSize: '24px' // makes sure the icon scales properly
               }}
               icon={event.icon || <FaBriefcase />}
             >

@@ -38,28 +38,28 @@ const PartnersModal: React.FC<PartnersModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
       <div
         className="absolute inset-0 bg-black/50"
         style={{ backdropFilter: 'blur(8px)' }}
         onClick={onClose}
       />
       <div className="relative bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-black">Our Partners</h2>
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black">Our Partners</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-light-gray rounded-full transition-colors"
+            className="p-1 sm:p-2 hover:bg-light-gray rounded-full transition-colors"
             aria-label="Close modal"
           >
-            <X className="w-6 h-6 text-dark-gray" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-dark-gray" />
           </button>
         </div>
-        <div className="p-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="p-4 sm:p-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8">
             {partnerships.map((partner) => (
               <Link key={partner.id} href={`/partnerships/${partner.id}`} className="group flex flex-col items-center text-center subtle-lift" onClick={onClose}>
-                <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 relative mb-2 sm:mb-3 md:mb-4 transition-all duration-300 group-hover:scale-110">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
@@ -67,7 +67,7 @@ const PartnersModal: React.FC<PartnersModalProps> = ({ isOpen, onClose }) => {
                     className="object-contain"
                   />
                 </div>
-                <span className="text-sm font-semibold text-dark-gray">{partner.name}</span>
+                <span className="text-xs sm:text-sm font-semibold text-dark-gray">{partner.name}</span>
               </Link>
             ))}
           </div>
