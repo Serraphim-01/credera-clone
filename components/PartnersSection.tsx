@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { partnerships } from '@/data/partnerships';
 import PartnersModal from './PartnersModal';
-import { 
+import {
   FaAws,
   FaMicrosoft
 } from 'react-icons/fa';
-import { 
+import {
   SiGooglecloud,
   SiHuawei,
   SiDell
@@ -62,31 +62,33 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
 
           {/* Partners Infinite Scroll */}
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll space-x-16 mb-12">
+            <div className="flex animate-scroll space-x-8 md:space-x-16 mb-12">
               {duplicatedPartners.map((partner, index) => (
                 <Link
                   key={`${partner.id}-${index}`}
                   href={partner.href}
                   className="group flex flex-col items-center cursor-pointer relative flex-shrink-0 subtle-lift"
                 >
-                  <div className="w-24 h-24 relative mb-4 transition-all duration-300 group-hover:scale-110">
+                  {/* Logo wrapper responsive size */}
+                  <div className="w-16 h-16 md:w-24 md:h-24 relative mb-2 md:mb-4 transition-all duration-300 group-hover:scale-110">
                     <Image
                       src={partner.logo}
                       alt={partner.name}
                       fill
                       className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                      sizes="96px"
+                      sizes="(max-width: 768px) 64px, 96px"
                     />
                   </div>
 
                   {/* Hover tooltip */}
-                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
+                  <div className="absolute -top-12 md:-top-16 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 md:px-3 py-1 rounded-md text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
                     {partner.name}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
                   </div>
                 </Link>
               ))}
             </div>
+
           </div>
 
           {/* View All Partners Button */}
@@ -123,8 +125,9 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({
             }
           }
 
+          /* Faster & smoother */
           .animate-scroll {
-            animation: scroll 60s linear infinite;
+            animation: scroll 25s linear infinite; /* ⬅️ was 60s */
           }
 
           .animate-scroll:hover {

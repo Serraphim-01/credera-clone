@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { solutionsData } from '@/data/solutions';
 import { CustomerStory } from '@/types';
@@ -17,7 +17,6 @@ interface ExtendedCustomerStory extends CustomerStory {
 
 const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ customerStories }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMinimized, setIsMinimized] = useState(false);
 
   // Use provided customer stories or consolidate all customer stories from solutions as fallback
   const allCustomerStories = useMemo(() => {
@@ -61,31 +60,8 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ custome
   return (
     <section className="py-8 bg-white sm:py-16">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header with Toggle */}
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-3 sm:text-3xl sm:mb-4">
-              Customer Success Stories
-            </h2>
-          </div>
-          <button
-            onClick={() => setIsMinimized(!isMinimized)}
-            className="flex items-center space-x-2 px-3 py-1 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200 sm:px-4 sm:py-2"
-            aria-label={isMinimized ? 'Expand customer stories' : 'Minimize customer stories'}
-          >
-            <span className="text-xs font-medium text-gray-700 sm:text-sm">
-              {isMinimized ? 'Show' : 'Hide'}
-            </span>
-            {isMinimized ? (
-              <ChevronDownIcon className="w-4 h-4 text-gray-600" />
-            ) : (
-              <ChevronUpIcon className="w-4 h-4 text-gray-600" />
-            )}
-          </button>
-        </div>
-
         {/* Slideshow Container */}
-        {!isMinimized && allCustomerStories.length > 0 && (
+        {allCustomerStories.length > 0 && (
           <div className="relative">
             {/* Navigation Buttons */}
             {slides.length > 1 && (
@@ -189,19 +165,10 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ custome
         )}
 
         {/* No Results Message */}
-        {!isMinimized && allCustomerStories.length === 0 && (
+        {allCustomerStories.length === 0 && (
           <div className="text-center py-6 sm:py-8">
             <p className="text-xs text-gray-500 sm:text-base">
               No customer stories available.
-            </p>
-          </div>
-        )}
-
-        {/* Minimized State */}
-        {isMinimized && (
-          <div className="text-center py-6 sm:py-8">
-            <p className="text-xs text-gray-500 sm:text-base">
-              {allCustomerStories.length} customer stor{allCustomerStories.length !== 1 ? 'ies' : 'y'} available
             </p>
           </div>
         )}

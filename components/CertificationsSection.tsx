@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { ChevronDownIcon, ChevronUpIcon, FunnelIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { solutionsData } from '@/data/solutions';
 import { partnerships } from '@/data/partnerships';
@@ -23,13 +23,9 @@ interface CertificationsSectionProps {
 }
 
 const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifications }) => {
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const CARDS_PER_ROW = 4;
-  const ROWS_PER_PAGE = 4;
-  const CARDS_PER_PAGE = CARDS_PER_ROW * ROWS_PER_PAGE;
+  const CARDS_PER_PAGE = 8; // 2 per row × 4 rows
 
   // Use provided certifications or fall back to all certifications
   const displayedCertifications = useMemo(() => {
@@ -81,36 +77,63 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
     return certifications;
   }, [certifications]);
 
-  // Get unique categories for filtering
-  const categories = useMemo(() => {
-    const cats = new Set(['all']);
-    displayedCertifications.forEach(cert => {
-      if (cert.category) cats.add(cert.category);
-      cats.add(cert.source);
-    });
-    return Array.from(cats);
-  }, [displayedCertifications]);
-
-  // Filter certifications based on category and search term
+  // Filter certifications based on search term
   const filteredCertifications = useMemo(() => {
     const filtered = displayedCertifications.filter(cert => {
-      const matchesCategory = selectedCategory === 'all' || 
-                             cert.category === selectedCategory ||
-                             cert.source === selectedCategory;
       const matchesSearch = cert.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            cert.issuer.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesSearch;
     });
-    // Reset to first page when filter changes
+    // Reset to first page when search changes
     setCurrentPage(1);
     return filtered;
-  }, [displayedCertifications, selectedCategory, searchTerm]);
+  }, [displayedCertifications, searchTerm]);
 
   // Pagination calculations
   const totalPages = Math.ceil(filteredCertifications.length / CARDS_PER_PAGE);
   const startIndex = (currentPage - 1) * CARDS_PER_PAGE;
   const endIndex = startIndex + CARDS_PER_PAGE;
   const currentPageCertifications = filteredCertifications.slice(startIndex, endIndex);
+
+  // Smart pagination with ellipses
+  const getPaginationNumbers = () => {
+    const pages: (number | string)[] = [];
+    
+    if (totalPages <= 5) {
+      // Show all pages if 5 or fewer
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // Always show first page
+      pages.push(1);
+      
+      if (currentPage > 3) {
+        pages.push('...');
+      }
+      
+      // Show current page and neighbors
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+      
+      for (let i = start; i <= end; i++) {
+        if (i !== 1 && i !== totalPages) {
+          pages.push(i);
+        }
+      }
+      
+      if (currentPage < totalPages - 2) {
+        pages.push('...');
+      }
+      
+      // Always show last page
+      if (totalPages > 1) {
+        pages.push(totalPages);
+      }
+    }
+    
+    return pages;
+  };
 
   // Pagination handlers
   const goToPage = (page: number) => {
@@ -132,102 +155,78 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
   };
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header with Toggle */}
-        <div className="flex items-center mb-8">
-          <button
-            onClick={() => setIsMinimized(!isMinimized)}
-            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-            aria-label={isMinimized ? 'Expand certifications' : 'Minimize certifications'}
-          >
-            <span className="text-sm font-medium text-gray-700">
-              {isMinimized ? 'Show' : 'Hide'}
-            </span>
-            {isMinimized ? (
-              <ChevronDownIcon className="w-4 h-4 text-gray-600" />
-            ) : (
-              <ChevronUpIcon className="w-4 h-4 text-gray-600" />
-            )}
-          </button>
-        </div>
-
-        {/* Filters */}
-        {!isMinimized && (
-          <div className="mb-8 space-y-4">
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center space-x-2">
-                <FunnelIcon className="w-5 h-5 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">Filter by:</span>
-              </div>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              >
-                <option value="all">All Categories</option>
-                <option value="solution">Solutions</option>
-                <option value="partnership">Partnerships</option>
-                <option value="service">Services</option>
-                {categories.filter(cat => !['all', 'solution', 'partnership', 'service'].includes(cat)).map(category => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-              <input
-                type="text"
-                placeholder="Search certifications..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-w-[200px]"
-              />
-            </div>
-            <div className="text-sm text-gray-600">
-              Showing {filteredCertifications.length} of {displayedCertifications.length} certifications
+    <section className="py-8 bg-gray-50 sm:py-16">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4">
+        {/* Search and Results Count */}
+        <div className="mb-6 space-y-3 sm:mb-8 sm:space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+            <input
+              type="text"
+              placeholder="Search certifications..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-w-[200px] flex-1 max-w-md"
+            />
+            <div className="text-sm text-gray-600 whitespace-nowrap">
+              {filteredCertifications.length} certification{filteredCertifications.length !== 1 ? 's' : ''}
             </div>
           </div>
-        )}
+        </div>
 
         {/* Certifications Grid */}
-        {!isMinimized && currentPageCertifications.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[90rem] mx-auto">
+        {currentPageCertifications.length > 0 && (
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
             {currentPageCertifications.map((certification) => (
               <div
                 key={certification.id}
                 className="relative bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200"
               >
                 {/* Certification Image */}
-                <div className="relative h-64 bg-gradient-to-br from-orange-500 to-orange-600">
+                <div className="relative h-32 sm:h-64">
                   <Image
                     src={certification.imageUrl}
                     alt={certification.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
-                  {/* Text Overlay at Bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-white p-4 bg-gradient-to-t from-orange-500/90 to-transparent">
-                    <h3 className="font-semibold text-base mb-1 leading-tight">
-                      {certification.name}
-                    </h3>
-                    <p className="text-xs text-gray-200 mb-1">
-                      {certification.issuer}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="space-x-2">
-                        {certification.level && (
-                          <span className="text-xs text-orange-300 px-1">
-                            {certification.level}
+                  {/* Text Overlay at Bottom - Simplified for mobile */}
+                  <div className="absolute bottom-0 left-0 right-0 text-white p-1 bg-[color:var(--color-foreground)]/80 sm:bg-[color:var(--color-foreground)]/70 sm:p-4">
+                    {/* Mobile: Only show name and issuer */}
+                    <div className="sm:hidden">
+                      <h3 className="font-semibold text-xs leading-tight">
+                        {certification.name}
+                      </h3>
+                      <p className="text-xs text-gray-200 mt-1">
+                        {certification.issuer}
+                      </p>
+                    </div>
+                    
+                    {/* Desktop: Show all information */}
+                    <div className="hidden sm:block">
+                      <h3 className="font-semibold text-sm mb-1 leading-tight">
+                        {certification.name}
+                      </h3>
+                      <p className="text-xs text-gray-200 mb-1">
+                        {certification.issuer}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div className="space-x-1">
+                          {certification.level && (
+                            <span className="text-xs text-[color:var(--color-background)] px-1">
+                              {certification.level}
+                            </span>
+                          )}
+                          <span className="text-xs text-[color:var(--color-yellow)] px-1">
+                            {certification.source}
+                          </span>
+                        </div>
+                        {certification.validUntil && (
+                          <span className="text-xs text-[color:var(--color-yellow)]">
+                            Valid until {new Date(certification.validUntil).getFullYear()}
                           </span>
                         )}
-                        <span className="text-xs text-blue-300 px-1">
-                          {certification.source}
-                        </span>
                       </div>
-                      {certification.validUntil && (
-                        <span className="text-xs text-gray-300">
-                          Valid until {new Date(certification.validUntil).getFullYear()}
-                        </span>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -237,29 +236,32 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
         )}
 
         {/* Pagination Controls */}
-        {!isMinimized && filteredCertifications.length > CARDS_PER_PAGE && (
-          <div className="flex items-center justify-between mt-8">
-            <div className="text-sm text-gray-600">
+        {filteredCertifications.length > CARDS_PER_PAGE && (
+          <div className="flex flex-col items-center justify-between mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:mt-8">
+            <div className="text-xs text-gray-600 sm:text-sm">
               Showing {startIndex + 1}-{Math.min(endIndex, filteredCertifications.length)} of {filteredCertifications.length} certifications
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1">
               <button
                 onClick={goToPreviousPage}
                 disabled={currentPage === 1}
-                className="p-2 rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="p-1 rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors sm:p-2"
               >
-                <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
+                <ChevronLeftIcon className="w-4 h-4 text-gray-600 sm:w-5 sm:h-5" />
               </button>
               
               <div className="flex items-center space-x-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                {getPaginationNumbers().map((page, index) => (
                   <button
-                    key={page}
-                    onClick={() => goToPage(page)}
-                    className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                      currentPage === page
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                    key={index}
+                    onClick={() => typeof page === 'number' && goToPage(page)}
+                    disabled={page === '...'}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors sm:px-3 sm:py-2 sm:text-sm ${
+                      page === '...'
+                        ? 'bg-white border-none text-gray-500 cursor-default'
+                        : currentPage === page
+                        ? 'bg-[color:var(--color-foreground)] text-[color:var(--color-yellow)]'
+                        : 'text-gray-700 hover:text-[color:var(--color-foreground)]'
                     }`}
                   >
                     {page}
@@ -270,28 +272,19 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
               <button
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages}
-                className="p-2 rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="p-1 rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors sm:p-2"
               >
-                <ChevronRightIcon className="w-5 h-5 text-gray-600" />
+                <ChevronRightIcon className="w-4 h-4 text-gray-600 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
         )}
 
         {/* No Results Message */}
-        {!isMinimized && filteredCertifications.length === 0 && (
-          <div className="text-center py-8">
-            <p className="text-gray-500">
+        {filteredCertifications.length === 0 && (
+          <div className="text-center py-6 sm:py-8">
+            <p className="text-xs text-gray-500 sm:text-base">
               No certifications found matching your criteria.
-            </p>
-          </div>
-        )}
-
-        {/* Minimized State */}
-        {isMinimized && (
-          <div className="text-center py-8">
-            <p className="text-gray-500">
-              {displayedCertifications.length} certification{displayedCertifications.length !== 1 ? 's' : ''} available
             </p>
           </div>
         )}

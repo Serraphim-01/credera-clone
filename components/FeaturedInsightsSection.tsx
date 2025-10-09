@@ -11,7 +11,7 @@ const FeaturedInsightsSection: React.FC<FeaturedInsightsSectionProps> = ({
 }) => {
   return (
     <section className="py-20 sm:py-12">
-      <div className="max-w-7xl mx-auto px-8 sm:px-4">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4">
         {/* Section Header with Title and Link */}
         <div className="flex justify-between items-center mb-12 sm:mb-8 animate-fadeInUp">
           <h2 className="text-4xl sm:text-2xl font-bold text-black">
@@ -42,7 +42,7 @@ const FeaturedInsightsSection: React.FC<FeaturedInsightsSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-6">
           
           {/* Left Column - Main Card with Image */}
-          <div className="bg-white rounded-lg p-6 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp">
+          <div className="bg-white rounded-lg p-2 sm:p-4 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp">
             {/* Image */}
             <div className="relative h-64 sm:h-48 mb-6 sm:mb-4 rounded-lg overflow-hidden">
               <Image
@@ -95,7 +95,7 @@ const FeaturedInsightsSection: React.FC<FeaturedInsightsSectionProps> = ({
           <div className="space-y-8 sm:space-y-4">
             
             {/* Top Card */}
-            <div className="bg-white rounded-lg p-6 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp" style={{ animationDelay: '150ms' }}>
+            <div className="bg-white rounded-lg p-2 sm:p-4 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp" style={{ animationDelay: '150ms' }}>
               {/* Icon, Category and Date */}
               <div className="flex items-center space-x-3 sm:space-x-2 mb-4 sm:mb-3">
                 <div className="w-8 h-8 sm:w-6 sm:h-6 bg-yellow rounded-full flex items-center justify-center">
@@ -135,7 +135,7 @@ const FeaturedInsightsSection: React.FC<FeaturedInsightsSectionProps> = ({
             </div>
 
             {/* Bottom Card */}
-            <div className="bg-white rounded-lg p-6 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp" style={{ animationDelay: '300ms' }}>
+            <div className="bg-white rounded-lg p-2 sm:p-4 hover-lift hover-shadow transition-all duration-300 animate-fadeInUp" style={{ animationDelay: '300ms' }}>
               {/* Icon, Category and Date */}
               <div className="flex items-center space-x-3 sm:space-x-2 mb-4 sm:mb-3">
                 <div className="w-8 h-8 sm:w-6 sm:h-6 bg-yellow rounded-full flex items-center justify-center">

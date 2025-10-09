@@ -11,7 +11,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   illustrationSrc
 }) => {
   return (
-    <section className="relative min-h-[800px] py-20 px-8 overflow-hidden">
+    <section className="relative min-h-[800px] py-16 md:py-20 px-4 md:px-8 overflow-hidden">
 
       <Image
         src={illustrationSrc}
@@ -25,10 +25,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute inset-0 bg-black/50 -z-10"></div>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16 md:gap-20 items-center">
           {/* Hero Content */}
-          <div className="max-w-xl">
-            <h1 className="text-hero text-white font-bold mb-6">
+          <div className="max-w-xl pt-8 md:pt-0">
+            <h1 className="text-4xl md:text-hero text-white font-bold mb-6">
               Unlock{' '}
               <span className="text-yellow">
                 extraordinary
@@ -36,14 +36,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               opportunities.
             </h1>
 
-            <p className="text-xl italic text-light-gray mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl italic text-light-gray mb-8 leading-relaxed">
               {description}
             </p>
 
-            {/* Top Solutions Images */}
-            <div className="flex items-center justify-start gap-8 mb-8">
+            {/* Top Solutions Images - Now 3 instead of 4 */}
+            <div className="flex items-center justify-start gap-4 md:gap-8 mb-8">
               <div className="flex flex-col items-center group cursor-pointer">
-                <div className="relative w-32 h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                <div className="relative w-20 h-20 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                   <Image
                     src="https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Cloud Transformation"
@@ -51,14 +51,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     className="object-cover"
                   />
                   {/* Text overlay positioned at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                    <span className="text-sm font-medium text-white text-center block">Cloud Transformation</span>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1 md:p-2">
+                    <span className="text-xs md:text-sm font-medium text-white text-center block">Cloud Transformation</span>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col items-center group cursor-pointer">
-                <div className="relative w-32 h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                <div className="relative w-20 h-20 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                   <Image
                     src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Data & Analytics"
@@ -66,14 +66,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     className="object-cover"
                   />
                   {/* Text overlay positioned at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                    <span className="text-sm font-medium text-white text-center block">Data & Analytics</span>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1 md:p-2">
+                    <span className="text-xs md:text-sm font-medium text-white text-center block">Data & Analytics</span>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col items-center group cursor-pointer">
-                <div className="relative w-32 h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                <div className="relative w-20 h-20 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                   <Image
                     src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Digital Experience"
@@ -81,23 +81,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     className="object-cover"
                   />
                   {/* Text overlay positioned at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                    <span className="text-sm font-medium text-white text-center block">Digital Experience</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center group cursor-pointer">
-                <div className="relative w-32 h-32 rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
-                  <Image
-                    src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Cybersecurity"
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Text overlay positioned at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                    <span className="text-sm font-medium text-white text-center block">Cybersecurity</span>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1 md:p-2">
+                    <span className="text-xs md:text-sm font-medium text-white text-center block">Digital Experience</span>
                   </div>
                 </div>
               </div>
@@ -105,7 +90,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <Link
               href={ctaLink}
-              className="inline-flex items-center px-8 py-4 bg-yellow text-black font-semibold text-sm tracking-wide hover:bg-opacity-80 transition-all duration-200 hover-lift focus-visible rounded-md"
+              className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 bg-yellow text-black font-semibold text-sm tracking-wide hover:bg-opacity-80 transition-all duration-200 hover-lift focus-visible rounded-md"
               aria-label={ctaText}
             >
               {ctaText}

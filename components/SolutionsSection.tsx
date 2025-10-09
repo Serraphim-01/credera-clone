@@ -41,7 +41,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      const scrollAmount = window.innerWidth < 640 ? 350 : 1090; // Mobile: 350px, Desktop: 1090px
+      const scrollAmount = window.innerWidth < 640 ? 320 : 1090; // Mobile: 320px (300px + 20px margin), Desktop: 1090px
       scrollContainerRef.current.scrollBy({
         left: -scrollAmount,
         behavior: scrollBehavior
@@ -51,7 +51,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      const scrollAmount = window.innerWidth < 640 ? 350 : 1090; // Mobile: 350px, Desktop: 1090px
+      const scrollAmount = window.innerWidth < 640 ? 320 : 1090; // Mobile: 320px (300px + 20px margin), Desktop: 1090px
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,
         behavior: scrollBehavior
@@ -61,7 +61,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   // Card component with responsive layout
   const SolutionCard = ({ solution }: { solution: any }) => (
-    <div className="flex-shrink-0 w-[1090px] h-[580px] md:w-[1090px] md:h-[580px] sm:w-[350px] sm:h-[400px] overflow-hidden mx-[40px] sm:mx-[20px]">
+    <div className="flex-shrink-0 w-[calc(100vw-32px)] h-auto max-w-[320px] md:max-w-none md:w-[1090px] md:h-[580px] overflow-hidden mx-4">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-2 h-full gap-20">
         {/* Text Section - Left */}
@@ -107,48 +107,48 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         </div>
       </div>
 
-      {/* Mobile Layout */}
-      <div className="md:hidden h-full relative">
-        {/* Background Image */}
-        <div className="relative w-full h-full">
+      {/* Mobile Layout - Stacked layout with image above text */}
+      <div className="md:hidden h-full flex flex-col bg-white rounded-lg overflow-hidden shadow-sm">
+        {/* Image Section - Top */}
+        <div className="relative w-full h-[160px] flex-shrink-0">
           <Image
             src={solution.imageUrl}
             alt={solution.title}
             fill
             className="object-cover"
-            sizes="350px"
+            sizes="300px"
           />
+        </div>
 
-          {/* Text Overlay */}
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center p-6">
-            <h3 className="text-xl font-bold text-white mb-3">
-              {solution.title}
-            </h3>
+        {/* Text Section - Bottom */}
+        <div className="flex-1 p-4 flex flex-col">
+          <h3 className="text-lg font-bold text-credera-dark mb-3">
+            {solution.title}
+          </h3>
 
-            <p className="text-sm text-white/90 leading-relaxed mb-4 line-clamp-3">
-              {solution.description}
-            </p>
+          <p className="text-sm text-credera-gray-600 leading-relaxed mb-4 flex-1">
+            {solution.description}
+          </p>
 
-            <Link
-              href={solution.linkUrl}
-              className="inline-flex items-center text-credera-red hover:text-white font-semibold transition-colors duration-200 space-x-2"
+          <Link
+            href={solution.linkUrl}
+            className="inline-flex items-center text-credera-red hover:text-credera-dark font-semibold transition-colors duration-200 space-x-2 mt-auto"
+          >
+            <span>Learn More</span>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <span>Learn More</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </div>
@@ -165,9 +165,10 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         >
           <div
             className="
-      flex min-w-max
-      pr-[calc(50%-400px)] pl-[calc(50%-400px)]
-    "
+    flex min-w-max
+    px-[calc(50%-400px)]
+    sm:px-[calc(50%-150px)]
+  "
           >
             {solutions.map((solution) => (
               <SolutionCard key={solution.id} solution={solution} />
@@ -179,13 +180,13 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       {/* Navigation Buttons - Bottom Right */}
       <div className="max-w-7xl mx-auto px-8 mt-8">
         <div className="flex justify-end">
-          <div className="flex space-x-2.5"> {/* 10px gap = 2.5 = 10px */}
+          <div className="flex space-x-2.5">
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${canScrollLeft
-                  ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
-                  : 'border-gray-300 text-gray-300 cursor-not-allowed'
+                ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
+                : 'border-gray-300 text-gray-300 cursor-not-allowed'
                 }`}
               aria-label="Previous solution"
             >
@@ -208,8 +209,8 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               onClick={scrollRight}
               disabled={!canScrollRight}
               className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${canScrollRight
-                  ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
-                  : 'border-gray-300 text-gray-300 cursor-not-allowed'
+                ? 'border-credera-red text-credera-red hover:bg-credera-red hover:text-white'
+                : 'border-gray-300 text-gray-300 cursor-not-allowed'
                 }`}
               aria-label="Next solution"
             >

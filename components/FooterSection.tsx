@@ -49,7 +49,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
             </div>
 
             {/* Second and Third Columns - Explore and About Us on same row on mobile */}
-            <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-1 md:gap-0">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8">
               {/* Second Column - Explore Links */}
               <div>
                 <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
