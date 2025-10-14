@@ -397,6 +397,7 @@ export default function ConsultOverview() {
       <BookingModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        type="demo"
       />
     </div>
   );

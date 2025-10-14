@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { TechStackSectionProps } from '@/types';
 
-const TechStackSection: React.FC<TechStackSectionProps> = ({ 
-  technologies, 
-  minimizable = true 
+const TechStackSection: React.FC<TechStackSectionProps> = ({
+  techStacks,
+  minimizable = true,
 }) => {
   const [isMinimized, setIsMinimized] = useState(false);
+  const allTechnologies = techStacks.flatMap(stack => stack.technologies);
 
-  if (!technologies || technologies.length === 0) {
+  if (!allTechnologies || allTechnologies.length === 0) {
     return null;
   }
 
@@ -48,7 +49,7 @@ const TechStackSection: React.FC<TechStackSectionProps> = ({
         {/* Technology Icons Grid */}
         {!isMinimized && (
           <div className="flex flex-wrap justify-center gap-8">
-            {technologies.map((tech, index) => (
+            {allTechnologies.map((tech, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center group"
@@ -72,7 +73,7 @@ const TechStackSection: React.FC<TechStackSectionProps> = ({
         {isMinimized && (
           <div className="text-center py-8">
             <p className="text-gray-500">
-              {technologies.length} technolog{technologies.length !== 1 ? 'ies' : 'y'} in our stack
+              {allTechnologies.length} technolog{allTechnologies.length !== 1 ? 'ies' : 'y'} in our stack
             </p>
           </div>
         )}

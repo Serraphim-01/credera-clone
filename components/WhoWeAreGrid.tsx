@@ -78,13 +78,13 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
 
               // Type guards to ensure item exists and is of correct type
               const isImageItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is ImageGridItem =>
-                item && cellType === 'image' && 'imageUrl' in item;
+                !!(item && cellType === 'image' && 'imageUrl' in item);
               
               const isVideoItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is VideoGridItem =>
-                item && cellType === 'video' && 'videoUrl' in item;
+                !!(item && cellType === 'video' && 'videoUrl' in item);
               
               const isTextItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is TextGridItem =>
-                item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
+                !!(item && cellType === 'text' && 'title' in item && 'iconSrc' in item);
 
               return (
                 <div
@@ -138,13 +138,13 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
 
               // Type guards to ensure item exists and is of correct type
               const isImageItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is ImageGridItem =>
-                item && cellType === 'image' && 'imageUrl' in item;
+                !!(item && cellType === 'image' && 'imageUrl' in item);
               
               const isVideoItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is VideoGridItem =>
-                item && cellType === 'video' && 'videoUrl' in item;
+                !!(item && cellType === 'video' && 'videoUrl' in item);
               
               const isTextItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is TextGridItem =>
-                item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
+                !!(item && cellType === 'text' && 'title' in item && 'iconSrc' in item);
 
               return (
                 <div

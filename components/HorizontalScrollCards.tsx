@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HorizontalScrollCardsProps, Card } from '@/types';
+import { HorizontalScrollCardsProps, ContentCard } from '@/types';
 
 const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   cards,
@@ -172,7 +172,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   }, [activeIndex, isHovering, cards.length]);
 
   // Card Type 1: Full image with gradient overlay, navy blue slide-up on hover
-  const CardType1 = ({ card, index }: { card: Card; index: number }) => {
+  const CardType1 = ({ card, index }: { card: ContentCard; index: number }) => {
     const isActive = activeIndex === index;
     const showHover = isActive && !isHovering;
 
@@ -252,7 +252,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   };
 
   // Card Type 2: Full image with bottom text overlay, white to navy blue on hover
-  const CardType2 = ({ card, index }: { card: Card; index: number }) => {
+  const CardType2 = ({ card, index }: { card: ContentCard; index: number }) => {
     const isActive = activeIndex === index;
     const showHover = isActive && !isHovering;
 

@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SolutionsSectionProps, Solution } from '@/types';
+import { SolutionsSectionProps } from '@/types';
 
 const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   solutions,
@@ -60,7 +60,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   };
 
   // Card component with responsive layout
-  const SolutionCard = ({ solution }: { solution: Solution }) => (
+  const SolutionCard = ({ solution }: { solution: SolutionsSectionProps['solutions'][0] }) => (
     <div className="flex-shrink-0 w-[calc(100vw-32px)] h-auto max-w-[320px] md:max-w-none md:w-[1090px] md:h-[580px] overflow-hidden mx-4">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-2 h-full gap-20">

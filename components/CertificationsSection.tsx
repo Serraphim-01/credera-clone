@@ -14,7 +14,7 @@ interface Certification {
   imageUrl: string;
   level?: string;
   validUntil?: string;
-  source: 'solution' | 'partnership' | 'service';
+  source?: 'solution' | 'partnership' | 'service';
   category?: string;
 }
 
@@ -22,20 +22,23 @@ interface CertificationsSectionProps {
   certifications?: Certification[];
 }
 
-const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
+const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifications: propCertifications }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const CARDS_PER_PAGE = 8; // 2 per row × 4 rows
 
   // Use provided certifications or fall back to all certifications
   const displayedCertifications = useMemo(() => {
-    const certifications: Certification[] = [];
+    if (propCertifications) {
+      return propCertifications;
+    }
+    const allCertifications: Certification[] = [];
 
     // Add certifications from solutions
     solutionsData.forEach(solution => {
       if (solution.certifications) {
         solution.certifications.forEach(cert => {
-          certifications.push({
+          allCertifications.push({
             ...cert,
             source: 'solution',
             category: solution.title
@@ -48,7 +51,7 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
     partnerships.forEach(partnership => {
       if (partnership.certifications) {
         partnership.certifications.forEach((certName, index) => {
-          certifications.push({
+          allCertifications.push({
             id: `${partnership.id}-cert-${index}`,
             name: certName,
             issuer: partnership.name,
@@ -65,7 +68,7 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
     servicesData.forEach(service => {
       if (service.certifications) {
         service.certifications.forEach(cert => {
-          certifications.push({
+          allCertifications.push({
             ...cert,
             source: 'service',
             category: service.title
@@ -74,8 +77,8 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
       }
     });
 
-    return certifications;
-  }, []);
+    return allCertifications;
+  }, [propCertifications]);
 
   // Filter certifications based on search term
   const filteredCertifications = useMemo(() => {

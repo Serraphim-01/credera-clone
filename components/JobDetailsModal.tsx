@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { X } from 'lucide-react';
-import { JobOpening } from '@/app/careers/page'; // You can also inline the interface if needed
+import { JobOpening } from '@/types'; // You can also inline the interface if needed
 
 interface JobDetailsModalProps {
   isOpen: boolean;

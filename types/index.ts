@@ -315,6 +315,8 @@ export interface Certification {
   imageUrl: string;
   validUntil?: string;
   level?: string;
+  source?: 'solution' | 'partnership' | 'service';
+  category?: string;
 }
 
 export interface ServiceDetail {
@@ -351,6 +353,7 @@ export interface ServiceDetailPageProps {
 
 export interface TechStackSectionProps {
   techStacks: TechStack[];
+  minimizable?: boolean;
 }
 
 export interface CertificationsSectionProps {
@@ -412,9 +415,8 @@ export interface CustomerStory {
 }
 
 export interface SolutionPageProps {
-  params: {
-    solutionId: string;
-  };
+  params: Promise<{ solutionId: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export interface SolutionDetailLayoutProps {
@@ -438,7 +440,7 @@ export interface CustomerStoriesSectionProps {
 
 // Enhanced Tech Stack Section Props
 export interface TechStackSectionProps {
-  technologies: string[];
+  techStacks: TechStack[];
   minimizable?: boolean;
 }
 
@@ -459,9 +461,8 @@ export interface Partnership {
 }
 
 export interface PartnershipPageProps {
-  params: {
-    partnerId: string;
-  };
+  params: Promise<{ partnerId: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Next Steps Modal Types

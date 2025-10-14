@@ -7,6 +7,7 @@ import { solutionsData } from '@/data/solutions';
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  type: 'demo' | 'service';
 }
 
 interface FormData {
@@ -19,13 +20,13 @@ interface FormData {
   timeRange: string;
 }
 
-const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
+const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, type }) => {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     company: '',
     companyEmail: '',
     solution: '',
-    serviceType: 'demo',
+    serviceType: type,
     demoType: '',
     timeRange: '',
   });
