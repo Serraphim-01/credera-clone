@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HorizontalScrollCardsProps } from '@/types';
+import { HorizontalScrollCardsProps, Card } from '@/types';
 
 const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   cards,
@@ -24,7 +24,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
     }
   };
 
-  const updateActiveIndex = () => {
+  const updateActiveIndex = useCallback(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const { scrollLeft, clientWidth, scrollWidth } = container;
@@ -52,10 +52,10 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
 
       setActiveIndex(newIndex);
     }
-  };
+  }, [cards.length]);
 
 
-  const scrollToCard = (index: number) => {
+  const scrollToCard = useCallback((index: number) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const cardElement = container.querySelector('.flex-shrink-0') as HTMLElement;
@@ -74,10 +74,10 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         behavior: scrollBehavior
       });
     }
-  };
+  }, [scrollBehavior]);
 
   // Auto-scroll functionality with improved loop
-  const startAutoScroll = () => {
+  const startAutoScroll = useCallback(() => {
     if (autoScrollRef.current) {
       clearInterval(autoScrollRef.current);
     }
@@ -100,7 +100,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         }
       }
     }, 3000); // Change card every 3 seconds
-  };
+  }, [activeIndex, cards.length, isHovering, scrollToCard]);
 
   const stopAutoScroll = () => {
     if (autoScrollRef.current) {
@@ -131,7 +131,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
         clearTimeout(startDelay);
       };
     }
-  }, []);
+  }, [startAutoScroll, updateActiveIndex]);
 
   // Restart auto-scroll when active index changes
   useEffect(() => {
@@ -139,7 +139,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
       stopAutoScroll();
       startAutoScroll();
     }
-  }, [activeIndex, isHovering]);
+  }, [activeIndex, isHovering, startAutoScroll]);
 
   // Handle manual card click
   const handleCardClick = (index: number) => {
@@ -172,7 +172,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   }, [activeIndex, isHovering, cards.length]);
 
   // Card Type 1: Full image with gradient overlay, navy blue slide-up on hover
-  const CardType1 = ({ card, index }: { card: any; index: number }) => {
+  const CardType1 = ({ card, index }: { card: Card; index: number }) => {
     const isActive = activeIndex === index;
     const showHover = isActive && !isHovering;
 
@@ -252,7 +252,7 @@ const HorizontalScrollCards: React.FC<HorizontalScrollCardsProps> = ({
   };
 
   // Card Type 2: Full image with bottom text overlay, white to navy blue on hover
-  const CardType2 = ({ card, index }: { card: any; index: number }) => {
+  const CardType2 = ({ card, index }: { card: Card; index: number }) => {
     const isActive = activeIndex === index;
     const showHover = isActive && !isHovering;
 

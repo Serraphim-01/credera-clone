@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { HeroSectionProps } from '@/types';
 
 const HeroSection: React.FC<HeroSectionProps> = ({
-  headline,
   description,
   ctaText,
   ctaLink,

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { FaCloud, FaExpandArrowsAlt, FaDollarSign, FaExchangeAlt, FaShieldAlt, FaChartBar, FaCog, FaUsers, FaPlane } from 'react-icons/fa';
+import { FaShieldAlt, FaChartBar, FaCog, FaPlane } from 'react-icons/fa';
 import FooterSection from '@/components/FooterSection';
 import BookingModal from '@/components/BookingModal';
 
@@ -44,7 +44,7 @@ export default function ConsultOverview() {
                 <em>(Azure Cloud Advisory)</em>
               </p>
               <blockquote className="text-xs sm:text-sm md:text-base italic text-gray-700 border-l-4 border-[color:var(--color-yellow)] pl-2 sm:pl-4">
-                "There is no business strategy without a cloud strategy."
+                &quot;There is no business strategy without a cloud strategy.&quot;
                 <br />
                 <cite className="text-xs text-gray-600">— Gartner, 2021</cite>
               </blockquote>
@@ -87,7 +87,7 @@ export default function ConsultOverview() {
               <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg text-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[color:var(--color-yellow)] mb-2 sm:mb-4">80%</div>
                 <p className="text-sm sm:text-base md:text-lg text-gray-700">
-                  of IT budgets still "keep the lights on" and 80% of workloads are legacy
+                  of IT budgets still &quot;keep the lights on&quot; and 80% of workloads are legacy
                 </p>
               </div>
               <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg text-center">
@@ -173,7 +173,7 @@ export default function ConsultOverview() {
                     1. Current-State Portfolio Analysis
                   </td>
                   <td className="border border-gray-300 px-4 sm:px-6 py-2 sm:py-4 text-gray-700 text-sm sm:text-base">
-                    "What do I own, how is it connected, what can move?"
+                    &quot;What do I own, how is it connected, what can move?&quot;
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
@@ -181,7 +181,7 @@ export default function ConsultOverview() {
                     2. Cloud TCO Assessment
                   </td>
                   <td className="border border-gray-300 px-4 sm:px-6 py-2 sm:py-4 text-gray-700 text-sm sm:text-base">
-                    "What will it really cost—and save?"
+                    &quot;What will it really cost—and save?&quot;
                   </td>
                 </tr>
                 <tr>
@@ -189,7 +189,7 @@ export default function ConsultOverview() {
                     3. Future-State Realisation Feasibility
                   </td>
                   <td className="border border-gray-300 px-4 sm:px-6 py-2 sm:py-4 text-gray-700 text-sm sm:text-base">
-                    "Can my people, process & tech scale on cloud?"
+                    &quot;Can my people, process & tech scale on cloud?&quot;
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
@@ -197,7 +197,7 @@ export default function ConsultOverview() {
                     4. Cloud Adoption Strategy
                   </td>
                   <td className="border border-gray-300 px-4 sm:px-6 py-2 sm:py-4 text-gray-700 text-sm sm:text-base">
-                    "How do I phase migration and guarantee ROI?"
+                    &quot;How do I phase migration and guarantee ROI?&quot;
                   </td>
                 </tr>
               </tbody>

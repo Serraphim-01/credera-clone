@@ -23,7 +23,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ caseStudies }) 
             Success Stories
           </h2>
           <p className="text-lg text-dark-gray max-w-3xl mx-auto">
-            See how we've helped organizations like yours achieve their goals with our proven solutions.
+            See how we&apos;ve helped organizations like yours achieve their goals with our proven solutions.
           </p>
         </div>
 

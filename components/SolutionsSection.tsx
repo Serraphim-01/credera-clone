@@ -3,14 +3,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SolutionsSectionProps } from '@/types';
+import { SolutionsSectionProps, Solution } from '@/types';
 
 const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   solutions,
   scrollBehavior = 'smooth'
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [, setScrollProgress] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -60,7 +60,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   };
 
   // Card component with responsive layout
-  const SolutionCard = ({ solution }: { solution: any }) => (
+  const SolutionCard = ({ solution }: { solution: Solution }) => (
     <div className="flex-shrink-0 w-[calc(100vw-32px)] h-auto max-w-[320px] md:max-w-none md:w-[1090px] md:h-[580px] overflow-hidden mx-4">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-2 h-full gap-20">

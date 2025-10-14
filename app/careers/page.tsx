@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FooterSection from '@/components/FooterSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 
@@ -56,7 +57,7 @@ const CareersPage: React.FC = () => {
               Leaving a legacy with our people.
             </h2>
             <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-              Our employees are the lifeblood of our company. We're passionate about
+              Our employees are the lifeblood of our company. We&apos;re passionate about
               fostering their growth and helping all team members achieve their career
               and personal aspirations—this is the legacy we want to build.
             </p>
@@ -90,10 +91,11 @@ const CareersPage: React.FC = () => {
 
           {/* Right: Image */}
           <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-sm sm:shadow-md">
-            <img
+            <Image
               src="/TaskImages/join.jpg"
               alt="Life at Task"
-              className="w-full h-full object-cover"
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
@@ -123,10 +125,11 @@ const CareersPage: React.FC = () => {
                   }`}
               >
                 <div className="w-24 h-16 sm:w-32 sm:h-20 rounded-md overflow-hidden flex-shrink-0">
-                  <img
+                  <Image
                     src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`}
                     alt={vid.title}
-                    className="w-full h-full object-cover"
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </div>
                 <div>
@@ -145,7 +148,7 @@ const CareersPage: React.FC = () => {
             Start your Task journey.
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg mb-8 sm:mb-12">
-            We're always adding new faces with unique backgrounds and perspectives to
+            We&apos;re always adding new faces with unique backgrounds and perspectives to
             our Task systems team. Explore our open positions below.
           </p>
 
@@ -156,9 +159,11 @@ const CareersPage: React.FC = () => {
               href="/careers/students-interns"
               className="block overflow-hidden transition-shadow duration-300 group"
             >
-              <img
+              <Image
                 src="/TaskImages/meet.jpg"
                 alt="Students and Interns"
+                width={400}
+                height={224}
                 className="w-full h-40 sm:h-48 md:h-56 object-cover"
               />
               <div className="p-3 sm:p-4">
@@ -185,9 +190,11 @@ const CareersPage: React.FC = () => {
               href="/careers/professionals"
               className="block overflow-hidden transition-shadow duration-300 group"
             >
-              <img
+              <Image
                 src="/TaskImages/join.jpg"
                 alt="Experienced Professionals"
+                width={400}
+                height={224}
                 className="w-full h-40 sm:h-48 md:h-56 object-cover"
               />
               <div className="p-3 sm:p-4">

@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { WhoWeAreGridProps, ImageGridItem, VideoGridItem, TextGridItem } from '@/types';
 
 const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
@@ -78,13 +77,13 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               }
 
               // Type guards to ensure item exists and is of correct type
-              const isImageItem = (item: any): item is ImageGridItem => 
+              const isImageItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is ImageGridItem =>
                 item && cellType === 'image' && 'imageUrl' in item;
               
-              const isVideoItem = (item: any): item is VideoGridItem => 
+              const isVideoItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is VideoGridItem =>
                 item && cellType === 'video' && 'videoUrl' in item;
               
-              const isTextItem = (item: any): item is TextGridItem => 
+              const isTextItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is TextGridItem =>
                 item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
 
               return (
@@ -138,13 +137,13 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               }
 
               // Type guards to ensure item exists and is of correct type
-              const isImageItem = (item: any): item is ImageGridItem => 
+              const isImageItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is ImageGridItem =>
                 item && cellType === 'image' && 'imageUrl' in item;
               
-              const isVideoItem = (item: any): item is VideoGridItem => 
+              const isVideoItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is VideoGridItem =>
                 item && cellType === 'video' && 'videoUrl' in item;
               
-              const isTextItem = (item: any): item is TextGridItem => 
+              const isTextItem = (item: ImageGridItem | VideoGridItem | TextGridItem | undefined): item is TextGridItem =>
                 item && cellType === 'text' && 'title' in item && 'iconSrc' in item;
 
               return (
@@ -196,7 +195,7 @@ const ImageCell: React.FC<{ item: ImageGridItem; row: number; col: number }> = (
 // Video Cell Component - Responsive sizes
 const VideoCell: React.FC<{ item: VideoGridItem; row: number; col: number }> = ({ item }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [, setIsPlaying] = useState(false);
 
   // Enhanced autoplay function
   const attemptPlay = async () => {

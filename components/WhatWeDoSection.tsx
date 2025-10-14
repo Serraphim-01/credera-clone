@@ -8,8 +8,7 @@ import { WhatWeDoSectionProps } from '@/types';
 const WhatWeDoSection: React.FC<WhatWeDoSectionProps> = ({
   title,
   subtitle,
-  description,
-  items
+  description
 }) => {
   return (
     <section className="py-20 bg-white">

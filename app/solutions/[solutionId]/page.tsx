@@ -7,7 +7,6 @@ import FooterSection from '@/components/FooterSection';
 import { CustomerStoriesSection } from '@/components/CustomerStoriesSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import Link from 'next/link';
-import Image from 'next/image';
 
 // Generate static params for all solutions
 export async function generateStaticParams() {

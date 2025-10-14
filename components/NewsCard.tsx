@@ -14,8 +14,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   author,
   publishedAt,
   imageUrl,
-  readTime,
-  tags
+  readTime
 }) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

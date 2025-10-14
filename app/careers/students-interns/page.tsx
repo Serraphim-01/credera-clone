@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import FooterSection from '@/components/FooterSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import { getJobsByCategory } from '@/data/careers';
-import { JobOpening } from '@/types/index';
 
 const StudentsInternsPage: React.FC = () => {
   const jobOpenings = getJobsByCategory('student-intern');

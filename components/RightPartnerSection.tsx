@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { RightPartnerSectionProps, PartnerCard } from '@/types';
@@ -10,7 +10,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
   partnerCards,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
@@ -24,7 +24,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
     }
   };
 
-  const updateActiveIndex = () => {
+  const updateActiveIndex = useCallback(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const { scrollLeft, clientWidth, scrollWidth } = container;
@@ -52,7 +52,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
 
       setActiveIndex(newIndex);
     }
-  };
+  }, [partnerCards.length]);
 
   const scrollToCard = (index: number) => {
     if (scrollContainerRef.current) {
@@ -76,7 +76,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
   };
 
   // Auto-scroll functionality with improved loop
-  const startAutoScroll = () => {
+  const startAutoScroll = useCallback(() => {
     if (autoScrollRef.current) {
       clearInterval(autoScrollRef.current);
     }
@@ -99,7 +99,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
         }
       }
     }, 3000); // Change card every 3 seconds
-  };
+  }, [activeIndex, isHovering, partnerCards.length]);
 
   const stopAutoScroll = () => {
     if (autoScrollRef.current) {
@@ -127,7 +127,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
         clearTimeout(startDelay);
       };
     }
-  }, []);
+  }, [startAutoScroll, updateActiveIndex]);
 
   // Restart auto-scroll when active index changes
   useEffect(() => {
@@ -135,7 +135,7 @@ const RightPartnerSection: React.FC<RightPartnerSectionProps> = ({
       stopAutoScroll();
       startAutoScroll();
     }
-  }, [activeIndex, isHovering]);
+  }, [activeIndex, isHovering, startAutoScroll]);
 
   // Handle manual card click
   const handleCardClick = (index: number) => {

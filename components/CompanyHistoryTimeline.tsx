@@ -117,9 +117,6 @@ const CompanyHistoryTimeline: React.FC<CompanyHistoryTimelineProps> = ({
       const scrollLeft = container.scrollLeft;
       const containerWidth = container.offsetWidth;
       const totalWidth = container.scrollWidth;
-
-      // Calculate progress (0 to 1)
-      const progress = scrollLeft / (totalWidth - containerWidth);
       
       // Calculate active index based on scroll position with proper bounds
       const itemWidth = totalWidth / timelineEvents.length;

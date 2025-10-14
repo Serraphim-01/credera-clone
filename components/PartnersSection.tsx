@@ -5,15 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { partnerships } from '@/data/partnerships';
 import PartnersModal from './PartnersModal';
-import {
-  FaAws,
-  FaMicrosoft
-} from 'react-icons/fa';
-import {
-  SiGooglecloud,
-  SiHuawei,
-  SiDell
-} from 'react-icons/si';
 
 interface PartnerItem {
   id: string;
@@ -30,8 +21,7 @@ interface PartnersSectionProps {
 
 const PartnersSection: React.FC<PartnersSectionProps> = ({
   title = "Our Partners",
-  subtitle = "Trusted technology partners powering our solutions",
-  partners
+  subtitle = "Trusted technology partners powering our solutions"
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

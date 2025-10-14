@@ -83,7 +83,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
         <div className="relative bg-white rounded-lg shadow-xl p-8 max-w-md w-full text-center">
           <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
           <h3 className="text-2xl font-bold text-credera-dark mb-2">Application Submitted!</h3>
-          <p className="text-gray-600">Thank you for applying to the {jobTitle} position. We'll be in touch soon.</p>
+          <p className="text-gray-600">Thank you for applying to the {jobTitle} position. We&apos;ll be in touch soon.</p>
         </div>
       </div>
     );

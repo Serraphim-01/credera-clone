@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { newsArticles } from '@/data/newsroom';
 import NewsCard from '@/components/NewsCard';
 import FooterSection from '@/components/FooterSection';
@@ -10,14 +9,13 @@ import StandardHeroSection from '@/components/StandardHeroSection';
 
 const NewsRoomPage: React.FC = () => {
   const searchParams = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['blog', 'article', 'news', 'event']);
-  const [selectedAuthor, setSelectedAuthor] = useState('');
-  const [dateRange, setDateRange] = useState<{ start: string; end: string }>({
+  const [selectedAuthor] = useState('');
+  const [dateRange] = useState<{ start: string; end: string }>({
     start: '',
     end: ''
   });
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   // Handle URL parameter filtering
   useEffect(() => {

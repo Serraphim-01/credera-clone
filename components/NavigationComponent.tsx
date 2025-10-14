@@ -7,7 +7,6 @@ import { NavigationProps } from '@/types';
 import MegaDropdown from './MegaDropdown';
 
 const NavigationComponent: React.FC<NavigationProps> = ({
-  logoSrc,
   navigationItems,
   topBarItems
 }) => {

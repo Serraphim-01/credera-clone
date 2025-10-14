@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, use } from 'react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FooterSection from '@/components/FooterSection';
 import StandardHeroSection from '@/components/StandardHeroSection';
 import ApplicationModal from '@/components/ApplicationModal';
 import { getJobById } from '@/data/careers';
-import { JobOpening, ApplicationFormData } from '@/types/index';
+import { ApplicationFormData } from '@/types/index';
 
 interface JobDetailPageProps {
   params: Promise<{ jobId: string }>;
@@ -169,7 +170,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
                   : 'Discover entry-level positions and internship opportunities'
                 }
               </p>
-              <a
+              <Link
                 href={job.category === 'student-intern' ? '/careers/professionals' : '/careers/students-interns'}
                 className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold text-sm sm:text-base"
               >
@@ -182,7 +183,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
                   {/* Underline */}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[color:var(--color-foreground)] transition-all duration-300 group-hover:w-full"></span>
                 </span>
-              </a>
+              </Link>
             </div>
 
             <div className="bg-[color:var(--color-very-light-yellow)] rounded-lg p-4 sm:p-6 md:p-8 text-center">
@@ -192,7 +193,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
               <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
                 Learn more about our culture, values, and what makes us a great place to work.
               </p>
-              <a
+              <Link
                 href="/careers"
                 className="group relative inline-flex items-center text-[color:var(--color-foreground)] font-semibold text-sm sm:text-base"
               >
@@ -205,7 +206,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ params }) => {
                   {/* Underline */}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[color:var(--color-foreground)] transition-all duration-300 group-hover:w-full"></span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

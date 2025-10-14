@@ -22,7 +22,7 @@ interface CertificationsSectionProps {
   certifications?: Certification[];
 }
 
-const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifications }) => {
+const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const CARDS_PER_PAGE = 8; // 2 per row × 4 rows
@@ -75,7 +75,7 @@ const CertificationsSection: React.FC<CertificationsSectionProps> = ({ certifica
     });
 
     return certifications;
-  }, [certifications]);
+  }, []);
 
   // Filter certifications based on search term
   const filteredCertifications = useMemo(() => {

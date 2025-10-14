@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import StandardHeroSection from '@/components/StandardHeroSection';
 import FooterSection from '@/components/FooterSection';
 import NextStepsModal from '@/components/NextStepsModal';
 import { NextStepsFormData } from '@/types';
