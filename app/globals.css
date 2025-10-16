@@ -364,3 +364,10 @@ body {
     color: black !important;
   }
 }
+
+/* Desktop zoom out */
+@media (min-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
