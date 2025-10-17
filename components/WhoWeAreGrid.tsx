@@ -46,7 +46,7 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
         </div>
 
         {/* Desktop: 3x3 Grid Container */}
-        <div className="hidden md:grid md:grid-cols-3 md:grid-rows-3 gap-4 md:gap-6 relative">
+        <div className="px-0 md:px-24 lg:px-24 2xl:px-0 hidden md:grid md:grid-cols-3 md:grid-rows-3 gap-4 md:gap-6 relative">
           {desktopGridLayout.map((row, rowIndex) =>
             row.map((cellType, colIndex) => {
               const cellKey = `desktop-${rowIndex}-${colIndex}`;
@@ -89,7 +89,7 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               return (
                 <div
                   key={cellKey}
-                  className={`w-full h-[350px] ${verticalDisplacement} transition-transform duration-300`}
+                  className={`w-full md:h-[280px] lg:h-[280px] xl:h-[320px] ${verticalDisplacement} transition-transform duration-300`}
                 >
                   {isImageItem(item) && (
                     <ImageCell item={item} row={rowIndex} col={colIndex} />
@@ -149,7 +149,7 @@ const WhoWeAreGrid: React.FC<WhoWeAreGridProps> = ({
               return (
                 <div
                   key={cellKey}
-                  className="w-full h-[160px] transition-transform duration-300"
+                  className="w-full md:h-[280px] lg:h-[280px] xl:h-[320px] transition-transform duration-300"
                 >
                   {isImageItem(item) && (
                     <ImageCell item={item} row={rowIndex} col={colIndex} />
